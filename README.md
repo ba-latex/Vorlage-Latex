@@ -1,5 +1,5 @@
 # Vorlage-Latex
-Die ist eine Latex Vorlage für Projektarbeiten. (c) Dominic Sczyrba 2020
+Die ist eine Latex Vorlage für Projektarbeiten. Gemeinschaftsprojekt.
 
 ## Hinweise
 
