@@ -1,0 +1,42 @@
+%vorlage%
+\include{vorlage}
+
+%Dokument-Anfang
+\begin{document}
+
+%Verzeichnis vorm Textteil
+%Formelverzeichnis fehlt
+\frontmatter
+\include{Titelseite}
+\newpage 
+\thispagestyle{empty}
+\quad  \addtocounter{page}{-1}
+\newpage
+\tableofcontents
+\newpage
+\addsec{Abbildungsverzeichnis}
+\renewcommand\listfigurename{}
+\listoffigures
+\newpage
+\addsec{Tabellenverzeichnis}
+\renewcommand\listtablename{}
+\listoftables
+
+%Hauppteil geht hier los / Includes müssen hier dazu geschrieben werden / Pro Überkapitel ein Inklude
+\mainmatter
+
+\include{Einleitung}
+\include{Kapitel2}
+\include{Kapitel3}
+\include{Kapitel4}
+\include{Fazit}
+
+%Anhang
+%Überschrift Anhang fehlt noch.
+\addsec{Quellen- und Literaturverzeichnis}
+
+%Literaturverzeichnis muss noch formatiert werden
+\printbibliography
+\include{Anhang}
+\include{Erklärung}
+\end{document}
