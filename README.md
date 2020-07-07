@@ -1,6 +1,11 @@
 # Vorlage-Latex
 Die ist eine Latex Vorlage für Projektarbeiten. (c) Dominic Sczyrba 2020
 
+## Anleitung
+
+- Die Daten für die Titelsseite müssen nach /vorlagen/daten.tex geschrieben werden
+
+
 ## Hinweise
 
 1. Jeder neue Absatz muss mit \absatz und einer Leerzeile davor anfangen.
