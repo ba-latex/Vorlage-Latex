@@ -20,8 +20,6 @@ Die ist eine Latex Vorlage für Projektarbeiten. (c) Dominic Sczyrba 2020
 
 - Formatierung fürs Literaturverzeichnis erarbeiten
 
-- Eidesstattliche Erklärung muss noch ins Inhaltsverzeichnis
-
 - Fußzeilenabstände überprüfen
 
 - usw.
