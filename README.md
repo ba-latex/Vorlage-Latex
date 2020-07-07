@@ -5,6 +5,8 @@ Die ist eine Latex Vorlage für Projektarbeiten. (c) Dominic Sczyrba 2020
 
 - Die Daten für die Titelsseite müssen nach /vorlagen/daten.tex geschrieben werden
 
+- In der eidesstattlichen Erklärung wird nun der Titel automatisch eingefügt
+
 
 ## Hinweise
 
