@@ -15,4 +15,6 @@ Die ist eine Latex Vorlage für Projektarbeiten. (c) Dominic Sczyrba 2020
 
 - Eidesstattliche Erklärung muss noch ins Inhaltsverzeichnis
 
+- Fußzeilenabstände überprüfen
+
 - usw.
