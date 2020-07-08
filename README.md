@@ -14,7 +14,7 @@ Die ist eine Latex Vorlage für Projektarbeiten und Belege
 2. Das ganze ist etwas Zusammengebastelt
 
 ## ToDo
-- Auswahl ob man Titelseite für 1 oder 3 Personen möchte.
+- Abbildungsverzeichnis nach Richtlinien formatieren.
 
 - Anpassen, dass Absätze ohne *\absatz* funktionieren.
 
