@@ -5,6 +5,8 @@ Die ist eine Latex Vorlage für Projektarbeiten und Belege
 
 1. Die Dateien herunterladen und sich nicht blöd anstellen...
 
+2. Im Verzeichnis *Latex* befindet sich eine Datei *Entpacken.zip*, diese muss im selben Verzeichnis entpackt werden und beinhaltet den persönlichen Inhalt der Arbeit. Außerdem wird sie in GitHub nicht mit eingebunden und die Vorlage kann unabhängig davon akutalisiert bzw. bearbeitet werden.
+
 ## Hinweise
 
 1. Jeder neue Absatz muss mit *\absatz* und einer Leerzeile davor anfangen.
