@@ -1,6 +1,10 @@
 # Vorlage-Latex
 Die ist eine Latex Vorlage für Projektarbeiten und Belege
 
+Unterhaltung und Besprechung:
+
+[https://talk.4de19.de/channel/latex](https://talk.4de19.de/channel/latex)
+
 ## Anleitung
 
 1. Die Dateien herunterladen und sich nicht blöd anstellen...
