@@ -13,9 +13,11 @@ Unterhaltung und Besprechung:
 
 ## Hinweise
 
-1. Jeder neue Absatz muss mit *\absatz* und einer Leerzeile davor anfangen.
+- Jeder neue Absatz muss mit *\absatz* und einer Leerzeile davor anfangen.
 
-2. Das ganze ist etwas Zusammengebastelt
+- Das ganze ist etwas Zusammengebastelt
+
+- Bilder kann man bequem mittels *\bild[1.0]{schaltung1.png}{Test-Caption}* einfügen. Dabei entspricht *1.0* der horizontalen Größe von *0.0* bis *1.0*, *schaltung1* entspricht dem Bildnamen im Bilder-Verzeichnis und *Test-Caption* entspricht dem Label unter dem Bild und dem Namen im Abbildungsverzeichnis.
 
 ## ToDo
 - Abbildungsverzeichnis nach Richtlinien formatieren.

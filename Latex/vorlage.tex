@@ -14,7 +14,7 @@
 \usepackage[backend=biber, style=alphabetic, citestyle=numeric]{biblatex}
 \usepackage{csquotes}
 \usepackage{helvet}
-\usepackage[bookmarks]{hyperref}
+\usepackage[hidelinks]{hyperref}
 \addbibresource{literatur.bib}
 
 %Kopf- und Fußzeile
@@ -60,6 +60,14 @@
   \fi
  % \@mainmatterfalse
    }
-   
+
+% ? Ab hier beginnen eigene Befehle um den Umgang zu erleichtern   
+
 \newcommand{\absatz}{\vspace{12pt}\noindent}
 \newcommand{\logisch}[1]{$``#1``$}
+\newcommand{\bild}[3][1.0]{\begin{figure}[H]
+                      \centering
+                      \includegraphics[width=#1\columnwidth]{bilder/#2}
+                      \caption{#3}
+                      \label{fig:#3}
+                      \end{figure}}
