@@ -1,6 +1,6 @@
 
 
-\documentclass[12pt, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots]{scrartcl}
+\documentclass[12pt, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix]{scrartcl}
 \usepackage{tocbasic}
 
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
@@ -8,7 +8,13 @@
 \RedeclareSectionCommand[tocnumwidth=45pt]{section}
 \RedeclareSectionCommand[tocnumwidth=45pt]{subsection}
 \setuptoc{toc}{totoc}
-
+\setuptoc{lof}{totoc}
+\setuptoc{lot}{totoc}
+\renewcommand*\listoflofentryname{\bfseries\figurename}
+\BeforeStartingTOC[lof]{\renewcommand*\autodot{  }}
+\addtokomafont{captionlabel}{\bfseries}
+\renewcommand*\listoflotentryname{\bfseries\tablename}
+\BeforeStartingTOC[lot]{\renewcommand*\autodot{  }}
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}

@@ -24,7 +24,7 @@ Unterhaltung und Besprechung:
 - Die Abkürzungen müssen in der richtigen Reihenfolge eingetragen werden
 
 ## ToDo
-- Abbildungsverzeichnis nach Richtlinien formatieren.
+- [x] Abbildungsverzeichnis nach Richtlinien formatieren.
 
 - Anpassen, dass Absätze ohne *\absatz* funktionieren.
 
