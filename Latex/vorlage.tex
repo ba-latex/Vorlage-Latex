@@ -24,7 +24,8 @@
 \usepackage{csquotes}
 \usepackage{helvet}
 \usepackage[hidelinks]{hyperref}
-\usepackage[printonlyused]{acronym}
+\usepackage{acronym}
+\renewcommand*{\aclabelfont}[1]{\acsfont{#1}} %Abkürzungsverzeichnis - Formatierung
 \usepackage{listings} %zB zum korrekten anzeigen von BASH-Befehlen
 \lstset{ %listings Einstellungen
   breaklines=true,
