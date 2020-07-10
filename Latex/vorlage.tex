@@ -25,6 +25,11 @@
 \usepackage{helvet}
 \usepackage[hidelinks]{hyperref}
 \usepackage[printonlyused]{acronym}
+\usepackage{listings} %zB zum korrekten anzeigen von BASH-Befehlen
+\lstset{ %listings Einstellungen
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
 \addbibresource{literatur.bib}
 %Kopf- und Fußzeile
 \usepackage[automark]{scrlayer-scrpage} 
