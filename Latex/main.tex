@@ -3,44 +3,9 @@
 %Dokument-Anfang
 \begin{document}
 
-%Verzeichnis vorm Textteil
-%Formelverzeichnis fehlt
-\frontmatter
+%! #########################################
+%! Inhalt der Arbeit
+\input{inhalt/Kapitel}
+%!##########################################
 
-% ! An dieser Stelle eingeben, ob es sich um eine Einzelarbeit oder eine Arbeit mit mehreren Personen handelt.
-% # Titelseite_3Autoren bzw. Titelseite_Praxisbeleg
-\include{inhalt/Titelseite_3Autoren}
-\newpage 
-\thispagestyle{empty}
-\quad  \addtocounter{page}{-1}
-\newpage
-\tableofcontents
-\newpage
-\addsec{Abbildungsverzeichnis}
-\renewcommand\listfigurename{}
-\listoffigures
-\newpage
-\addsec{Tabellenverzeichnis}
-\renewcommand\listtablename{}
-\listoftables
-\include{inhalt/Abkürzungen}
-%Hauppteil geht hier los / Includes müssen hier dazu geschrieben werden / Pro Überkapitel ein Inklude
-\mainmatter
-
-
-\include{inhalt/Einleitung}
-\include{inhalt/Kapitel2}
-\include{inhalt/Kapitel3}
-\include{inhalt/Kapitel4}
-\include{inhalt/Fazit}
-
-%Anhang
-%Überschrift Anhang fehlt noch.
-\addsec{Quellen- und Literaturverzeichnis}
-
-%Literaturverzeichnis muss noch formatiert werden
-\printbibliography
-
-\include{inhalt/Anhang}
-\include{inhalt/Erklärung}
 \end{document}
