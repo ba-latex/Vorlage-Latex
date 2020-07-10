@@ -21,6 +21,8 @@ Unterhaltung und Besprechung:
 
 - Abkürzungen werden in Inhalt/Abkürzungen.tex eingetragen und im Text bspw. mit \ac{Kürzel} verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html)
 
+- Die Abkürzungen müssen in der richtigen Reihenfolge eingetragen werden
+
 ## ToDo
 - Abbildungsverzeichnis nach Richtlinien formatieren.
 
@@ -29,5 +31,7 @@ Unterhaltung und Besprechung:
 - Formatierung fürs Literaturverzeichnis erarbeiten.
 
 - Fußzeilenabstände überprüfen.
+
+- Abkürzungsverzeichnis automatisch sortieren
 
 - usw.
