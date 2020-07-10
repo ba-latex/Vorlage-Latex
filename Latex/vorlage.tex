@@ -1,6 +1,14 @@
 
 
 \documentclass[12pt, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots]{scrartcl}
+\usepackage{tocbasic}
+
+%! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
+\RedeclareSectionCommands[tocindent=0pt]{section,subsection}
+\RedeclareSectionCommand[tocnumwidth=45pt]{section}
+\RedeclareSectionCommand[tocnumwidth=45pt]{subsection}
+\setuptoc{toc}{totoc}
+
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -17,7 +25,6 @@
 \usepackage{helvet}
 \usepackage[hidelinks]{hyperref}
 \addbibresource{literatur.bib}
-
 %Kopf- und Fußzeile
 \usepackage[automark]{scrlayer-scrpage} 
 \pagestyle{scrheadings} 
