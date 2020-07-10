@@ -23,8 +23,6 @@ Unterhaltung und Besprechung:
 
 - Die Abkürzungen müssen in der richtigen Reihenfolge eingetragen werden
 
-- 
-
 ## ToDo
 - Abbildungsverzeichnis nach Richtlinien formatieren.
 
