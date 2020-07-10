@@ -26,12 +26,12 @@ Unterhaltung und Besprechung:
 ## ToDo
 - [x] Abbildungsverzeichnis nach Richtlinien formatieren.
 
-- Anpassen, dass Absätze ohne `\absatz` funktionieren.
+- [ ] Anpassen, dass Absätze ohne `\absatz` funktionieren.
 
-- Formatierung fürs Literaturverzeichnis erarbeiten.
+- [ ] Formatierung fürs Literaturverzeichnis erarbeiten.
 
-- Fußzeilenabstände überprüfen.
+- [ ] Fußzeilenabstände überprüfen.
 
-- Abkürzungsverzeichnis automatisch sortieren
+- [ ] Abkürzungsverzeichnis automatisch sortieren
 
 - usw.
