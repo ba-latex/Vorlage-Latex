@@ -48,14 +48,20 @@
   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
 
-%! Änderung für später
+%! Caption um Tabellen und Abbildungen richtig zu beschriften
+\usepackage{caption}
+\captionsetup{labelsep=none}
 %\addto\captionsngerman{\renewcommand{\figurename}{Abbildung}}
-%\renewcommand*{\figureformat}{%
-%  \figurename~\thefigure%
-%  \autodot{\space\space\space}
-%}
+\renewcommand*{\figureformat}{%
+  \figurename~\thefigure%
+  \autodot{\space\space\space}
+}
+\renewcommand*{\tableformat}{%
+  \tablename~\thetable%
+  \autodot{\space\space\space}
+}
 
-%! Formatierung der Fußnotenzitate
+%! Formatierung der Fußnotenzitate / Literaturverzeichnis
 \renewcommand*{\newunitpunct}{\addcomma\space} 
 \DeclareCiteCommand{\footpartcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
@@ -71,11 +77,10 @@
    \printfield{pages}}
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
-
 \DeclareMultiCiteCommand{\footpartcites}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
-
 \addbibresource{literatur.bib}
-%Kopf- und Fußzeile
+
+%! Kopf- und Fußzeile
 \usepackage[automark]{scrlayer-scrpage} 
 \pagestyle{scrheadings} 
 \clearscrheadings 
