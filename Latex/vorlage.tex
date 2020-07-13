@@ -9,14 +9,18 @@
 \RedeclareSectionCommand[tocnumwidth=45pt]{section}
 \RedeclareSectionCommand[tocnumwidth=45pt]{subsection}
 \RedeclareSectionCommand[tocnumwidth=45pt]{subsubsection}
+
+%! Formatierung aller Verzeichnisse
 \setuptoc{toc}{totoc}
 \setuptoc{lof}{totoc}
 \setuptoc{lot}{totoc}
 \renewcommand*\listoflofentryname{\bfseries\figurename}
-\BeforeStartingTOC[lof]{\renewcommand*\autodot{  }}
+\BeforeStartingTOC[lof]{\renewcommand*\autodot{\space\space\space\space}}
 \addtokomafont{captionlabel}{\bfseries}
 \renewcommand*\listoflotentryname{\bfseries\tablename}
-\BeforeStartingTOC[lot]{\renewcommand*\autodot{  }}
+\BeforeStartingTOC[lot]{\renewcommand*\autodot{\space\space\space\space}}
+
+%! Latex-Packages, die verwendet werden
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -30,8 +34,11 @@
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
 \usepackage[backend=biber, style=alphabetic, citestyle=numeric]{biblatex}
 \usepackage{csquotes}
+
+%! Schriftart
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
+
 \usepackage[hidelinks]{hyperref}
 \usepackage{acronym}
 \renewcommand*{\aclabelfont}[1]{\acsfont{#1}} %Abkürzungsverzeichnis - Formatierung
@@ -40,6 +47,33 @@
   breaklines=true,
   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
+
+%! Änderung für später
+%\addto\captionsngerman{\renewcommand{\figurename}{Abbildung}}
+%\renewcommand*{\figureformat}{%
+%  \figurename~\thefigure%
+%  \autodot{\space\space\space}
+%}
+
+%! Formatierung der Fußnotenzitate
+\renewcommand*{\newunitpunct}{\addcomma\space} 
+\DeclareCiteCommand{\footpartcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   %\mkbibbrackets{\usebibmacro{cite}}%
+   \setunit{\addnbspace}
+   \printnames{labelname}%
+   \setunit{\labelnamepunct}
+   %\printfield[citetitle]{title}%
+   \newunit
+   \printfield{year}
+   \newunit
+   \printfield{pages}}
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+\DeclareMultiCiteCommand{\footpartcites}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
+
 \addbibresource{literatur.bib}
 %Kopf- und Fußzeile
 \usepackage[automark]{scrlayer-scrpage} 
