@@ -34,4 +34,8 @@ Unterhaltung und Besprechung:
 
 - [ ] Abkürzungsverzeichnis automatisch sortieren
 
+- [ ] Warnungen beim Kompilieren beseitigen
+
+- [ ] Anhangsverzeichnis
+
 - usw.
