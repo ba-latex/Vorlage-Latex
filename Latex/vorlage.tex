@@ -1,7 +1,9 @@
 
 
-\documentclass[12pt, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix]{scrartcl}
+\documentclass[12pt, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc]{scrartcl}
 \usepackage{tocbasic}
+\usepackage[ngerman]{babel}
+\usepackage[backend=biber, style=authortitle]{biblatex}
 
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
@@ -9,9 +11,11 @@
 
 
 %! Formatierung aller Verzeichnisse
+\renewcaptionname{ngerman}{\refname}{Quellenverzeichnis}
 \setuptoc{toc}{totoc}
 \setuptoc{lof}{totoc}
 \setuptoc{lot}{totoc}
+%\setuptoc{bibliography}{totoc}
 \renewcommand*\listoflofentryname{\bfseries\figurename}
 \BeforeStartingTOC[lof]{\renewcommand*\autodot{\space\space\space\space}}
 \addtokomafont{captionlabel}{\bfseries}
@@ -19,7 +23,7 @@
 \BeforeStartingTOC[lot]{\renewcommand*\autodot{\space\space\space\space}}
 
 %! Latex-Packages, die verwendet werden
-\usepackage[ngerman]{babel}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -30,7 +34,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
-\usepackage[backend=biber, style=alphabetic, citestyle=numeric]{biblatex}
+
 \usepackage{csquotes}
 
 
@@ -50,7 +54,6 @@
 
 
 
-
 %! Caption um Tabellen und Abbildungen richtig zu beschriften
 \usepackage{caption}
 \captionsetup{labelsep=none}
@@ -63,6 +66,15 @@
   \tablename~\thetable%
   \autodot{\space\space\space}
 }
+
+%! Formatierung des Literaturverzeichnis
+\DeclareFieldFormat{url}{\newline\url{#1}}
+\DeclareFieldFormat{urldate}{\addcomma\space\bibstring{urlseen}\space#1}
+
+\DefineBibliographyStrings{german}{%
+  urlseen = {Abruf am},
+}
+\setlength\bibitemsep{\baselineskip}
 
 %! Formatierung der Fußnotenzitate / Literaturverzeichnis
 \renewcommand*{\newunitpunct}{\addcomma\space} 
