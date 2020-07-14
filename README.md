@@ -17,7 +17,7 @@ Unterhaltung und Besprechung:
 
 - Das ganze ist etwas Zusammengebastelt
 
-- `\foodpartcite{}` erstellt eine Fußnote wie in der Vorlage gewünscht
+- `\zitat{}` erstellt eine Fußnote wie in der Vorlage gewünscht
 
 - Bilder kann man bequem mittels `\bild[1.0]{schaltung1.png}{Test-Caption}` einfügen. Dabei entspricht *1.0* der horizontalen Größe von *0.0* bis *1.0*, *schaltung1* entspricht dem Bildnamen im Bilder-Verzeichnis und *Test-Caption* entspricht dem Label unter dem Bild und dem Namen im Abbildungsverzeichnis.
 
