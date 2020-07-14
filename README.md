@@ -9,7 +9,7 @@ Unterhaltung und Besprechung:
 
 1. Die Dateien herunterladen und sich nicht blöd anstellen...
 
-2. Im Verzeichnis `Latex` befindet sich eine Datei `Entpacken.zip`, diese muss im selben Verzeichnis entpackt werden und beinhaltet den persönlichen Inhalt der Arbeit. Außerdem wird sie in GitHub nicht mit eingebunden und die Vorlage kann unabhängig davon akutalisiert bzw. bearbeitet werden.
+2. Im Verzeichnis `Latex` befindet sich der Ordner `inhalt_example`, dieser muss kopiert werden und in `inhalt` umbenannt werden. Die `literatur.bib` muss ins Hauptverzeichnis verschoben werden. Der `inhalt` Ordner beinhaltet den persönlichen Inhalt der Arbeit. Außerdem wird er in GitHub nicht mit eingebunden und die Vorlage kann unabhängig davon akutalisiert bzw. bearbeitet werden.
 
 ## Hinweise
 
