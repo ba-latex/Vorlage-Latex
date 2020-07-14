@@ -26,17 +26,8 @@ Unterhaltung und Besprechung:
 - Die Abkürzungen müssen in der richtigen Reihenfolge eingetragen werden
 
 ## ToDo
-- [x] Abbildungsverzeichnis nach Richtlinien formatieren.
-
-- [ ] Anpassen, dass Absätze ohne `\absatz` funktionieren.
 
 - [ ] Formatierung fürs Literaturverzeichnis erarbeiten.
-
-- [ ] Fußzeilenabstände überprüfen.
-
-- [ ] Abkürzungsverzeichnis automatisch sortieren
-
-- [ ] Warnungen beim Kompilieren beseitigen
 
 - [ ] Anhangsverzeichnis
 
