@@ -48,6 +48,9 @@
   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
 
+
+
+
 %! Caption um Tabellen und Abbildungen richtig zu beschriften
 \usepackage{caption}
 \captionsetup{labelsep=none}
@@ -63,6 +66,8 @@
 
 %! Formatierung der Fußnotenzitate / Literaturverzeichnis
 \renewcommand*{\newunitpunct}{\addcomma\space} 
+
+%? Normales Zitat...
 \DeclareCiteCommand{\zitat}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
@@ -77,7 +82,27 @@
    \printfield{pages}}
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
+
+%? Online Zitat
+\DeclareCiteCommand{\onlinezitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   %\mkbibbrackets{\usebibmacro{cite}}%
+   \setunit{\addnbspace}
+   online:
+   \printnames{labelname}%
+   \setunit{\labelnamepunct}
+   %\printfield[citetitle]{title}%
+   \newunit
+   \printfield{year}
+   \printtext{(}\printfield{urlday}.\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
+   %\printurldate}
+  %{\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+
 \DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
+
 \addbibresource{literatur.bib}
 
 %! Kopf- und Fußzeile
