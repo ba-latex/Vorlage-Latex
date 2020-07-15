@@ -44,6 +44,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
 \usepackage{acronym}
 \renewcommand*{\aclabelfont}[1]{\acsfont{#1}} %Abkürzungsverzeichnis - Formatierung
 \usepackage{listings} %zB zum korrekten anzeigen von BASH-Befehlen
@@ -168,6 +169,48 @@
   \fi
  % \@mainmatterfalse
    }
+
+%! INHALTSVERZEICHNIS / ANHANGSSVERZEICHNIS
+\DeclareNewTOC[%
+  %owner=\jobname,
+  tocentrystyle=tocline,
+  tocentryentrynumberformat=\PrefixBy{Anhang},
+  listname={Anhangsverzeichnis}% Titel des Verzeichnisses
+]{atoc}% Dateierweiterung (a=appendix, toc=table of contents)
+
+
+\makeatletter
+\AfterTOCHead[atoc]{\let\if@dynlist\if@tocleft}
+\newcommand*{\useappendixtocs}{%
+  \renewcommand*{\ext@toc}{atoc}%
+  }%
+\newcommand*{\usestandardtocs}{%
+  \renewcommand*{\ext@toc}{toc}%
+  }%
+
+\makeatother
+\providecaptionname{ngerman}{\listofatocentryname}{Anhang}
+
+ 
+\DeclareTOCStyleEntry[%
+  level=0,%wie Section
+  indent=0pt,%kein Einzug
+  numwidth=5cm,%\cfttabnumwidth,% Breite für die Nummer
+  entrynumberformat={Anlage}
+]{tocline}{atoc}% Eintragsart anlage im Stil tocline definieren
+
+
+
+\usepackage{xpatch}
+\xapptocmd\appendix{%
+  \useappendixtocs
+  \listofatocs
+  \newpage
+}{}{}
+
+
+
+
 
 % ? Ab hier beginnen eigene Befehle um den Umgang zu erleichtern   
 
