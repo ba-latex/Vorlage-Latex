@@ -9,6 +9,9 @@ Latex/svg-inkscape/
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
+*.atoc
+*.alof
+*.alot
 *.lof
 *.log
 *.lot
