@@ -19,7 +19,17 @@ Unterhaltung und Besprechung:
 
 - `\zitat{}` erstellt eine Fußnote wie in der Vorlage gewünscht
 
-- für Onlinequellen `\onlinezitat{}` benutzen
+- für Onlinequellen `\onlinezitat{}` benutzen; damit diese richtig angezeigt wird muss der Eintrag in die `literatur.bib` folgendermaßen aussehen:
+```latex
+@Online{LogikSim,
+  author   = {Christian BRUGGER},
+  title    = {LogikSim - Logische Schaltungen},
+  url      = {https://logiksim.dbclan.de/index.html},
+  urldate  = {2020-07-22},
+  keywords = {logik, sim, schaltungen, logisch},
+  year     = {2007},
+}
+```
 
 - Bilder kann man bequem mittels `\bild[1.0]{schaltung1.png}{Test-Caption}` einfügen. Dabei entspricht *1.0* der horizontalen Größe von *0.0* bis *1.0*, *schaltung1* entspricht dem Bildnamen im Bilder-Verzeichnis und *Test-Caption* entspricht dem Label unter dem Bild und dem Namen im Abbildungsverzeichnis.
 
