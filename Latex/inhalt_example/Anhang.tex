@@ -4,6 +4,16 @@
 \appendix
 \clearpage
 
+%! Section Befehl wird umgeschrieben, damit keine Überschriften mehr angezeigt werden
+%!Kann falls Überschriften gewollt sind entfern werden oder erst später eingefügt
+% Beginn 
+\renewcommand{\section}[1]{
+\par\refstepcounter{section}
+\sectionmark{#1}
+\addcontentsline{atoc}{section}{\protect\numberline{\thesection}#1}
+\lohead{\textnormal{#1}}
+} % Ende
+
 %! Anhang 1
 \section{Erster toller Anhang}
 Hihi hier kommt eigentlich ein Anhangverzeichnis hin :D
