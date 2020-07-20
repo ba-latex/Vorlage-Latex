@@ -5,9 +5,19 @@ Unterhaltung und Besprechung:
 
 [https://talk.4de19.de/channel/latex](https://talk.4de19.de/channel/latex)
 
+## Changes
+
+- Die Ehrenwörtliche Erklärung wird jetzt direkt in der `Anhang.tex` eingebunden, da diese ja auch zum Anhang gehört
+
+- Es gibt Änderung in `Kapitel.tex` und `Anhang.tex` bitte daher die aktuellen Vorlagen aus den `inhalt_example`-Ordner verwenden.
+
+- Fertiges Anhangsverzeichnis
+
+
+
 ## Anleitung
 
-1. Die Dateien herunterladen und sich nicht blöd anstellen...
+1. RTFM!
 
 2. Im Verzeichnis `Latex` befindet sich der Ordner `inhalt_example`, dieser muss kopiert werden und in `inhalt` umbenannt werden. Die `literatur.bib` muss ins Hauptverzeichnis verschoben werden. Der `inhalt` Ordner beinhaltet den persönlichen Inhalt der Arbeit. Außerdem wird er in GitHub nicht mit eingebunden und die Vorlage kann unabhängig davon akutalisiert bzw. bearbeitet werden.
 
@@ -33,14 +43,10 @@ Unterhaltung und Besprechung:
 
 - Bilder kann man bequem mittels `\bild[1.0]{schaltung1.png}{Test-Caption}` einfügen. Dabei entspricht *1.0* der horizontalen Größe von *0.0* bis *1.0*, *schaltung1* entspricht dem Bildnamen im Bilder-Verzeichnis und *Test-Caption* entspricht dem Label unter dem Bild und dem Namen im Abbildungsverzeichnis.
 
-- Abkürzungen werden in `Inhalt/Abkürzungen.tex` eingetragen und im Text bspw. mit `\ac{Kürzel}` verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html)
+- Abkürzungen werden in `Inhalt/Abkürzungen.tex` eingetragen und im Text bspw. mit `\ac{Kürzel}` verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html). Wichtig ist, dass zu Beginn der Umgebung `\begin{acronym}[SSHHH]` in die eckigen Klammern ein langer Name eingefügt ist, damit die Formatierung stimmt.
 
 - Die Abkürzungen müssen in der richtigen Reihenfolge eingetragen werden
 
 ## ToDo
 
-- [ ] Formatierung fürs Literaturverzeichnis erarbeiten.
-
-- [ ] Anhangsverzeichnis
-
-- usw.
+- You tell me
