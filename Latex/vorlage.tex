@@ -1,7 +1,9 @@
 
 
-\documentclass[12pt, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix]{scrartcl}
+\documentclass[12pt, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc]{scrartcl}
 \usepackage{tocbasic}
+\usepackage[ngerman]{babel}
+\usepackage[backend=biber, style=authortitle]{biblatex}
 
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
@@ -9,17 +11,51 @@
 
 
 %! Formatierung aller Verzeichnisse
+\renewcaptionname{ngerman}{\refname}{Quellenverzeichnis}
 \setuptoc{toc}{totoc}
 \setuptoc{lof}{totoc}
 \setuptoc{lot}{totoc}
+%\setuptoc{bibliography}{totoc}
 \renewcommand*\listoflofentryname{\bfseries\figurename}
 \BeforeStartingTOC[lof]{\renewcommand*\autodot{\space\space\space\space}}
 \addtokomafont{captionlabel}{\bfseries}
 \renewcommand*\listoflotentryname{\bfseries\tablename}
 \BeforeStartingTOC[lot]{\renewcommand*\autodot{\space\space\space\space}}
 
+%? Anhangsverzeichnis
+
+\providecaptionname{ngerman}{\listofatocentryname}{Anhang}
+\DeclareTOCStyleEntry[%
+  level=0,%wie Section
+  indent=50pt,%kein Einzug
+  numwidth=5cm,%\cfttabnumwidth,% Breite für die Nummer
+  entrynumberformat={Anlage}
+]{tocline}{atoc}% Eintragsart anlage im Stil tocline definieren
+
+\makeatletter
+\AfterTOCHead[atoc]{\let\if@dynlist\if@tocleft}
+\newcommand*{\useappendixtocs}{%
+  \renewcommand*{\ext@toc}{atoc}%
+  \RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
+  \RedeclareSectionCommands[tocnumwidth=85pt]{section, subsection, subsubsection}
+  \addtokomafont{sectionentry}{\mdseries}
+  \renewcommand*\listoflofentryname{\mdseries}
+  \renewcommand{\thesection}{\arabic{section}}
+  \renewcommand{\@dotsep}{10000}
+  }%
+\newcommand*{\usestandardtocs}{%
+  \renewcommand*{\ext@toc}{toc}%
+  }%
+\makeatother
+
+%! Ermöglicht die Ausgabe des aktuellen Titels
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+
 %! Latex-Packages, die verwendet werden
-\usepackage[ngerman]{babel}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -30,15 +66,17 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
-\usepackage[backend=biber, style=alphabetic, citestyle=numeric]{biblatex}
+
 \usepackage{csquotes}
-\usepackage{microtype}
+
 
 %! Schriftart
 \usepackage{helvet}
+\usepackage{microtype}
 \renewcommand{\familydefault}{\sfdefault}
 
 \usepackage[hidelinks]{hyperref}
+\usepackage{bookmark}
 \usepackage{acronym}
 \renewcommand*{\aclabelfont}[1]{\acsfont{#1}} %Abkürzungsverzeichnis - Formatierung
 \usepackage{listings} %zB zum korrekten anzeigen von BASH-Befehlen
@@ -46,6 +84,8 @@
   breaklines=true,
   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
+
+
 
 %! Caption um Tabellen und Abbildungen richtig zu beschriften
 \usepackage{caption}
@@ -60,9 +100,21 @@
   \autodot{\space\space\space}
 }
 
+%! Formatierung des Literaturverzeichnis
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat{urldate}{\addcomma\space\bibstring{urlseen}\space#1}
+
+\DefineBibliographyStrings{german}{%
+  urlseen = {Abruf am},
+}
+\setlength\bibitemsep{\baselineskip}
+\setlength\bibhang{0pt}
+
 %! Formatierung der Fußnotenzitate / Literaturverzeichnis
 \renewcommand*{\newunitpunct}{\addcomma\space} 
-\DeclareCiteCommand{\footpartcite}[\mkbibfootnote]
+
+%? Normales Zitat...
+\DeclareCiteCommand{\zitat}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
    %\mkbibbrackets{\usebibmacro{cite}}%
@@ -76,7 +128,27 @@
    \printfield{pages}}
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
-\DeclareMultiCiteCommand{\footpartcites}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
+
+%? Online Zitat
+\DeclareCiteCommand{\onlinezitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   %\mkbibbrackets{\usebibmacro{cite}}%
+   \setunit{\addnbspace}
+   online:
+   \printnames{labelname}%
+   \setunit{\labelnamepunct}
+   %\printfield[citetitle]{title}%
+   \newunit
+   \printfield{year}
+   \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
+   %\printurldate}
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+
+\DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
+
 \addbibresource{literatur.bib}
 
 %! Kopf- und Fußzeile
@@ -84,10 +156,10 @@
 \pagestyle{scrheadings} 
 \clearscrheadings 
 \clearscrplain 
-\rohead{\headmark} 
+\rohead{\textnormal{\headmark}}
 \lofoot{} 
 \cofoot{} 
-\rofoot{\pagemark}
+\rofoot{\textnormal{Seite}~\pagemark}
 \makeatletter
 \usepackage{geometry}
 \geometry{a4paper,
@@ -102,7 +174,14 @@
 % Kopfzeile 1,0 cm Abstand zum Blattrand
 % Fußzeile 1,0 cm Abstand zum Blattrand
 \makeatother
-\samepage
+
+
+%! Versuch von besseren Seitenumbrüchen
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+\widowpenalties= 3 10000 10000 150
+
 \linespread{1.3}
 \newcommand\frontmatter{%
     \cleardoublepage
@@ -122,6 +201,31 @@
   \fi
  % \@mainmatterfalse
    }
+
+%! INHALTSVERZEICHNIS / ANHANGSSVERZEICHNIS
+\DeclareNewTOC[%
+  %owner=\jobname,
+  tocentrystyle=tocline,
+  tocentryentrynumberformat=\PrefixBy{Anhang},
+  listname={Anhangsverzeichnis}% Titel des Verzeichnisses
+]{atoc}% Dateierweiterung (a=appendix, toc=table of contents)
+
+\usepackage{xpatch}
+\xapptocmd\appendix{%
+  \useappendixtocs
+  \listofatocs
+  \addcontentsline{toc}{section}{Anhangsverzeichnis}
+  \newpage
+  \pagenumbering{gobble}
+  \pagestyle{scrheadings} 
+  \clearscrheadings 
+  \clearscrplain 
+  \rohead{\textnormal{Anhang~\arabic{section}}}
+  \lohead{\textnormal{\currentname}}
+  \lofoot{} 
+  \cofoot{} 
+  \rofoot{}
+}{}{}
 
 % ? Ab hier beginnen eigene Befehle um den Umgang zu erleichtern   
 
