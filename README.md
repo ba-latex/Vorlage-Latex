@@ -49,4 +49,10 @@ Unterhaltung und Besprechung:
 
 ## ToDo
 
-- You tell me
+- Formelverzeichnis
+
+- Formelumgebung erstellen
+
+## Longtime ToDo
+
+- von scrartcl auf scrrprt wechseln und die entsprechenden Anpassungen vornehmen
