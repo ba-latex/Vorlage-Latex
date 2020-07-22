@@ -41,6 +41,8 @@ Unterhaltung und Besprechung:
 }
 ```
 
+- mit `\label{bezeichner:name}` kann man in einer section oder sonst wo ein Label erstellen, was später oder eher mit `\fullref{bezeichner:name}` aufgerufen werden kann, fügt an der Stelle im Text ein `(siehe Kapitel x.x.x Schule ist schön)` ein.
+
 - Bilder kann man bequem mittels `\bild[1.0]{schaltung1.png}{Test-Caption}` einfügen. Dabei entspricht *1.0* der horizontalen Größe von *0.0* bis *1.0*, *schaltung1* entspricht dem Bildnamen im Bilder-Verzeichnis und *Test-Caption* entspricht dem Label unter dem Bild und dem Namen im Abbildungsverzeichnis.
 
 - Abkürzungen werden in `Inhalt/Abkürzungen.tex` eingetragen und im Text bspw. mit `\ac{Kürzel}` verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html). Wichtig ist, dass zu Beginn der Umgebung `\begin{acronym}[SSHHH]` in die eckigen Klammern ein langer Name eingefügt ist, damit die Formatierung stimmt.

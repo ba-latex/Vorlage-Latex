@@ -1,5 +1,5 @@
 %! LaTeX Vorlage
-\documentclass[12pt, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc]{scrartcl}
+\documentclass[12pt, fleqn, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc]{scrartcl}
 \usepackage{tocbasic}
 \usepackage[ngerman]{babel}
 \usepackage[backend=biber, style=authortitle]{biblatex}
@@ -134,6 +134,7 @@
 \DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
 \addbibresource{literatur.bib}
 
+
 %! Kopf- und Fußzeile
 \usepackage[automark]{scrlayer-scrpage} 
 \pagestyle{scrheadings} 
@@ -189,14 +190,14 @@
   %owner=\jobname,
   tocentrystyle=tocline,
   tocentryentrynumberformat=\PrefixBy{Anhang},
-  listname={Anhangsverzeichnis}% Titel des Verzeichnisses
+  listname={Anhangverzeichnis}% Titel des Verzeichnisses
 ]{atoc}% Dateierweiterung (a=appendix, toc=table of contents)
 
 \usepackage{xpatch}
 \xapptocmd\appendix{%
   \useappendixtocs
   \listofatocs
-  \addcontentsline{toc}{section}{Anhangsverzeichnis}
+  \addcontentsline{toc}{section}{Anhangverzeichnis}
   \newpage
   \pagenumbering{gobble}
   \pagestyle{scrheadings} 
@@ -218,3 +219,4 @@
                       \caption{#3}
                       \label{fig:#3}
                       \end{figure}}
+ \newcommand{\fullref}[1]{(siehe Kapitel \ref{#1} \nameref{#1})}
