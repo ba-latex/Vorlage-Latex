@@ -13,15 +13,19 @@ Unterhaltung und Besprechung:
 
 - Fertiges Anhangsverzeichnis
 
+- neues System für Metadaten - unbedingt `metadaten.sty` in `Latex` verschieben und anpassen, da sonst das Kompilieren fehlschlägt
 
+- nun auch Kapitelnummern in den PDF Lesezeichen
 
 ## Anleitung
 
 1. RTFM!
 
-2. Im Verzeichnis `Latex` befindet sich der Ordner `inhalt_example`, dieser muss kopiert werden und in `inhalt` umbenannt werden. Die `literatur.bib` muss ins Hauptverzeichnis verschoben werden. Der `inhalt` Ordner beinhaltet den persönlichen Inhalt der Arbeit. Außerdem wird er in GitHub nicht mit eingebunden und die Vorlage kann unabhängig davon akutalisiert bzw. bearbeitet werden.
+2. Im Verzeichnis `Latex` befindet sich der Ordner `inhalt_example`, dieser muss kopiert werden und in `inhalt` umbenannt werden. Die `literatur.bib` und `metadaten.sty` müssen ins Hauptverzeichnis verschoben werden. Der `inhalt` Ordner beinhaltet den persönlichen Inhalt der Arbeit. Außerdem wird er in GitHub nicht mit eingebunden und die Vorlage kann unabhängig davon akutalisiert bzw. bearbeitet werden.
 
 ## Hinweise
+
+- Die Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden.
 
 - Jeder neue Absatz muss mit `\absatz` und einer Leerzeile davor anfangen.
 
