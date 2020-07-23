@@ -14,6 +14,24 @@
 \lohead{\textnormal{#1}}
 } % Ende
 
+%! Hier kann man sich anpassen, wie Abbildungen im Anhang dargestellt werden.
+%! Bitte eins der beiden Auskommentieren
+%? Möglichkeit 1 ohne Nummerierung und ohne Abbildung davor 
+%\renewcommand{\bild}[3][1.0]{\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=#1\columnwidth]{bilder/#2}
+%	\caption*{#3}
+%	\label{fig:#3}
+%	\end{figure}}
+
+%? Möglichkeit 2 mit Nummerierung und Abbildung, aber nicht im Abbildungsverzeichnis
+\renewcommand{\bild}[3][1.0]{\begin{figure}[H]
+	\centering
+	\includegraphics[width=#1\columnwidth]{bilder/#2}
+	\caption[]{#3}
+	\label{fig:#3}
+	\end{figure}}
+
 %! Anhang 1
 \section{Erster toller Anhang}
 Hihi hier kommt eigentlich ein Anhangverzeichnis hin :D
