@@ -12,7 +12,7 @@
 
 \usepackage{tocbasic}
 \usepackage[ngerman]{babel}
-\usepackage[backend=biber, style=authortitle]{biblatex}
+\usepackage[backend=biber, style=authortitle, isbn=false]{biblatex}
 
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
@@ -107,12 +107,23 @@
 }
 
 %! Formatierung des Literaturverzeichnis
-\DeclareFieldFormat{url}{\url{#1}}
-\DeclareFieldFormat{urldate}{\addcomma\space\bibstring{urlseen}\space#1}
-
-\DefineBibliographyStrings{german}{
-  urlseen = {Abruf am},
+\DeclareFieldFormat{url}{In: \url{#1}}
+\DeclareFieldFormat{urldate}{\space\mkbibparens{#1}}
+\urlstyle{same}
+ \DeclareNameFormat{author}{%
+      \nameparts{#1}%
+      \usebibmacro{name:family-given}
+        {\namepartfamily}
+        {\namepartgiven}
+        {\namepartprefix}
+        {\namepartsuffix}%
 }
+\DeclareFieldFormat{title}{#1}
+\renewcommand{\multinamedelim}{\addsemicolon\space}
+\renewcommand{\finalnamedelim}{\addsemicolon\space}
+\renewcommand{\labelnamepunct}{\addcolon\space}
+\renewcommand*{\finentrypunct}{}
+
 \setlength\bibitemsep{\baselineskip}
 \setlength\bibhang{0pt}
 
@@ -146,6 +157,7 @@
    \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
+\renewcommand{\bibfootnotewrapper}[1]{\bibsentence#1}
 
 \DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
 \addbibresource{literatur.bib}
