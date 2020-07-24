@@ -1,9 +1,18 @@
 %! LaTeX Vorlage
 \documentclass[12pt, fleqn, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc]{scrartcl}
+
+\usepackage{silence} %unnötige Warnungen unterdrücken
+\WarningFilter{latex}{You have requested}
+\WarningFilter{scrlayer-scrpage}{\headheight to low}
+\WarningFilter{scrlayer-scrpage}{\footheight to low}
+\WarningFilter{scrlayer-scrpage}{Very small head height detected}
+
+\ProvidesPackage{metadaten}
+\usepackage{metadaten}
+
 \usepackage{tocbasic}
 \usepackage[ngerman]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[backend=biber, style=authortitle]{biblatex}
+\usepackage[backend=biber, style=authortitle, isbn=false]{biblatex}
 
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
@@ -68,8 +77,13 @@
 \usepackage{helvet}
 \usepackage{microtype}
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage[hidelinks]{hyperref}
-\usepackage{bookmark}
+\usepackage[
+	hidelinks,
+	pdftitle={\titel},
+	pdfsubject={\kurzbeschreibung},
+	pdfauthor={\autoren},
+]{hyperref}
+\usepackage[numbered]{bookmark}
 \usepackage{acronym}
 \usepackage{caption}
 
@@ -93,12 +107,23 @@
 }
 
 %! Formatierung des Literaturverzeichnis
-\DeclareFieldFormat{url}{\url{#1}}
-\DeclareFieldFormat{urldate}{\addcomma\space\bibstring{urlseen}\space#1}
-
-\DefineBibliographyStrings{german}{
-  urlseen = {Abruf am},
+\DeclareFieldFormat{url}{In: \url{#1}}
+\DeclareFieldFormat{urldate}{\space\mkbibparens{#1}}
+\urlstyle{same}
+ \DeclareNameFormat{author}{%
+      \nameparts{#1}%
+      \usebibmacro{name:family-given}
+        {\namepartfamily}
+        {\namepartgiven}
+        {\namepartprefix}
+        {\namepartsuffix}%
 }
+\DeclareFieldFormat{title}{#1}
+\renewcommand{\multinamedelim}{\addsemicolon\space}
+\renewcommand{\finalnamedelim}{\addsemicolon\space}
+\renewcommand{\labelnamepunct}{\addcolon\space}
+\renewcommand*{\finentrypunct}{}
+
 \setlength\bibitemsep{\baselineskip}
 \setlength\bibhang{0pt}
 
@@ -132,6 +157,7 @@
    \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
+\renewcommand{\bibfootnotewrapper}[1]{\bibsentence#1}
 
 \DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
 \addbibresource{literatur.bib}
@@ -141,7 +167,8 @@
 \usepackage[automark]{scrlayer-scrpage} 
 \pagestyle{scrheadings} 
 \clearscrheadings 
-\clearscrplain 
+\clearscrplain
+\renewcommand*{\sectionmarkformat}{}
 \rohead{\textnormal{\headmark}}
 \lofoot{} 
 \cofoot{} 
