@@ -55,10 +55,4 @@ Unterhaltung und Besprechung:
 
 ## ToDo
 
-- Formelverzeichnis
-
-- Formelumgebung erstellen
-
-## Longtime ToDo
-
-- von scrartcl auf scrrprt wechseln und die entsprechenden Anpassungen vornehmen
+- Befindet sich ab sofort unter issues
