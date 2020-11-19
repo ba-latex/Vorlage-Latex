@@ -6,6 +6,8 @@
 \WarningFilter{scrlayer-scrpage}{\headheight to low}
 \WarningFilter{scrlayer-scrpage}{\footheight to low}
 \WarningFilter{scrlayer-scrpage}{Very small head height detected}
+\WarningFilter{fvextra}{}
+\WarningFilter{lineno}{}
 
 \ProvidesPackage{metadaten}
 \usepackage{metadaten}
@@ -73,6 +75,32 @@
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
 \usepackage{csquotes}
 
+%! Code Integration im Dokument
+%? Inklusive Erzeugung eines Custom Enviroments für Programmcodes
+\usepackage{minted}
+%\SetupFloatingEnvironment{listing}{name=Program code}
+%\SetupFloatingEnvironment{listing}{listname=List of Program Code}
+
+
+\DeclareNewTOC[
+  type=code,                         % Name der Umgebung
+  types=codes,                       % Erweiterung (\listofschemes)
+  float,                               % soll gleiten
+  floatpos=H,
+  tocentryentrynumberformat=\bfseries,                        % voreingestellte Gleitparameter
+  name=Code,                         % Name in Überschriften
+  listname={Programmcodeverzeichnis}, % Listenname
+  % counterwithin=chapter
+]{loc}
+\setuptoc{loc}{totoc}
+
+\renewcommand*{\codeformat}{%
+  \codename~\thecode%
+  \autodot{\space\space\space}
+}
+\BeforeStartingTOC[loc]{\renewcommand*\autodot{\space\space\space\space}}
+
+
 %! Schriftart
 \usepackage{helvet}
 \usepackage{microtype}
@@ -85,14 +113,11 @@
 ]{hyperref}
 \usepackage[numbered]{bookmark}
 \usepackage{acronym}
-\usepackage{caption}
+
 
 \renewcommand*{\aclabelfont}[1]{\acsfont{#1}} %Abkürzungsverzeichnis - Formatierung
-\usepackage{listings} %zB zum korrekten anzeigen von BASH-Befehlen
-\lstset{ %listings Einstellungen
-  breaklines=true,
-  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
-}
+ %zB zum korrekten anzeigen von BASH-Befehlen
+
 
 %! Caption um Tabellen und Abbildungen richtig zu beschriften
 \usepackage{caption}
@@ -105,6 +130,9 @@
   \tablename~\thetable%
   \autodot{\space\space\space}
 }
+
+
+
 
 %! Formatierung des Literaturverzeichnis
 \DeclareFieldFormat{url}{In: \url{#1}}
@@ -170,6 +198,7 @@
 \clearscrplain
 \renewcommand*{\sectionmarkformat}{}
 \rohead{\textnormal{\headmark}}
+\lohead{\includegraphics[height=8mm]{bilder/logo.png}}
 \lofoot{} 
 \cofoot{} 
 \rofoot{\textnormal{Seite}~\pagemark}
@@ -250,3 +279,4 @@
                       \end{figure}}
 \newcommand{\fullref}[1]{(siehe Kapitel \ref{#1} \nameref{#1})}
 \newcommand{\striche}[1]{\glqq #1\grqq{}}
+\newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
