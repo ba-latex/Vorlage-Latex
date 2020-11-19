@@ -7,12 +7,19 @@ Unterhaltung und Besprechung:
 
 ## Changes 19. November 2020
 
+- Bitte die neue `Kapitel.tex` aus dem `inhalt_example`-Ordner ins `inhalt`-Verzeichnis kopieren und die alte überschreiben.
+
 - Es ist nun möglich ein Codeverzeichnis zu erzeugen, und eine Codeumgebung einzufügen. Siehe dazu Hinweise und die nächste Zeile
 
 - Soll das Codeverzeichnis eingebunden werden, muss im System `Python3` und die Bibliothek `Pygments` (`pip install Pygments`) installiert sein. Außerdem muss im Latex-Compiler die Option `-shell-escape` hinzugefügt werden. Siehe dazu auch die [http://tug.ctan.org/macros/latex/contrib/minted/minted.pdf](http://tug.ctan.org/macros/latex/contrib/minted/minted.pdf) Minted Dokumentation. Wer das Code Verzeichnis nicht benötigt, muss in der Vorlage den Block `%! Hier wird das Codeverzeichnis formatiert` auskommentieren/ entfernen und in `Kapitel.tex` die Zeile `\listofcodes`  
 
-- Ein paar Funktionen wurden in die `Vorlage.tex` eingefügt.
+- Ein paar Funktionen wurden in die `vorlage.tex` eingefügt. Siehe dazu auch Hinweise
 
+- Die `literatur.bib` im `inhalt_example`-Ordner enthält nun sinnvolle Beispiele
+
+- Es ist nun möglich ein Logo oben links im Rand einzufügen. Dieses muss sich unter `bilder/logo.png` befinden. ACHTUNG diese DATEI muss EXISTIEREN. Sollte dies nicht gewollt sein, kann in `vorlage.tex` die Zeile 201 `\lohead{\includegraphics[height=8mm]{bilder/logo.png}}` zu `\lohead{}` geändert werden.
+
+- Vielleicht habe ich was vergessen...
 
 ## Changes Juli 2020
 
@@ -61,6 +68,24 @@ Unterhaltung und Besprechung:
 - Abkürzungen werden in `Inhalt/Abkürzungen.tex` eingetragen und im Text bspw. mit `\ac{Kürzel}` verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html). Wichtig ist, dass zu Beginn der Umgebung `\begin{acronym}[SSHHH]` in die eckigen Klammern ein langer Name eingefügt ist, damit die Formatierung stimmt.
 
 - Die Abkürzungen müssen in der richtigen Reihenfolge eingetragen werden
+
+- `\vglink{url}{datum}` erzeugt eine Fußnote mit vgl. link (xx.xx.2020) nach der gültigen Formatierung
+
+- Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
+```latex
+\begin{code}[H]
+    \inputminted[linenos, breaklines, gobble=0, frame=none,
+        firstline=27,
+        lastline=37,
+        firstnumber=17,
+        numbers=left,
+        numbersep=5pt]{python}{sourcecodes/excel2.py}
+    \caption{Auslesen der Daten aus dem Array}
+    \label{code:4}
+\end{code}
+```
+
+- Für mehr Informationen dazu bitte die Minted-Dokumentation konsultieren. Es ist möglich mittels ` \mintinline{python}{print("Toller Code")}` Code in einer Zeile ähnlich dem Mathemathikmodus zu verwenden.
 
 ## ToDo
 

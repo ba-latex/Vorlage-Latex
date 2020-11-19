@@ -10,6 +10,7 @@ Latex/metadaten.sty
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
+*.loc
 *.atoc
 *.alof
 *.alot
