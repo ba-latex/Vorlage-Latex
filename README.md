@@ -3,9 +3,18 @@ Die ist eine Latex Vorlage für Projektarbeiten und Belege
 
 Unterhaltung und Besprechung:
 
-[https://talk.4de19.de/channel/latex](https://talk.4de19.de/channel/latex)
+[https://chat.4de19.de/channel/latex](https://chat.4de19.de/channel/latex)
 
-## Changes
+## Changes 19. November 2020
+
+- Es ist nun möglich ein Codeverzeichnis zu erzeugen, und eine Codeumgebung einzufügen. Siehe dazu Hinweise und die nächste Zeile
+
+- Soll das Codeverzeichnis eingebunden werden, muss im System `Python3` und die Bibliothek `Pygments` (`pip install Pygments`) installiert sein. Außerdem muss im Latex-Compiler die Option `-shell-escape` hinzugefügt werden. Siehe dazu auch die [http://tug.ctan.org/macros/latex/contrib/minted/minted.pdf](http://tug.ctan.org/macros/latex/contrib/minted/minted.pdf) Minted Dokumentation. Wer das Code Verzeichnis nicht benötigt, muss in der Vorlage den Block `%! Hier wird das Codeverzeichnis formatiert` auskommentieren/ entfernen und in `Kapitel.tex` die Zeile `\listofcodes`  
+
+- Ein paar Funktionen wurden in die `Vorlage.tex` eingefügt.
+
+
+## Changes Juli 2020
 
 - Die Ehrenwörtliche Erklärung wird jetzt direkt in der `Anhang.tex` eingebunden, da diese ja auch zum Anhang gehört
 
