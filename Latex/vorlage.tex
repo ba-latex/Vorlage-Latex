@@ -101,6 +101,24 @@
 \BeforeStartingTOC[loc]{\renewcommand*\autodot{\space\space\space\space}}
 
 
+%! Lang ersehntes Formelumgebung / Formelverzeichnis
+\DeclareNewTOC[
+  type=formel,                         % Name der Umgebung
+  types=formeln,                       % Erweiterung (\listofschemes)
+  float,                               % soll gleiten
+  tocentryentrynumberformat=\bfseries,                        % voreingestellte Gleitparameter
+  name=Formel,                         % Name in Überschriften
+  listname={Formelverzeichnis}, % Listenname
+  % counterwithin=chapter
+]{lom}
+\setuptoc{lom}{totoc}
+\renewcommand*{\formelformat}{%
+  \formelname~\theformel%
+  \autodot{\space\space\space}
+}
+\BeforeStartingTOC[lom]{\renewcommand*\autodot{\space\space\space\space}}
+
+
 %! Schriftart
 \usepackage{helvet}
 \usepackage{microtype}

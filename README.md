@@ -5,6 +5,16 @@ Unterhaltung und Besprechung:
 
 [https://chat.4de19.de/channel/latex](https://chat.4de19.de/channel/latex)
 
+## Changes 19. November 2020 - 2
+
+- Es gibt nun ein Formelverzeichnis
+
+- Bitte die neue `Kapitel.tex` aus dem `inhalt_example`-Ordner ins `inhalt`-Verzeichnis kopieren und die alte überschreiben.
+
+- Wer das Formelverzeichnis nicht benötigt muss in `Kapitel.tex` die Zeile `\listofformeln` löschen oder auskommentieren.
+
+- In diesem Zuge wurde eine Formelumgebung eingeführt die benutzt werden muss. Siehe Hinweise.
+
 ## Changes 19. November 2020
 
 - Bitte die neue `Kapitel.tex` aus dem `inhalt_example`-Ordner ins `inhalt`-Verzeichnis kopieren und die alte überschreiben.
@@ -86,6 +96,22 @@ Unterhaltung und Besprechung:
 ```
 
 - Für mehr Informationen dazu bitte die Minted-Dokumentation konsultieren. Es ist möglich mittels ` \mintinline{python}{print("Toller Code")}` Code in einer Zeile ähnlich dem Mathemathikmodus zu verwenden.
+
+- Die Formelumgebung wird wie folgt aufgerufen:
+```latex
+\begin{formel}[H]
+\captionabove{Die erste aller Formeln}
+$[\lnot P\land\lnot Q] \lor R$ \vspace{3mm}\\
+$P=\text{was ganz tolles}$ \\
+$Q=\text{was noch viel tolleres}$
+\label{formel:test}
+\end{formel}
+```
+
+- Soll die Caption darunter stehen muss `\captionabove{}` durch `\caption{}` ersetzt werden und über `\label{}` geschrieben werden.
+
+- Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Erklärung der Formelzeichen auch. Siehe dazu auch das HAWA-Dokument.
+
 
 ## ToDo
 

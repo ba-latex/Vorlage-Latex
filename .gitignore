@@ -13,6 +13,7 @@ Latex/metadaten.sty
 *.loc
 *.atoc
 *.alof
+*.lom
 *.alot
 *.lof
 *.log
