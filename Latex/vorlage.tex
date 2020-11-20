@@ -124,12 +124,11 @@
 \usepackage{helvet}
 \usepackage{microtype}
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage[
-	hidelinks,
-	pdftitle={\titel},
-	pdfsubject={\kurzbeschreibung},
-	pdfauthor={\autoren},
-]{hyperref}
+%! Hyperref und PDF-meta
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={\titel}}
+\hypersetup{pdfsubject={\kurzbeschreibung}}
+\hypersetup{pdfauthor={\autoren}}
 \usepackage[numbered]{bookmark}
 \usepackage{acronym}
 
