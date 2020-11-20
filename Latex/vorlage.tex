@@ -213,8 +213,8 @@
 %! Kopf- und Fußzeile
 \usepackage[automark]{scrlayer-scrpage} 
 \pagestyle{scrheadings} 
-\clearscrheadings 
-\clearscrplain
+\clearmainofpairofpagestyles 
+\clearplainofpairofpagestyles
 \renewcommand*{\sectionmarkformat}{}
 \rohead{\textnormal{\headmark}}
 \lohead{\includegraphics[height=8mm]{bilder/logo.png}}
@@ -278,8 +278,8 @@
   \newpage
   \pagenumbering{gobble}
   \pagestyle{scrheadings} 
-  \clearscrheadings 
-  \clearscrplain 
+  \clearmainofpairofpagestyles 
+  \clearplainofpairofpagestyles
   \rohead{\textnormal{Anhang~\arabic{section}}}
   \lohead{\textnormal{\currentname}}
   \lofoot{} 
