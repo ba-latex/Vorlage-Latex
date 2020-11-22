@@ -5,6 +5,18 @@ Unterhaltung und Besprechung:
 
 [https://chat.4de19.de/channel/latex](https://chat.4de19.de/channel/latex)
 
+##Changes 22. November 2020
+
+- neue Felder für Adresse von Autor und Praxispartner in 'Titelseite_Praxisbeleg.tex' - müssen direkt dort eingetragen werden, nicht in 'metadaten.sty'
+
+- neues Paket lineno wird geladen, um Warnungen zu vermeiden
+
+- veraltete Befehle durch neue ersetzt, um Warnungen zu vermeiden und Zukunftssicherheit zu verbessern
+
+- neue Erklärung zur Plagiatsprüfung erstellt, Ehrenwörtliche Erklärung überarbeitet, beides aufgeteilt in Versionen für Praxisbeleg und mehrere Autoren
+
+- Sonderzeichen in PDF-Metadaten gefixt, erneut...
+
 ## Changes 19. November 2020 - 2
 
 - Es gibt nun ein Formelverzeichnis
@@ -51,7 +63,7 @@ Unterhaltung und Besprechung:
 
 ## Hinweise
 
-- Die Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden.
+- Die meisten Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden. 
 
 - Jeder neue Absatz muss mit `\absatz` und einer Leerzeile davor anfangen.
 
