@@ -5,7 +5,7 @@ Unterhaltung und Besprechung:
 
 [https://chat.4de19.de/channel/latex](https://chat.4de19.de/channel/latex)
 
-##Changes 22. November 2020
+## Changes 22. November 2020
 
 - neue Felder für Adresse von Autor und Praxispartner in 'Titelseite_Praxisbeleg.tex' - müssen direkt dort eingetragen werden, nicht in 'metadaten.sty'
 
