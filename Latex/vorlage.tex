@@ -139,7 +139,12 @@
 
 %! Caption um Tabellen und Abbildungen richtig zu beschriften
 \usepackage{caption}
-\captionsetup{labelsep=none}
+% Captions linksbündig auch wenn einzeilig
+\captionsetup{
+  labelsep=none,
+  justification=raggedright,
+  singlelinecheck=false
+}
 \renewcommand*{\figureformat}{%
   \figurename~\thefigure%
   \autodot{\space\space\space}
