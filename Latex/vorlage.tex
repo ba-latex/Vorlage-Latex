@@ -1,5 +1,5 @@
 %! LaTeX Vorlage
-\documentclass[12pt, fleqn, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc]{scrartcl}
+\documentclass[12pt, fleqn, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc, parskip=half-]{scrartcl}
 
 \usepackage{silence} %unnötige Warnungen unterdrücken
 \WarningFilter{latex}{You have requested}
@@ -16,9 +16,10 @@
 \usepackage[ngerman]{babel}
 \usepackage[backend=biber, style=authortitle, isbn=false]{biblatex}
 
+
+
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
-\RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
-\RedeclareSectionCommands[tocnumwidth=45pt]{section, subsection, subsubsection}
+\RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{section,subsection,subsubsection}
 
 %! Formatierung aller Verzeichnisse
 \renewcaptionname{ngerman}{\refname}{Quellenverzeichnis}
@@ -33,12 +34,7 @@
 
 %? Anhangsverzeichnis
 \providecaptionname{ngerman}{\listofatocentryname}{Anhang}
-\DeclareTOCStyleEntry[
-  level=0,
-  indent=50pt,
-  numwidth=5cm,
-  entrynumberformat={Anlage}
-]{tocline}{atoc}
+\DeclareTOCStyleEntry[level=0, indent=50pt, numwidth=5cm, entrynumberformat={Anlage}]{tocline}{atoc}
 
 \makeatletter
 \AfterTOCHead[atoc]{\let\if@dynlist\if@tocleft}
@@ -131,6 +127,8 @@
 \hypersetup{pdfauthor={\autoren}}
 \usepackage[numbered]{bookmark}
 \usepackage{acronym}
+\usepackage{enumitem}
+
 
 
 \renewcommand*{\aclabelfont}[1]{\acsfont{#1}} %Abkürzungsverzeichnis - Formatierung
@@ -292,14 +290,14 @@
 }{}{}
 
 % ? Ab hier beginnen eigene Befehle um den Umgang zu erleichtern   
-\newcommand{\absatz}{\vspace{12pt}\noindent}
 \newcommand{\logisch}[1]{$``#1``$}
-\newcommand{\bild}[3][1.0]{\begin{figure}[H]
+\newcommand{\bild}[4][1.0]{\begin{figure}[H]
                       \centering
                       \includegraphics[width=#1\columnwidth]{bilder/#2}
                       \caption{#3}
-                      \label{fig:#3}
+                      \label{fig:#4}
                       \end{figure}}
-\newcommand{\fullref}[1]{(siehe Kapitel \ref{#1} \nameref{#1})}
+\newcommand{\fullref}[1]{(siehe Kapitel~\ref{#1}~-~\nameref{#1})}
 \newcommand{\striche}[1]{\glqq #1\grqq{}}
 \newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
+\newcommand{\python}[1]{\mintinline{python}{#1}}
