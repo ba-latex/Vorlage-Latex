@@ -7,6 +7,15 @@ Unterhaltung und Besprechung:
 
 ## Changes 22. November 2020
 
+- Bild Command benötigt jetzt noch einen weiteren Parameter, den labelnamen
+
+- Absatz Befehl muss überall entfernt werden
+
+- Ausführliche Changes kommen wenn die Tastatur wieder geht
+
+
+## Changes 22. November 2020
+
 - neue Felder für Adresse von Autor und Praxispartner in 'Titelseite_Praxisbeleg.tex' - müssen direkt dort eingetragen werden, nicht in 'metadaten.sty'
 
 - neues Paket lineno wird geladen, um Warnungen zu vermeiden
