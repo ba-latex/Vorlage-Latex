@@ -5,7 +5,14 @@ Unterhaltung und Besprechung:
 
 [https://chat.4de19.de/channel/latex](https://chat.4de19.de/channel/latex)
 
-## Changes 22. November 2020
+
+## Changes 05. Januar 2021
+
+- Titelseiten und Erklärungen an neue Changes und lange Titel angepasst
+
+- Multirow Paket eingefügt
+
+- Kommentare zu SVGs angepasst
 
 - Bild Command benötigt jetzt noch einen weiteren Parameter, den labelnamen
 
