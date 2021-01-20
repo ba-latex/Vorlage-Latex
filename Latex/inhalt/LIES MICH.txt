@@ -1,0 +1,3 @@
+Bei der Erstinstallation bitte diesen Ordner in Inhalt umbenennen und die Dateien metadaten.sty und literatur.bib ins Hauptverzeichnis verschieben.
+
+Sollte man zum Repo beitragen wollen, dann diesen Ordner kopieren und inhalt nennen!
