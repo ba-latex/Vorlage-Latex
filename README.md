@@ -1,10 +1,20 @@
 # Vorlage-Latex
-Die ist eine Latex Vorlage für Projektarbeiten und Belege
+Dies ist eine LateX Vorlage für Projektarbeiten und Belege.
 
 Unterhaltung und Besprechung:
 
 [https://chat.4de19.de/channel/latex](https://chat.4de19.de/channel/latex)
 
+## Changes 20. Januar 2021
+
+- In den nächsten Versionen wird eine Umstrukturierung des gesamten Repos stattfinden. Wodurch ein Updaten und
+  Verwenden der Vorlage deutlich einfacher werden wird.
+  
+- Ein weiterer großer Vorteil wird die Integration von Beispielen für jede Art von Umgebung die in der Vorlage mitgeliefert werden.
+
+- Zum Schluss soll ein besserer Entwicklungsworkflow durch GitHub Actions und einem Review System integriert werden.
+
+- All diese Anpassungen finden vorerst in der v2-Branch statt.
 
 ## Changes 05. Januar 2021
 
