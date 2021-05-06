@@ -1,0 +1,21 @@
+name: Document builder
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pull latest image
+        run: docker pull jemand771/latex-build
+      - name: Build PDF
+        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) jemand771/latex-build
+      - name: Archive PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: main.pdf
+          path: Latex/main.pdf
