@@ -7,17 +7,36 @@
             "label": "Build LaTeX using Docker",
             "type": "shell",
             "command": "docker run --pull always -u $(id -u ${USER}):$(id -g ${USER}) --rm -v \"${workspaceFolder}/Latex:/latex\" jemand771/latex-build",
-            "problemMatcher": {
-                "owner": "latex",
-                "fileLocation": ["relative", "${workspaceFolder}/Latex"],
-                "severity": "info",
-                "pattern": {
-                    "regexp": "^(.*):([0-9]+): (.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "message": 3
-                }
-            },
+                "problemMatcher":[
+                    {
+                        "owner":"latex",
+                        "fileLocation":[
+                            "relative",
+                            "${workspaceFolder}/Latex"
+                        ],
+                        "pattern":{
+                            "regexp":"^(.*?):([0-9]+): (.*?): (.*)$",
+                            "file":1,
+                            "line":2,
+                            "severity":3,
+                            "message":4
+                        }
+                    },
+                    {
+                        "owner":"latex",
+                        "fileLocation":[
+                            "relative",
+                            "${workspaceFolder}/Latex"
+                        ],
+                        "pattern":{
+                            "regexp":"^([^:]+?):(?!\\d+:) (.*): (.*)$",
+                            "file":1,
+                            "severity":2,
+                            "message":3,
+                            "kind":"file"
+                        }
+                    }
+                ],
             "group": {
                 "kind": "build",
                 "isDefault": true
