@@ -6,44 +6,70 @@
         {
             "label": "Build LaTeX using Docker",
             "type": "shell",
-            "command": "docker run --pull always -u $(id -u ${USER}):$(id -g ${USER}) --rm -v \"${workspaceFolder}/Latex:/latex\" jemand771/latex-build",
-                "problemMatcher":[
-                    {
-                        "owner":"latex",
-                        "fileLocation":[
-                            "relative",
-                            "${workspaceFolder}/Latex"
-                        ],
-                        "pattern":{
-                            "regexp":"^(.*?):([0-9]+): (.*?): (.*)$",
-                            "file":1,
-                            "line":2,
-                            "severity":3,
-                            "message":4
-                        }
-                    },
-                    {
-                        "owner":"latex",
-                        "fileLocation":[
-                            "relative",
-                            "${workspaceFolder}/Latex"
-                        ],
-                        "pattern":{
-                            "regexp":"^([^:]+?):(?!\\d+:) (.*): (.*)$",
-                            "file":1,
-                            "severity":2,
-                            "message":3,
-                            "kind":"file"
-                        }
+            "command": "docker pull jemand771/latex-build && docker run -u $(id -u ${USER}):$(id -g ${USER}) --rm -v \"${workspaceFolder}/Latex:/latex\" jemand771/latex-build",
+            "problemMatcher": [
+                {
+                    "owner": "latex",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}/Latex"
+                    ],
+                    "pattern": {
+                        "regexp": "^(.*?):([0-9]+): (.*?): (.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "severity": 3,
+                        "message": 4
                     }
-                ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+                },
+                {
+                    "owner": "latex",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}/Latex"
+                    ],
+                    "pattern": {
+                        "regexp": "^([^:]+?):(?!\\d+:) (.*): (.*)$",
+                        "file": 1,
+                        "severity": 2,
+                        "message": 3,
+                        "kind": "file"
+                    }
+                }
+            ],
+            "group": "build",
             "windows": {
                 "command": "docker run --pull always --rm -v \"${workspaceFolder}/Latex:/latex\" jemand771/latex-build"
             }
+        },
+        {
+            "label": "Delete temporary files",
+            "type": "shell",
+            "command": "rm -rf \"${workspaceFolder}/Latex/.build\"",
+            "windows": {
+                "command": "del /F /S /Q -\"${workspaceFolder}\\Latex\\.build\""
+            },
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "label": "Build + Refresh",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Build LaTeX using Docker",
+                "Refresh Viewer"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Refresh Viewer",
+            "command": "${command:latex-workshop.refresh-viewer}",
+            "problemMatcher": []
         }
     ]
 }
