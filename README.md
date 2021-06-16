@@ -11,7 +11,7 @@ Unterhaltung und Besprechung:
   - [Visual Studio Code](https://code.visualstudio.com/download)
   - [Docker](https://docs.docker.com/engine/install/)
 
-- für einen optimalen Workflow sollte die eigene Arbeit ebenfalls auf mit Versionsverwaltung genutzt werden. Siehe [Wiki](https://github.com/DSczyrba/Vorlage-Latex/wiki/Installation-&-Einrichtung#versionsverwaltung)
+- Für einen optimalen Workflow sollte die eigene Arbeit ebenfalls mit einer Versionsverwaltung genutzt werden. Siehe [Wiki](https://github.com/DSczyrba/Vorlage-Latex/wiki/Installation-&-Einrichtung#versionsverwaltung)
 
 
 ## Hinweise
