@@ -19,17 +19,8 @@
     "statusbar_command.commands": [
         {
             "alignment": "left",
-            "tooltip": "Build LaTeX using Docker",
-            "text": "$(gear)",
-            "command": "workbench.action.tasks.runTask",
-            "arguments": [
-                "Build LaTeX using Docker"
-            ]
-        },
-        {
-            "alignment": "left",
-            "tooltip": "Build + Refresh",
-            "text": "$(beaker) Build",
+            "tooltip": "Build using Docker and refresh PDF viewer",
+            "text": "$(beaker) Build & Refresh",
             "command": "workbench.action.tasks.runTask",
             "arguments": [
                 "Build + Refresh"
@@ -37,26 +28,35 @@
         },
         {
             "alignment": "left",
-            "tooltip": "Delete temporary files",
-            "text": "$(file)",
+            "tooltip": "Build LaTeX using Docker",
+            "text": "$(gear) Build",
             "command": "workbench.action.tasks.runTask",
             "arguments": [
-                "Delete temporary files"
+                "Build LaTeX using Docker"
             ]
         },
         {
             "alignment": "left",
-            "tooltip": "Open main.pdf",
-            "text": "$(file-pdf)",
+            "tooltip": "Refresh PDF viewers",
+            "text": "$(refresh) Refresh",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Refresh Viewer"
+            ]
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Open main.pdf viewer",
+            "text": "$(open-preview) View",
             "command": "latex-workshop.view"
         },
         {
             "alignment": "left",
-            "tooltip": "Refresh viewers",
-            "text": "$(refresh)",
+            "tooltip": "Delete temporary files",
+            "text": "$(clear-all) Clean",
             "command": "workbench.action.tasks.runTask",
             "arguments": [
-                "Refresh Viewer"
+                "Delete temporary files"
             ]
         },
     ]
