@@ -9,21 +9,17 @@
 \WarningFilter{fvextra}{}
 \WarningFilter{lineno}{}
 
-\ProvidesPackage{metadaten}
-\usepackage{metadaten}
 
 \usepackage{tocbasic}
 \usepackage[ngerman]{babel}
-\usepackage[backend=biber, style=authortitle, isbn=false]{biblatex}
-
-
+%\usepackage[backend=biber, style=authortitle, isbn=false]{biblatex}
 
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{section,subsection,subsubsection}
 
 %! Formatierung aller Verzeichnisse
 \renewcaptionname{ngerman}{\refname}{Quellenverzeichnis}
-\setuptoc{toc}{totoc}
+%\setuptoc{toc}{totoc}
 \setuptoc{lof}{totoc}
 \setuptoc{lot}{totoc}
 \renewcommand*\listoflofentryname{\bfseries\figurename}
@@ -57,7 +53,11 @@
 \makeatletter
 \newcommand*{\currentname}{\@currentlabelname}
 \makeatother
+\usepackage{xcolor}
 
+
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
 %! Latex-Packages, die verwendet werden
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -75,7 +75,7 @@
 
 %! Code Integration im Dokument
 %? Inklusive Erzeugung eines Custom Enviroments für Programmcodes
-\usepackage{minted}
+\usepackage[outputdir=latex.out]{minted}
 %\SetupFloatingEnvironment{listing}{name=Program code}
 %\SetupFloatingEnvironment{listing}{listname=List of Program Code}
 
@@ -123,14 +123,12 @@
 \renewcommand{\familydefault}{\sfdefault}
 %! Hyperref und PDF-meta
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={\titel}}
-\hypersetup{pdfsubject={\kurzbeschreibung}}
-\hypersetup{pdfauthor={\autoren}}
 \usepackage[numbered]{bookmark}
 \usepackage{acronym}
 \usepackage{enumitem}
 
-
+%Kein Umbruch auf der titelseite
+\let\endtitlepage\relax
 
 \renewcommand*{\aclabelfont}[1]{\acsfont{#1}} %Abkürzungsverzeichnis - Formatierung
  %zB zum korrekten anzeigen von BASH-Befehlen
@@ -154,66 +152,7 @@
 }
 
 
-
-
-%! Formatierung des Literaturverzeichnis
-\DeclareFieldFormat{url}{In: \url{#1}}
-\DeclareFieldFormat{urldate}{\space\mkbibparens{#1}}
-\urlstyle{same}
- \DeclareNameFormat{author}{%
-      \nameparts{#1}%
-      \usebibmacro{name:family-given}
-        {\namepartfamily}
-        {\namepartgiven}
-        {\namepartprefix}
-        {\namepartsuffix}%
-}
-\DeclareFieldFormat{title}{#1}
-\renewcommand{\multinamedelim}{\addsemicolon\space}
-\renewcommand{\finalnamedelim}{\addsemicolon\space}
-\renewcommand{\labelnamepunct}{\addcolon\space}
-\renewcommand*{\finentrypunct}{}
-
-\setlength\bibitemsep{\baselineskip}
-\setlength\bibhang{0pt}
-
 %! Formatierung der Fußnotenzitate / Literaturverzeichnis
-\renewcommand*{\newunitpunct}{\addcomma\space} 
-
-%? Normales Zitat...
-\DeclareCiteCommand{\zitat}[\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}
-   \setunit{\addnbspace}
-   \bibhyperref{\printnames{labelname}}
-   \setunit{\labelnamepunct}
-   \newunit
-   \printfield{location}
-   \newunit
-   \printfield{year}
-   \newunit
-   \printfield{pages}
-   }
-  {\addsemicolon\space}
-  {\usebibmacro{postnote}}
-
-%? Online Zitat
-\DeclareCiteCommand{\onlinezitat}[\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}
-   \setunit{\addnbspace}
-   online:
-   \bibhyperref{\printnames{labelname}}
-   \setunit{\labelnamepunct}
-   \newunit
-   \printfield{year}
-   \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
-  {\addsemicolon\space}
-  {\usebibmacro{postnote}}
-\renewcommand{\bibfootnotewrapper}[1]{\bibsentence#1}
-
-\DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
-\addbibresource{literatur.bib}
 
 
 %! Kopf- und Fußzeile
@@ -223,8 +162,9 @@
 \clearplainofpairofpagestyles
 \renewcommand*{\sectionmarkformat}{}
 \rohead{\textnormal{\headmark}}
-\lohead{\includegraphics[height=8mm]{bilder/logo.png}}
-\lofoot{} 
+%\lohead{\includegraphics[height=8mm]{bilder/logo.png}}
+\lohead{}
+\lofoot{}
 \cofoot{} 
 \rofoot{\textnormal{Seite}~\pagemark}
 \makeatletter
@@ -276,22 +216,6 @@
   listname={Anhangverzeichnis}% Titel des Verzeichnisses
 ]{atoc}% Dateierweiterung (a=appendix, toc=table of contents)
 
-\usepackage{xpatch}
-\xapptocmd\appendix{%
-  \useappendixtocs
-  \listofatocs
-  \addcontentsline{toc}{section}{Anhangverzeichnis}
-  \newpage
-  \pagenumbering{gobble}
-  \pagestyle{scrheadings} 
-  \clearmainofpairofpagestyles 
-  \clearplainofpairofpagestyles
-  \rohead{\textnormal{Anhang~\arabic{section}}}
-  \lohead{\textnormal{\currentname}}
-  \lofoot{} 
-  \cofoot{} 
-  \rofoot{}
-}{}{}
 
 % ? Ab hier beginnen eigene Befehle um den Umgang zu erleichtern   
 \newcommand{\logisch}[1]{$``#1``$}

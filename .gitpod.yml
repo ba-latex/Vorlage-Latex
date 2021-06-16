@@ -1,0 +1,34 @@
+
+tasks:
+# even though will be updated by starting the default build task in in tasks.json for docker >=20 (--pull always),
+# having the image inside the workspace already saves time when building for the first time in a new gitpod
+  - prebuild: docker pull jemand771/latex-build && exit
+    command: docker pull jemand771/latex-build && exit
+
+vscode:
+  extensions:
+# as of now, gitpod only runs vscode 1.56, however, statusbar-commands 1.7.0 requires vscode 1.57
+# gitpod doesn't pick the right version on its own so we have to hardcode it
+    - anweber.statusbar-commands@1.6.0
+    - aaron-bond.better-comments
+    - CoenraadS.bracket-pair-colorizer
+    - James-Yu.latex-workshop
+
+github:
+  prebuilds:
+# enable for the master/default branch (defaults to true)
+    master: true
+# enable for all branches in this repo (defaults to false)
+    branches: true
+# enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+# enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: true
+# add a check to pull requests (defaults to true)
+    addCheck: true
+# add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addComment: false
+# add a "Review in Gitpod" button to the pull request's description (defaults to false)
+    addBadge: true
+# add a label once the prebuild is ready to pull requests (defaults to false)
+    addLabel: false

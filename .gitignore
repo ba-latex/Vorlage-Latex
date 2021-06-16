@@ -1,11 +1,7 @@
-Upload.zip
-Latex/inhalt/
-Latex/literatur.bib
-Latex/bilder/
-Latex/main.pdf
-Latex/svg-inkscape/
-Latex/main.out.ps
 Latex/metadaten.sty
+Latex/main.pdf
+Latex/svg-inkscape
+.build
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
@@ -303,3 +299,8 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.toptal.com/developers/gitignore/api/latex
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/Vorlage-Latex.iml
