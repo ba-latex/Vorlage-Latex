@@ -70,6 +70,36 @@
             "label": "Refresh Viewer",
             "command": "${command:latex-workshop.refresh-viewer}",
             "problemMatcher": []
+        },
+        {
+            "label": "Add Remote: vorlage",
+            "problemMatcher": [],
+            "type": "shell",
+            "command": "git remote add vorlage https://github.com/DSczyrba/Vorlage-Latex.git",
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "label": "Pull Remote: vorlage",
+            "problemMatcher": [],
+            "type": "shell",
+            "command": "git pull vorlage master",
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "label": "Add & Pull Remote: vorlage",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Add Remote: vorlage",
+                "Pull Remote: vorlage"
+            ],
+            "dependsOrder": "sequence",
+            "presentation": {
+                "reveal": "never"
+            }
         }
     ]
 }
