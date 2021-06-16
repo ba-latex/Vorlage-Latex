@@ -6,6 +6,7 @@ tasks:
     command: docker pull jemand771/latex-build && exit
 
 vscode:
+# remember to update these together with .vscode/extensions.json
   extensions:
 # as of now, gitpod only runs vscode 1.56, however, statusbar-commands 1.7.0 requires vscode 1.57
 # gitpod doesn't pick the right version on its own so we have to hardcode it
