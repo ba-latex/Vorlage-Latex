@@ -1,0 +1,63 @@
+{
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "warning",
+            "command": "echo",
+            "args": ["ERROR: Document not compiled. Use the preconfigured build task (ctrl+shift+b by default) instead of LaTeX workshop recipes."],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "default",
+            "tools": [
+                "warning"
+            ]
+        }
+    ],
+    "statusbar_command.commands": [
+        {
+            "alignment": "left",
+            "tooltip": "Build using Docker and refresh PDF viewer",
+            "text": "$(beaker) Build & Refresh",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Build + Refresh"
+            ]
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Build LaTeX using Docker",
+            "text": "$(gear) Build",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Build LaTeX using Docker"
+            ]
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Refresh PDF viewers",
+            "text": "$(refresh) Refresh",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Refresh Viewer"
+            ]
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Open main.pdf viewer",
+            "text": "$(open-preview) View",
+            "command": "latex-workshop.view"
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Delete temporary files",
+            "text": "$(clear-all) Clean",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Delete temporary files"
+            ]
+        },
+    ]
+}
