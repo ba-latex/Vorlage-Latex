@@ -23,4 +23,4 @@ Die oben genannten unterstützten Versionen sind jeweils für 1-4 Beteiligte pro
 
 ## Hinweise
 
-Hinweise zur Vorlage und Verwendungen befinden sich unter [Hinweise](HINWEISE.md).
+Hinweise zur Vorlage und Verwendungsmöglichkeiten, sowie zahlreichen Beispiele befinden sich unter [Hinweise](HINWEISE.md).
