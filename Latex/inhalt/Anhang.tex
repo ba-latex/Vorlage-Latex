@@ -10,7 +10,7 @@
 \renewcommand{\section}[1]{
 \par\refstepcounter{section}
 \sectionmark{#1}
-\addcontentsline{atoc}{section}{\protect\numberline{\thesection}#1}
+\addcontentsline{atoc}{section}{\bfseries\protect\numberline{\thesection}{\mdseries#1}}
 \lohead{\textnormal{#1}}
 } % Ende
 
