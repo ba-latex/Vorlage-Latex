@@ -58,7 +58,7 @@
             "arguments": [
                 "Delete temporary files"
             ]
-        },
+        }
     ],
-    "vorlage-latex.buildcontainer": "jemand771/latex-build:v1.1.0"
+    "vorlage-latex.buildcontainer": "jemand771/latex-build:v1.1.1"
 }
