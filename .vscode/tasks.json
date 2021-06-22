@@ -6,7 +6,7 @@
         {
             "label": "Build LaTeX using Docker",
             "type": "shell",
-            "command": "docker pull ${config:vorlage-latex.buildcontainer} && docker run -u $(id -u ${USER}):$(id -g ${USER}) --rm -v \"${workspaceFolder}/Latex:/latex\" ${config:vorlage-latex.buildcontainer}",
+            "command": "docker pull ${config:vorlage-latex.buildcontainer} && docker run -u $(id -u ${USER}):$(id -g ${USER}) --rm -v \"${workspaceFolder}/Latex:/latex\" -e HOST_PATH=\"${workspaceFolder}/Latex\" ${config:vorlage-latex.buildcontainer}",
             "problemMatcher": [
                 {
                     "owner": "latex",
@@ -39,7 +39,7 @@
             ],
             "group": "build",
             "windows": {
-                "command": "docker run --pull always --rm -v \"${workspaceFolder}/Latex:/latex\" ${config:vorlage-latex.buildcontainer}"
+                "command": "docker run --pull always --rm -v \"${workspaceFolder}/Latex:/latex\" -e HOST_PATH=\"${workspaceFolder}/Latex\" ${config:vorlage-latex.buildcontainer}"
             }
         },
         {
