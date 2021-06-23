@@ -39,7 +39,7 @@
             ],
             "group": "build",
             "windows": {
-                "command": "docker run --pull always --rm -v \"${workspaceFolder}/Latex:/latex\" -e HOST_PATH=\"${workspaceFolder}/Latex\" ${config:vorlage-latex.buildcontainer}"
+                "command": "docker run --pull always --rm -v \\\"${workspaceFolder}/Latex:/latex\\\" -e HOST_PATH=\\\"${workspaceFolder}/Latex\\\" ${config:vorlage-latex.buildcontainer}"
             }
         },
         {
