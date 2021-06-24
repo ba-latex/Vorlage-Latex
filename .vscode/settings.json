@@ -60,5 +60,5 @@
             ]
         }
     ],
-    "vorlage-latex.buildcontainer": "jemand771/latex-build:experimental"
+    "vorlage-latex.buildcontainer": "jemand771/latex-build:v1.2.0"
 }
