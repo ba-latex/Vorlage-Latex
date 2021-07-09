@@ -2,9 +2,7 @@
 tasks:
 # even though will be updated by starting the default build task in in tasks.json for docker >=20 (--pull always),
 # having the image inside the workspace already saves time when building for the first time in a new gitpod
-# note: pulling all tags is kind of wasteful, but there's no (easy) way to only pull the tag we actually need
-  - prebuild: docker pull $(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])") && exit
-    command: docker pull $(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])") && exit
+  - init: docker pull $(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])")
 
 vscode:
 # remember to update these together with .vscode/extensions.json
