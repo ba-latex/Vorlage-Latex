@@ -47,7 +47,7 @@
             "type": "shell",
             "command": "rm -rf \"${workspaceFolder}/Latex/.build\"",
             "windows": {
-                "command": "del /F /S /Q -\"${workspaceFolder}\\Latex\\.build\""
+                "command": "Remove-Item -Force -Recurse \"${workspaceFolder}\\Latex\\.build\""
             },
             "presentation": {
                 "reveal": "never"
