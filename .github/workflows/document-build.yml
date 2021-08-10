@@ -54,10 +54,9 @@ jobs:
           ls -lah main.pdf
           ls -lah Latex/main.pdf
       - name: Generate diff
-        if: ${{ false }}
-        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE
+        run: docker run --rm -v "$GITHUB_WORKSPACE:/data" --init -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE xvfb-run diff-pdf --output-diff="/data/main-diff.pdf" "/data/Latex/main.pdf" "/data/main.pdf"
       - name: Archive diff PDF
         uses: actions/upload-artifact@v2
         with:
           name: main-diff.pdf
-          path: Latex/main-diff.pdf
+          path: main-diff.pdf
