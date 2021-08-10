@@ -21,7 +21,7 @@ jobs:
         with:
           name: main.pdf
           path: Latex/main.pdf
-  diff-pdf:
+  diff:
     # only runs if pdf build was successful
     needs: build-pdf
     if: |
