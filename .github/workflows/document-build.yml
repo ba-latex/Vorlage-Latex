@@ -33,19 +33,21 @@ jobs:
         if: | 
           github.event_name == 'push'
           && github.event.before != '0000000000000000000000000000000000000000'
+        id: checkout-push
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.before }}
       - name: Checkout pull request base
         if: ${{ github.event_name == 'pull_request' }}
+        id: checkout-pull-request
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.base.ref }}
-      - name: Check whether we should continue
-        run: |
-          if [ ! -d "$GITHUB_WORKSPACE" ]; then
-            echo "stop=true" >> $GITHUB_ENV
-          fi
+      - name: Stop execution on SetUp fail
+        if: |
+          steps.checkout-push.conlcusion == 'skipped'
+          && steps.checkout-pull-request.conlcusion == 'skipped'
+        run: echo "stop=true" >> $GITHUB_ENV
       - name: Determine container version
         if: ${{ env.stop != 'true' }}
         run: echo DOCKER_IMAGE=$(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])") >> $GITHUB_ENV
