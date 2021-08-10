@@ -15,7 +15,7 @@ jobs:
       - name: Pull container image
         run: docker pull $DOCKER_IMAGE
       - name: Build PDF
-        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE
+        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 $DOCKER_IMAGE
       - name: Archive PDF
         uses: actions/upload-artifact@v2
         with:
@@ -44,7 +44,7 @@ jobs:
       - name: Pull container image
         run: docker pull $DOCKER_IMAGE
       - name: Build PDF
-        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE
+        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 $DOCKER_IMAGE
       - name: Download new main.pdf
         uses: actions/download-artifact@v2
         with:
