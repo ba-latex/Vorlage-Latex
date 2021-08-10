@@ -6,7 +6,7 @@
         {
             "label": "Build LaTeX using Docker",
             "type": "shell",
-            # Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
+            // Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
             "command": "docker run -u $(id -u ${USER}):$(id -g ${USER}) --init --rm -v \"${workspaceFolder}/Latex:/latex\" -e HOST_PATH=\"${workspaceFolder}/Latex\" -e DISABLE_DIFFPDF=1 ${config:vorlage-latex.buildcontainer}",
             "problemMatcher": [
                 {
@@ -40,7 +40,7 @@
             ],
             "group": "build",
             "windows": {
-                # Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
+                // Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
                 "command": "docker run --init --rm -v \\\"${workspaceFolder}/Latex:/latex\\\" -e HOST_PATH=\\\"${workspaceFolder}/Latex\\\" -e DISABLE_DIFFPDF=1 ${config:vorlage-latex.buildcontainer}"
             }
         },
