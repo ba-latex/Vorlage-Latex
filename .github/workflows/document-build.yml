@@ -21,3 +21,48 @@ jobs:
         with:
           name: main.pdf
           path: Latex/main.pdf
+  build-diff:
+    # only runs if pdf build was successful
+    needs: build-pdf
+    if: |
+      github.event_name == 'push' ||
+      github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout commit before push
+        if: ${{ github.event_name == 'push' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.before }}
+      - name: Checkout pull request base
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+      - name: Determine container version
+        run: echo DOCKER_IMAGE=$(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])") >> $GITHUB_ENV
+      - name: Pull container image
+        run: docker pull $DOCKER_IMAGE
+      - name: Build PDF
+        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE
+      - name: Checkout commit after push
+        if: ${{ github.event_name == 'push' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.after }}
+      - name: Checkout pull request head
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Determine container version
+        run: echo DOCKER_IMAGE=$(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])") >> $GITHUB_ENV
+      - name: Pull container image
+        run: docker pull $DOCKER_IMAGE
+      - name: Build PDF
+        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE
+      - name: Archive diff PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: main-diff.pdf
+          path: Latex/main-diff.pdf
