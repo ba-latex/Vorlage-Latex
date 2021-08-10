@@ -44,18 +44,26 @@ jobs:
       - name: Pull container image
         run: docker pull $DOCKER_IMAGE
       - name: Build PDF
-        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 $DOCKER_IMAGE
+        id: build-prev
+        # NOTE there currently is no better way to mark a job as "allow failure" so we have to use this little hack.
+        # the job will still appear as successful even if the diff build fails which might be slightly misleading
+        run: |
+          if docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 $DOCKER_IMAGE; then
+            echo "::set-output name=status::okay"
+          else
+            echo "::set-output name=status::fail"
+            echo "::warning::previous build failed, not generating diff"
+          fi
       - name: Download new main.pdf
+        if: ${{ steps.build-prev.outputs.status == 'okay' }}
         uses: actions/download-artifact@v2
         with:
           name: main.pdf
-      - name: debug output
-        run: |
-          ls -lah main.pdf
-          ls -lah Latex/main.pdf
       - name: Generate diff
+        if: ${{ steps.build-prev.outputs.status == 'okay' }}
         run: docker run --rm -v "$GITHUB_WORKSPACE:/data" --init -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE xvfb-run diff-pdf --output-diff="/data/main-diff.pdf" "/data/Latex/main.pdf" "/data/main.pdf"
       - name: Archive diff PDF
+        if: ${{ steps.build-prev.outputs.status == 'okay' }}
         uses: actions/upload-artifact@v2
         with:
           name: main-diff.pdf
