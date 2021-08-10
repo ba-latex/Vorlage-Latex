@@ -47,7 +47,9 @@ jobs:
         if: |
           steps.checkout-push.conclusion == 'skipped' &&
           steps.checkout-pull-request.conclusion == 'skipped'
-        run: echo "stop=true" >> $GITHUB_ENV
+        run: |
+          echo "stop=true" >> $GITHUB_ENV
+          echo "::warning::No checkout action ran, aborting diff. Either this workflow was triggert by a wrong event or there are no previous commits on the current branch"
       - name: Determine container version
         if: ${{ env.stop != 'true' }}
         run: echo DOCKER_IMAGE=$(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])") >> $GITHUB_ENV
