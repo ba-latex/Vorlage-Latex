@@ -44,9 +44,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.base.ref }}
       - name: Stop execution on SetUp fail
-        if: |
-          steps.checkout-push.conlcusion == 'skipped'
-          && steps.checkout-pull-request.conlcusion == 'skipped'
+        if: ${{ steps.checkout-push.conclusion == 'skipped' && steps.checkout-pull-request.conclusion == 'skipped' }}
         run: echo "stop=true" >> $GITHUB_ENV
       - name: Determine container version
         if: ${{ env.stop != 'true' }}
