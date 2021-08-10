@@ -51,8 +51,8 @@ jobs:
           name: main.pdf
       - name: debug output
         run: |
-          ls -lah
-          ls -lah *
+          ls -lah main.pdf
+          ls -lah Latex/main.pdf
       - name: Generate diff
         if: ${{ false }}
         run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE
