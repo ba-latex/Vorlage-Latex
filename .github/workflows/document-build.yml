@@ -61,7 +61,7 @@ jobs:
           name: main.pdf
       - name: Generate diff
         if: ${{ steps.build-prev.outputs.status == 'okay' }}
-        run: docker run --rm -v "$GITHUB_WORKSPACE:/data" --init -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE xvfb-run diff-pdf -v --output-diff="/data/main-diff.pdf" "/data/Latex/main.pdf" "/data/main.pdf"
+        run: docker run --rm -v "$GITHUB_WORKSPACE:/data" --init -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE xvfb-run diff-pdf -v --output-diff="/data/main-diff.pdf" "/data/Latex/main.pdf" "/data/main.pdf" || true
       - name: Archive diff PDF
         if: ${{ steps.build-prev.outputs.status == 'okay' }}
         uses: actions/upload-artifact@v2
