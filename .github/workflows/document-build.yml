@@ -15,9 +15,65 @@ jobs:
       - name: Pull container image
         run: docker pull $DOCKER_IMAGE
       - name: Build PDF
-        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE
+        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 $DOCKER_IMAGE
       - name: Archive PDF
         uses: actions/upload-artifact@v2
         with:
           name: main.pdf
           path: Latex/main.pdf
+  diff-pdf:
+    # only runs if pdf build was successful
+    needs: build-pdf
+    if: |
+      github.event_name == 'push' ||
+      github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout commit before push
+        if: ${{ github.event_name == 'push' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.before }}
+      - name: Checkout pull request base
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+      - name: Determine container version
+        run: echo DOCKER_IMAGE=$(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])") >> $GITHUB_ENV
+      - name: Pull container image
+        run: docker pull $DOCKER_IMAGE
+      - name: Build PDF
+        id: build-prev
+        # NOTE there currently is no better way to mark a job as "allow failure" so we have to use this little hack.
+        # the job will still appear as successful even if the diff build fails which might be slightly misleading
+        run: |
+          if docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 $DOCKER_IMAGE; then
+            echo "::set-output name=status::okay"
+          else
+            echo "::set-output name=status::fail"
+            echo "::warning::previous build failed, not generating diff"
+          fi
+      - name: Download new main.pdf
+        if: ${{ steps.build-prev.outputs.status == 'okay' }}
+        uses: actions/download-artifact@v2
+        with:
+          name: main.pdf
+      - name: Generate diff
+        if: ${{ steps.build-prev.outputs.status == 'okay' }}
+        id: diff
+        run: |
+          if docker run --rm -v "$GITHUB_WORKSPACE:/data" --init -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE xvfb-run diff-pdf -v -m -s --output-diff="/data/main-diff.pdf" "/data/Latex/main.pdf" "/data/main.pdf"; then
+            echo "::set-output name=identical::true"
+            echo "::warning::diff-pdf: no change detected"
+          else
+            echo "::set-output name=identical::false"
+          fi
+      - name: Archive diff PDF
+        if: |
+          steps.build-prev.outputs.status == 'okay'
+          && steps.diff.outputs.identical == 'false'
+        uses: actions/upload-artifact@v2
+        with:
+          name: main-diff.pdf
+          path: main-diff.pdf
