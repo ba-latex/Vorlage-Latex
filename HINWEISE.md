@@ -55,7 +55,7 @@ $Q=\text{was noch viel tolleres}$
   -  hintereinander STRG+K, STRG+S drücken
   -  im erscheinenden Fenster "Tastenkombinationen" nach "Synctex from cursor" suchen
   -  Rechtsklick auf die Zeile mit Tastenzuordnung "STRG+ALT+J" --> "when-Ausdruck ändern"
-  -  "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && editorLangId == 'latex'" durch "editorTextFocus && editorLangId == 'latex'" ersetzen (bzw. "!config.latex-workshop.bind.altKeymap.enabled &&" entfernen)
+  -  `editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && editorLangId == 'latex'` durch `editorTextFocus && editorLangId == 'latex'` ersetzen (bzw. `!config.latex-workshop.bind.altKeymap.enabled &&` entfernen)
   -  mit Enter bestätigen
   -  alternativ kann folgender Codeblock in die "keybindings.json" des Benutzers einfügen: (STRG+UMSCH+P --> Einstellungen: Tastenkombinationen öffnen (JSON))
 ```json
