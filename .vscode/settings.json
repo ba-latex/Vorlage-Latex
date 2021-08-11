@@ -1,5 +1,8 @@
 {
     "latex-workshop.view.pdf.viewer": "tab",
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
     "latex-workshop.latex.tools": [
         {
             "name": "warning",
@@ -58,6 +61,7 @@
             "arguments": [
                 "Delete temporary files"
             ]
-        },
-    ]
+        }
+    ],
+    "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.5.1"
 }

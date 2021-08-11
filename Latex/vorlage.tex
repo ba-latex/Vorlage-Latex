@@ -34,7 +34,7 @@
 
 %? Anhangsverzeichnis
 \providecaptionname{ngerman}{\listofatocentryname}{Anhang}
-\DeclareTOCStyleEntry[level=0, indent=50pt, numwidth=5cm, entrynumberformat={Anlage}]{tocline}{atoc}
+
 
 \makeatletter
 \AfterTOCHead[atoc]{\let\if@dynlist\if@tocleft}
@@ -72,6 +72,8 @@
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
 \usepackage{lineno}
 \usepackage{csquotes}
+\usepackage{listings}
+\usepackage{tikz}
 
 %! Code Integration im Dokument
 %? Inklusive Erzeugung eines Custom Enviroments für Programmcodes

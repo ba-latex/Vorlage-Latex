@@ -6,7 +6,8 @@
         {
             "label": "Build LaTeX using Docker",
             "type": "shell",
-            "command": "docker pull jemand771/latex-build && docker run -u $(id -u ${USER}):$(id -g ${USER}) --rm -v \"${workspaceFolder}/Latex:/latex\" jemand771/latex-build",
+            // Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
+            "command": "docker run -u $(id -u ${USER}):$(id -g ${USER}) --init --rm -v \"${workspaceFolder}/Latex:/latex\" -e HOST_PATH=\"${workspaceFolder}/Latex\" -e DISABLE_DIFFPDF=1 ${config:vorlage-latex.buildcontainer}",
             "problemMatcher": [
                 {
                     "owner": "latex",
@@ -39,7 +40,8 @@
             ],
             "group": "build",
             "windows": {
-                "command": "docker run --pull always --rm -v \"${workspaceFolder}/Latex:/latex\" jemand771/latex-build"
+                // Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
+                "command": "docker run --init --rm -v \\\"${workspaceFolder}/Latex:/latex\\\" -e HOST_PATH=\\\"${workspaceFolder}/Latex\\\" -e DISABLE_DIFFPDF=1 ${config:vorlage-latex.buildcontainer}"
             }
         },
         {
@@ -47,7 +49,9 @@
             "type": "shell",
             "command": "rm -rf \"${workspaceFolder}/Latex/.build\"",
             "windows": {
-                "command": "del /F /S /Q -\"${workspaceFolder}\\Latex\\.build\""
+                "type": "process",
+                "command": "powershell.exe",
+                "args": ["Remove-Item -Force -Recurse \"${workspaceFolder}\\Latex\\.build\""]
             },
             "presentation": {
                 "reveal": "never"

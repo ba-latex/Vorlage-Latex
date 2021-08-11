@@ -1,8 +1,3 @@
-Latex/metadaten.sty
-Latex/main.pdf
-Latex/svg-inkscape
-.build
-
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -299,8 +294,18 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.toptal.com/developers/gitignore/api/latex
+
+# jetbrains IDE files
 /.idea/.gitignore
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
 /.idea/Vorlage-Latex.iml
+
+# excluding build artifacts from vcs is good practice
+/Latex/main.pdf
+/Latex/main-diff.pdf
+
+# temporary build files
+/Latex/svg-inkscape/
+/Latex/.build/
