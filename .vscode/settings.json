@@ -60,5 +60,5 @@
             ]
         }
     ],
-    "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.5.0"
+    "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.5.1"
 }
