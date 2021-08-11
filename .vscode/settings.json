@@ -1,5 +1,8 @@
 {
     "latex-workshop.view.pdf.viewer": "tab",
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
     "latex-workshop.latex.tools": [
         {
             "name": "warning",
