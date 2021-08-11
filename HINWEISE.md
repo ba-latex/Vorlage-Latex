@@ -51,4 +51,24 @@ $Q=\text{was noch viel tolleres}$
 
 - Reverse SyncTeX: Um aus der PDF-Ansicht an die entsprechende Stelle im Code zu gelangen, diese mit gehaltener STRG-Taste anklicken.
 
-- Forward SyncTeX: Um aus dem Code an die entsprechende Stelle der PDF zu gelangen, STRG+ALT+J drücken.
+- Forward SyncTeX: Um aus dem Code an die entsprechende Stelle der PDF zu gelangen, STRG+ALT+J drücken. Hierzu muss allerdings die Tastenkombination bearbeitet werden.
+  -  hintereinander STRG+K, STRG+S drücken
+  -  im erscheinenden Fenster "Tastenkombinationen" nach "Synctex from cursor" suchen
+  -  Rechtsklick auf die Zeile mit Tastenzuordnung "STRG+ALT+J" --> "when-Ausdruck ändern"
+  -  `editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && editorLangId == 'latex'` durch `editorTextFocus && editorLangId == 'latex'` ersetzen (bzw. `!config.latex-workshop.bind.altKeymap.enabled &&` entfernen)
+  -  mit Enter bestätigen
+  -  alternativ kann folgender Codeblock in die "keybindings.json" des Benutzers einfügen: (STRG+UMSCH+P --> Einstellungen: Tastenkombinationen öffnen (JSON))
+```json
+[
+    {
+        "key": "ctrl+alt+j",
+        "command": "latex-workshop.synctex",
+        "when": "editorTextFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "-latex-workshop.synctex",
+        "when": "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && editorLangId == 'latex'"
+    }
+]
+```
