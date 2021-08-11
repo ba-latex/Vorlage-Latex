@@ -51,4 +51,4 @@ $Q=\text{was noch viel tolleres}$
 
 - Reverse SyncTeX: Um aus der PDF-Ansicht an die entsprechende Stelle im Code zu gelangen, diese mit gehaltener STRG-Taste anklicken.
 
-- Um aus dem Code an die entsprechende Stelle der PDF zu gelangen, STRG+ALT+J drücken.
+- Forward SyncTeX: Um aus dem Code an die entsprechende Stelle der PDF zu gelangen, STRG+ALT+J drücken.
