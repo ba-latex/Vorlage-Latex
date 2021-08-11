@@ -48,3 +48,7 @@ $Q=\text{was noch viel tolleres}$
 - Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Erklärung der Formelzeichen auch. Siehe dazu auch das HAWA-Dokument.
 
 - Normale Anführungszeichen ("") entsprechen nicht der Deutschen Rechtschreibung. Hierzu das Kommando `\striche{Text}` verwenden.
+
+- Um aus der PDF-Ansicht an die entsprechende Stelle im Code zu gelangen, diese mit gehaltener STRG-Taste anklicken.
+
+- Um aus dem Code an die entsprechende Stelle der PDF zu gelangen, STRG+ALT+J drücken.
