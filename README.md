@@ -10,7 +10,7 @@ Die Vorlage unterstützt aktuell einen oder drei Autoren, eine Version für vier
 
 ## Installation & Einrichtung
 
-- Dieses Repository ist hauptsächlich auf die Nutzung mit [Visual Studio Code](https://code.visualstudio.com/download) und dem [Docker](https://docs.docker.com/engine/install/)-Container [`jemand771/latex-build`](https://github.com/jemand771/latex-build) ausgelegt.
+- Dieses Repository ist hauptsächlich auf die Nutzung mit [Visual Studio Code](https://code.visualstudio.com/download) und dem [Docker](https://docs.docker.com/engine/install/)-Container [`jemand771/latex-build`](https://github.com/jemand771/latex-build/pkgs/container/latex-build) ausgelegt.
 
 - Für einen optimalen Workflow sollte die eigene Arbeit ebenfalls mit einer Versionsverwaltung genutzt werden. Siehe [Wiki](https://github.com/DSczyrba/Vorlage-Latex/wiki/Installation-&-Einrichtung#versionsverwaltung).
 
