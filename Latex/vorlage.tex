@@ -75,6 +75,11 @@
 \usepackage{listings}
 \usepackage{tikz}
 
+
+%! PageBreaks nach einer Section
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
 %! Code Integration im Dokument
 %? Inklusive Erzeugung eines Custom Enviroments für Programmcodes
 \usepackage{minted}
