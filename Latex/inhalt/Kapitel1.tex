@@ -11,7 +11,7 @@
   Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
 
 \section{Dokumentation der Vorlage}
-  \subsection{Einbindung von Grafiken}
+  \subsection{Einbinden von Grafiken}
     \subsubsection{Pixelgrafiken}
       Es ist sowohl möglich Pixelgrafiken wie in diesem Kapitel beschrieben 
       oder auch wie im nächsten Kapitel \ref{sec:vectorgrafiken} beschrieben Vektorgrafiken einzubinden.
@@ -50,9 +50,38 @@
         In der folgenden Abbildung wird die in den Codes beschriebene Grafik eingebunden.
         \bild[0.5]{ba-gc-logo}{Text zu einem Bild}{label1}
 
-  \subsection{Vektorgrafiken}
+  \subsubsection{Vektorgrafiken}
     \label{sec:vectorgrafiken}
-    \svg[0.5]{ba_glauchau_logo}{Text zu einer \ac{SVG}-Datei}{label2}
+    Vektorgrafiken verhalten sich prinzipiell ähnlich wie im vorherigen Kapitel beschriebene Pixelgrafiken.
+    Dennoch sollen hier aus Gründen der Vollständigkeit beide Varianten gezeigt werden.
+
+    \begin{code}[H]
+      \begin{minted}[linenos, breaklines, frame=none, numbers=left, autogobble, numbersep=5pt]{latex}
+        \svg[0.5]{ba_glauchau_logo}{Text zu einer SVG-Datei}{fig:ba-gc-logo}
+        % \svg ruft die Funktion auf
+        % 0.5 steht für die Breite des Bildes (0.0 bis 1.0)
+        % ba_glauchau_logo gibt den Dateinamen des Bildes im Ordner bilder an
+        % label beschreibt den Namen für spätere \refs{}
+      \end{minted}
+      \caption{SVG-Grafiken mittels Bild-Funktion einbinden}
+      \label{code:svg-einfuegen1}
+      \end{code}
+
+      \begin{code}[H]
+        \begin{minted}[linenos, breaklines, frame=none, numbers=left, autogobble, numbersep=5pt]{latex}
+          \begin{figure}[H]
+            \centering
+            \includesvg[width=0.5\columnwidth,inkscapelatex=false]{bilder/ba}
+            \caption{Bildunterschrift}
+            \label{fig:ba-gc-logo}
+          \end{figure}
+        \end{minted}
+        \caption{SVG-Grafiken mittels Environments einfügen}
+        \label{code:bildsvg-einfuegen2}
+      \end{code}
+
+      In der folgenden Abbildung wird die in den Codes beschriebene SVG-Grafik eingebunden.
+      \svg[0.5]{ba_glauchau_logo}{Text zu einer \ac{SVG}-Datei}{label2}
 
 \section{Kapitel 1}
   \blindtext
