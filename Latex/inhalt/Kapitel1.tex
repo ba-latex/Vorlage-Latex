@@ -1,19 +1,58 @@
-%Alle Kapitel beginnen mit der Hauptüberschrift
+\usemintedstyle{colorful} %Festlegen des Minted Styles
+
 \section{Einleitung}
-Diese PDF wurde mit der Vorlage erstellt, um die Funktion und Formatierung dieser zu zeigen.
+  Diese PDF wurde mit der Vorlage erstellt, um die Funktion und Formatierung dieser zu zeigen.
 
-Die Vorlage\onlinezitat{SCZYRBA2020} ist ein Gemeinschaftsprojekt im Rahmen unseres Studiums.
-Der Docker-Container\onlinezitat{HILLE2021} gehört dazu.
-Die Vorlage richtet sich weitestgehend nach dem Dokument \ac{HAWA}\onlinezitat{HAWA} der \href{https://www.ba-glauchau.de/}{Staatlichen Studienakademie Glauchau}.
+  Die Vorlage\onlinezitat{SCZYRBA2020} ist ein Gemeinschaftsprojekt im Rahmen unseres Studiums.
+  Der Docker-Container\onlinezitat{HILLE2021} gehört dazu.
+  Die Vorlage richtet sich weitestgehend nach dem Dokument \ac{HAWA}\onlinezitat{HAWA} der \href{https://www.ba-glauchau.de/}{Staatlichen Studienakademie Glauchau}.
 
-Weitere Hinweise befinden sich in der README.md oder im \href{https://github.com/DSczyrba/Vorlage-Latex/wiki}{Wiki}.
-Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
+  Weitere Hinweise befinden sich in der README.md oder im \href{https://github.com/DSczyrba/Vorlage-Latex/wiki}{Wiki}.
+  Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
 
-\section{Beispiele}
-\subsection{Pixelgrafiken}
-\bild[0.5]{ba-gc-logo}{Text zu einem Bild}{label1}
-\subsection{Vektorgrafiken}
-\svg[0.5]{ba_glauchau_logo}{Text zu einer \ac{SVG}-Datei}{label2}
+\section{Dokumentation der Vorlage}
+  \subsection{Einbindung von Grafiken}
+    \subsubsection{Pixelgrafiken}
+      Es ist sowohl möglich Pixelgrafiken wie in diesem Kapitel beschrieben 
+      oder auch wie im nächsten Kapitel \ref{sec:vectorgrafiken} beschrieben Vektorgrafiken einzubinden.
+
+      Prinzipiell gibt es zwei Möglichkeiten eine Grafik einzubinden.
+      Zum einen über eine vordefinierte Funktion namens \mintinline{latex}{\bild{}}. 
+      Diese benutzt im Endeffekt die zweite Variante ist durch den kürzeren Befehl allerdings deutlich einfacher zu nutzen.
+            
+      \begin{code}[H]
+        \begin{minted}[linenos, breaklines, frame=none, numbers=left, autogobble, numbersep=5pt]{latex}
+          \bild[0.5]{ba-gc-logo}{Text zu einem Bild}{fig:ba-gc-logo}
+          % \bild ruft die Funktion auf
+          % 0.5 steht für die Breite des Bildes (0.0 bis 1.0)
+          % ba-gc-logo gibt den Dateinamen des Bildes im Ordner bilder an
+          % label beschreibt den Namen für spätere \refs{}
+        \end{minted}
+        \caption{Grafiken mittels Bild-Funktion einbinden}
+        \label{code:bild-einfuegen1}
+        \end{code}
+
+        Zum anderen über die \LaTeX-Standardvariante einer Gleitumgebung, im Folgenden \striche{Environment} genannt.
+
+        \begin{code}[H]
+          \begin{minted}[linenos, breaklines, frame=none, numbers=left, autogobble, numbersep=5pt]{latex}
+            \begin{figure}[H]
+              \centering 
+              \includegraphics[width=0.5\columnwidth]{bilder/ba-gc-logo}
+              \caption{Bildunterschrift}
+              \label{fig:ba-gc-logo}
+            \end{figure}
+          \end{minted}
+          \caption{Grafiken mittels Environments einfügen}
+          \label{code:bild-einfuegen2}
+        \end{code}
+
+        In der folgenden Abbildung wird die in den Codes beschriebene Grafik eingebunden.
+        \bild[0.5]{ba-gc-logo}{Text zu einem Bild}{label1}
+
+  \subsection{Vektorgrafiken}
+    \label{sec:vectorgrafiken}
+    \svg[0.5]{ba_glauchau_logo}{Text zu einer \ac{SVG}-Datei}{label2}
 
 \section{Kapitel 1}
-\blindtext
+  \blindtext
