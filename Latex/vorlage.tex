@@ -301,6 +301,12 @@
   \rofoot{}
 }{}{}
 
+% ! Anpassung der Minted-Umgebung, um Abstände zu vereinheitlichen
+\let\oldminted\minted
+\let\oldendminted\endminted
+\def\minted{\begingroup \vspace{-0.3cm} \oldminted}
+\def\endminted{\oldendminted \vspace{-0.5cm} \endgroup}
+
 % ? Ab hier beginnen eigene Befehle um den Umgang zu erleichtern   
 \newcommand{\logisch}[1]{$``#1``$}
 \newcommand{\bild}[4][1.0]{\begin{figure}[H]
