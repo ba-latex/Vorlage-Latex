@@ -4,19 +4,20 @@
 \appendix
 \clearpage
 
-%! Section Befehl wird umgeschrieben, damit keine Überschriften mehr angezeigt werden
-%!Kann falls Überschriften gewollt sind entfern werden oder erst später eingefügt
+%! Section Befehl wird umgeschrieben, um Überschriften zu verbergen
+%! Kann, falls Überschriften gewollt sind, entfernt oder erst später eingefügt werden.
 % Beginn 
 \renewcommand{\section}[1]{
 \par\refstepcounter{section}
 \sectionmark{#1}
 \addcontentsline{atoc}{section}{\bfseries\protect\numberline{\thesection}{\mdseries#1}}
 \lohead{\textnormal{#1}}
-} % Ende
+}
+% Ende
 
-%! Hier kann man sich anpassen, wie Abbildungen im Anhang dargestellt werden.
-%! Bitte eins der beiden Auskommentieren
-%? Möglichkeit 1 ohne Nummerierung und ohne Abbildung davor 
+%! Anpassung der Darstellung von Abbildungen im Anhang
+%! Eine Variante auskommentieren
+%? Möglichkeit 1: ohne Nummerierung und ohne "Abbildung"
 %\renewcommand{\bild}[3][1.0]{\begin{figure}[H]
 %	\centering
 %	\includegraphics[width=#1\columnwidth]{bilder/#2}
@@ -24,7 +25,7 @@
 %	\label{fig:#3}
 %	\end{figure}}
 
-%? Möglichkeit 2 mit Nummerierung und Abbildung, aber nicht im Abbildungsverzeichnis
+%? Möglichkeit 2: mit Nummerierung und "Abbildung", aber nicht im Abbildungsverzeichnis
 \renewcommand{\bild}[3][1.0]{\begin{figure}[H]
 	\centering
 	\includegraphics[width=#1\columnwidth]{bilder/#2}

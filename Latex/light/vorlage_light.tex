@@ -48,7 +48,7 @@
   }
 \makeatother
 
-%! Ermöglicht die Ausgabe des aktuellen Titels
+%! ermöglicht die Ausgabe des aktuellen Titels
 \usepackage{nameref}
 \makeatletter
 \newcommand*{\currentname}{\@currentlabelname}
@@ -58,7 +58,7 @@
 
 \usepackage[normalem]{ulem}
 \useunder{\uline}{\ul}{}
-%! Latex-Packages, die verwendet werden
+%! zusätzliche LaTeX-Packages
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -73,8 +73,8 @@
 \usepackage{lineno}
 \usepackage{csquotes}
 
-%! Code Integration im Dokument
-%? Inklusive Erzeugung eines Custom Enviroments für Programmcodes
+%! Code-Integration im Dokument
+%? Inklusive Erzeugung eines Custom-Enviroments für Programmcodes
 \usepackage[outputdir=latex.out]{minted}
 %\SetupFloatingEnvironment{listing}{name=Program code}
 %\SetupFloatingEnvironment{listing}{listname=List of Program Code}
@@ -99,14 +99,14 @@
 \BeforeStartingTOC[loc]{\renewcommand*\autodot{\space\space\space\space}}
 
 
-%! Lang ersehntes Formelumgebung / Formelverzeichnis
+%! Formelverzeichnis
 \DeclareNewTOC[
   type=formel,                         % Name der Umgebung
   types=formeln,                       % Erweiterung (\listofschemes)
   float,                               % soll gleiten
-  tocentryentrynumberformat=\bfseries,                        % voreingestellte Gleitparameter
+  tocentryentrynumberformat=\bfseries, % voreingestellte Gleitparameter
   name=Formel,                         % Name in Überschriften
-  listname={Formelverzeichnis}, % Listenname
+  listname={Formelverzeichnis},        % Listenname
   % counterwithin=chapter
 ]{lom}
 \setuptoc{lom}{totoc}
@@ -118,6 +118,7 @@
 
 
 %! Schriftart
+%! Die HAWA schreibt Arial vor, welches in Standard LaTeX-Distributionen nicht mitgeliefert wird. Helvetica ist nahezu identisch.
 \usepackage{helvet}
 \usepackage{microtype}
 \renewcommand{\familydefault}{\sfdefault}
@@ -134,9 +135,9 @@
  %zB zum korrekten anzeigen von BASH-Befehlen
 
 
-%! Caption um Tabellen und Abbildungen richtig zu beschriften
+%! Caption, um Tabellen und Abbildungen richtig zu beschriften
 \usepackage{caption}
-% Captions linksbündig auch wenn einzeilig
+% Captions linksbündig, auch wenn einzeilig
 \captionsetup{
   labelsep=none,
   justification=raggedright,
