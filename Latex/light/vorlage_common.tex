@@ -1,0 +1,231 @@
+\documentclass[12pt, fleqn, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc, parskip=half-]{scrartcl}
+
+\usepackage{silence} %unnötige Warnungen unterdrücken
+\WarningFilter{latex}{You have requested}
+\WarningFilter{scrlayer-scrpage}{\headheight to low}
+\WarningFilter{scrlayer-scrpage}{\footheight to low}
+\WarningFilter{scrlayer-scrpage}{Very small head height detected}
+\WarningFilter{fvextra}{}
+\WarningFilter{lineno}{}
+
+\usepackage{tocbasic}
+\usepackage[ngerman]{babel}
+
+%! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
+\RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{section,subsection,subsubsection}
+
+%! Formatierung aller Verzeichnisse
+%\setuptoc{toc}{totoc}
+\setuptoc{lof}{totoc}
+\setuptoc{lot}{totoc}
+\renewcommand*\listoflofentryname{\bfseries\figurename}
+\BeforeStartingTOC[lof]{\renewcommand*\autodot{\space\space\space\space}}
+\addtokomafont{captionlabel}{\bfseries}
+\renewcommand*\listoflotentryname{\bfseries\tablename}
+\BeforeStartingTOC[lot]{\renewcommand*\autodot{\space\space\space\space}}
+
+%? Anhangsverzeichnis
+\providecaptionname{ngerman}{\listofatocentryname}{Anhang}
+
+\makeatletter
+\AfterTOCHead[atoc]{\let\if@dynlist\if@tocleft}
+\newcommand*{\useappendixtocs}{
+  \renewcommand*{\ext@toc}{atoc}
+  \RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
+  \RedeclareSectionCommands[tocnumwidth=85pt]{section, subsection, subsubsection}
+  \addtokomafont{sectionentry}{\mdseries}
+  \renewcommand*\listoflofentryname{\mdseries}
+  \renewcommand{\thesection}{\arabic{section}}
+  \renewcommand{\@dotsep}{10000}
+  }
+\newcommand*{\usestandardtocs}{
+  \renewcommand*{\ext@toc}{toc}
+  }
+\makeatother
+
+%! ermöglicht die Ausgabe des aktuellen Titels
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+
+%! zusätzliche LaTeX-Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{setspace} 
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
+\usepackage{lineno}
+\usepackage{csquotes}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{blindtext}
+\usepackage{xcolor}
+
+%! Code-Integration im Dokument
+%? Inklusive Erzeugung eines Custom-Enviroments für Programmcodes
+\usepackage{minted}
+\DeclareNewTOC[
+  type=code,                           % Name der Umgebung
+  types=codes,                         % Erweiterung (\listofschemes)
+  float,                               % soll gleiten
+  floatpos=H,
+  tocentryentrynumberformat=\bfseries, % voreingestellte Gleitparameter
+  name=Code,                           % Name in Überschriften
+  listname={Programmcodeverzeichnis},  % Listenname
+  % counterwithin=chapter
+]{loc}
+\setuptoc{loc}{totoc}
+
+\renewcommand*{\codeformat}{%
+  \codename~\thecode%
+  \autodot{\space\space\space}
+}
+\BeforeStartingTOC[loc]{\renewcommand*\autodot{\space\space\space\space}}
+
+
+%! Formelverzeichnis
+\DeclareNewTOC[
+  type=formel,                         % Name der Umgebung
+  types=formeln,                       % Erweiterung (\listofschemes)
+  float,                               % soll gleiten
+  tocentryentrynumberformat=\bfseries, % voreingestellte Gleitparameter
+  name=Formel,                         % Name in Überschriften
+  listname={Formelverzeichnis},        % Listenname
+  % counterwithin=chapter
+]{lom}
+\setuptoc{lom}{totoc}
+\renewcommand*{\formelformat}{%
+  \formelname~\theformel%
+  \autodot{\space\space\space}
+}
+\BeforeStartingTOC[lom]{\renewcommand*\autodot{\space\space\space\space}}
+
+
+%! Schriftart
+%! Die HAWA schreibt Arial vor, welches in Standard LaTeX-Distributionen nicht mitgeliefert wird. Helvetica ist nahezu identisch.
+\usepackage{helvet}
+\usepackage{microtype}
+\renewcommand{\familydefault}{\sfdefault}
+%! Hyperref und PDF-meta
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbered]{bookmark}
+\usepackage{acronym}
+\usepackage{enumitem}
+
+%Abkürzungsverzeichnis - Formatierung (bspw. zur korrekten Anzeige von BASH-Befehlen)
+\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
+
+%! Caption, um Tabellen und Abbildungen richtig zu beschriften
+\usepackage{caption}
+% Captions linksbündig, auch wenn einzeilig
+\captionsetup{
+  labelsep=none,
+  justification=raggedright,
+  singlelinecheck=false
+}
+\renewcommand*{\figureformat}{%
+  \figurename~\thefigure%
+  \autodot{\space\space\space}
+}
+\renewcommand*{\tableformat}{%
+  \tablename~\thetable%
+  \autodot{\space\space\space}
+}
+
+
+%! Kopf- und Fußzeile
+\usepackage[automark]{scrlayer-scrpage} 
+\pagestyle{scrheadings} 
+\clearmainofpairofpagestyles 
+\clearplainofpairofpagestyles
+\renewcommand*{\sectionmarkformat}{}
+\rohead{\textnormal{\headmark}}
+\lohead{}
+\lofoot{} 
+\cofoot{} 
+\rofoot{\textnormal{Seite}~\pagemark}
+\makeatletter
+\usepackage{geometry}
+\setlength{\footheight}{18.85002pt}
+\geometry{a4paper,
+          left=25mm,right=25mm,top=20mm,bottom=20mm,
+          includehead=false,
+          includefoot=false,
+          headheight = \baselineskip,
+          headsep = \dimexpr\Gm@tmargin-\headheight-10mm,
+          footskip = \dimexpr\Gm@bmargin-10mm,
+          %showframe,
+          bindingoffset=0mm}
+\setlength{\footheight}{\baselineskip}
+\makeatother
+
+%! Versuch von besseren Seitenumbrüchen
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+\widowpenalties= 3 10000 10000 150
+
+\linespread{1.3}
+\newcommand\frontmatter{%
+    \cleardoublepage
+  %\@mainmatterfalse
+  \pagenumbering{Roman}}
+
+\newcommand\mainmatter{%
+    \cleardoublepage
+ % \@mainmattertrue
+  \pagenumbering{arabic}}
+
+\newcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+ % \@mainmatterfalse
+   }
+
+%! Inhalts-/Anhangsverzeichnis
+\DeclareNewTOC[%
+  %owner=\jobname,
+  tocentrystyle=tocline,
+  tocentryentrynumberformat=\PrefixBy{Anhang},
+  listname={Anhangverzeichnis}% Titel des Verzeichnisses
+]{atoc}% Dateierweiterung (a=appendix, toc=table of contents)
+
+% ! Anpassung der Minted-Umgebung, um Abstände zu vereinheitlichen
+\let\oldminted\minted
+\let\oldendminted\endminted
+\def\minted{\begingroup \vspace{-0.3cm} \oldminted}
+\def\endminted{\oldendminted \vspace{-0.5cm} \endgroup}
+\xapptocmd{\inputminted}{\vspace{-0.5cm}}{}{}
+
+%! Eigene Befehle zur erleichterten Nutzung
+\newcommand{\logisch}[1]{$``#1``$}
+\newcommand{\bild}[4][1.0]{\begin{figure}[H]
+                      \centering
+                      \includegraphics[width=#1\columnwidth]{bilder/#2}
+                      \caption{#3}
+                      \label{fig:#4}
+                      \end{figure}}
+\newcommand{\fullref}[1]{(siehe Kapitel~\ref{#1}~-~\nameref{#1})}
+\newcommand{\literef}[1]{Kapitel~\ref{#1}~-~\nameref{#1}}
+\newcommand{\aref}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1}}}}
+\newcommand{\bref}[1]{\emph{\hyperref[{fig:#1}]{Abbildung \ref{fig:#1}}}}
+\newcommand{\striche}[1]{\glqq #1\grqq{}}
+\newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
+\newcommand{\python}[1]{\mintinline{python}{#1}}
+\newcommand{\svg}[4][1.0]{\begin{figure}[H]
+  \centering
+  \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
+  \caption{#3}
+  \label{fig:#4}
+  \end{figure}}
+\newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
