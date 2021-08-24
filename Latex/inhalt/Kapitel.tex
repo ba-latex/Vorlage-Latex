@@ -1,11 +1,11 @@
 \frontmatter
 
-%! An dieser Stelle eingeben, welche Ditelseite verwendet wird!
+%! Auswahl der Titelseite
 \include{inhalt/Titelseite_Praxisbeleg}
 %\include{inhalt/Titelseite_3Autoren}
 
 
-%! An dieser Stelle bitte die nicht benötigten Verzeichnisse auskommentieren!
+%! nicht benötigte Verzeichnisse hier auskommentieren
 %? Inhaltsverzeichnis
 \tableofcontents
 \newpage
@@ -30,15 +30,20 @@
 \include{inhalt/Abkürzungen}
 
 
-%! Ab hier der Hauptteil, hier werden alle Kapitel eingetragen, die zur Arbeit gehören!
+%! Hier beginnt der eigentliche Inhalt der Arbeit.
 \mainmatter
 
-%! Es ist Möglich die ganze Arbeit in eine Datei ("Kapitel1.tex") zu schreiben.
-%! Sollte mehr Struktur und Übersicht gewünscht werden, können noch zusätzliche Dateien angelegt werden.
-%! Diese müssen dann nach folgendem Schema hier hinzugefügt werden:
+%! Eine der folgenden Zeilen wieder aktivieren und entsprechende Datei ablegen
+%? druckt Firmenlogo ab Kapitel 1 in Kopfzeile - SVG ist, auch bei kleinen Grafiken, zu bevorzugen, wenn vorhanden
+%\lohead{\includesvg[height=8mm,inkscapelatex=false]{bilder/firmenlogo.svg}}
+%\lohead{\includegraphics[height=8mm]{bilder/firmenlogo.png}}
+
+%! Es ist möglich, die ganze Arbeit in eine Datei ("Kapitel1.tex") zu schreiben.
+%! Sollten mehr Struktur und Übersicht gewünscht werden, können noch zusätzliche Dateien angelegt werden,
+%! diese müssen nach dem selben Schema wie "Kapitel1.tex" hinzugefügt werden:
 \include{inhalt/Kapitel1}
 
-%? Quellen und Literaturverzeichnis
+%? Quellen- und Literaturverzeichnis
 \printbibliography
 
 %? Anhang

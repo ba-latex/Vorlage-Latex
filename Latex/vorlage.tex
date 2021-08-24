@@ -52,13 +52,13 @@
   }
 \makeatother
 
-%! Ermöglicht die Ausgabe des aktuellen Titels
+%! Ermöglicht die Ausgabe des aktuellen Titels.
 \usepackage{nameref}
 \makeatletter
 \newcommand*{\currentname}{\@currentlabelname}
 \makeatother
 
-%! Latex-Packages, die verwendet werden
+%! zusätzliche LaTeX-Packages
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -77,25 +77,25 @@
 \usepackage{blindtext}
 
 
-%! PageBreaks nach einer Section
+%! PageBreaks nach jeder Section
 \let\oldsection\section
 \renewcommand\section{\clearpage\oldsection}
 
-%! Code Integration im Dokument
-%? Inklusive Erzeugung eines Custom Enviroments für Programmcodes
+%! Code-Integration im Dokument
+%? Inklusive Erzeugung eines Custom-Enviroments für Programmcodes
 \usepackage{minted}
 %\SetupFloatingEnvironment{listing}{name=Program code}
 %\SetupFloatingEnvironment{listing}{listname=List of Program Code}
 
 
 \DeclareNewTOC[
-  type=code,                         % Name der Umgebung
-  types=codes,                       % Erweiterung (\listofschemes)
+  type=code,                           % Name der Umgebung
+  types=codes,                         % Erweiterung (\listofschemes)
   float,                               % soll gleiten
   floatpos=H,
-  tocentryentrynumberformat=\bfseries,                        % voreingestellte Gleitparameter
-  name=Code,                         % Name in Überschriften
-  listname={Programmcodeverzeichnis}, % Listenname
+  tocentryentrynumberformat=\bfseries, % voreingestellte Gleitparameter
+  name=Code,                           % Name in Überschriften
+  listname={Programmcodeverzeichnis},  % Listenname
   % counterwithin=chapter
 ]{loc}
 \setuptoc{loc}{totoc}
@@ -107,14 +107,14 @@
 \BeforeStartingTOC[loc]{\renewcommand*\autodot{\space\space\space\space}}
 
 
-%! Lang ersehntes Formelumgebung / Formelverzeichnis
+%! Formelverzeichnis
 \DeclareNewTOC[
   type=formel,                         % Name der Umgebung
   types=formeln,                       % Erweiterung (\listofschemes)
   float,                               % soll gleiten
-  tocentryentrynumberformat=\bfseries,                        % voreingestellte Gleitparameter
+  tocentryentrynumberformat=\bfseries, % voreingestellte Gleitparameter
   name=Formel,                         % Name in Überschriften
-  listname={Formelverzeichnis}, % Listenname
+  listname={Formelverzeichnis},        % Listenname
   % counterwithin=chapter
 ]{lom}
 \setuptoc{lom}{totoc}
@@ -126,6 +126,7 @@
 
 
 %! Schriftart
+%! Die HAWA schreibt Arial vor, welches in Standard LaTeX-Distributionen nicht mitgeliefert wird. Helvetica ist nahezu identisch.
 \usepackage{helvet}
 \usepackage{microtype}
 \renewcommand{\familydefault}{\sfdefault}
@@ -138,15 +139,12 @@
 \usepackage{acronym}
 \usepackage{enumitem}
 
+%Abkürzungsverzeichnis - Formatierung (bspw. zur korrekten Anzeige von BASH-Befehlen)
+\renewcommand*{\aclabelfont}[1]{\acsfont{#1}} 
 
-
-\renewcommand*{\aclabelfont}[1]{\acsfont{#1}} %Abkürzungsverzeichnis - Formatierung
- %zB zum korrekten anzeigen von BASH-Befehlen
-
-
-%! Caption um Tabellen und Abbildungen richtig zu beschriften
+%! Caption, um Tabellen und Abbildungen richtig zu beschriften
 \usepackage{caption}
-% Captions linksbündig auch wenn einzeilig
+% Captions linksbündig, auch wenn einzeilig
 \captionsetup{
   labelsep=none,
   justification=raggedright,
@@ -231,7 +229,7 @@
 \clearplainofpairofpagestyles
 \renewcommand*{\sectionmarkformat}{}
 \rohead{\textnormal{\headmark}}
-\lohead{\includegraphics[height=8mm]{bilder/logo.png}}
+\lohead{}
 \lofoot{} 
 \cofoot{} 
 \rofoot{\textnormal{Seite}~\pagemark}
@@ -276,7 +274,7 @@
  % \@mainmatterfalse
    }
 
-%! INHALTSVERZEICHNIS / ANHANGSSVERZEICHNIS
+%! Inhalts-/Anhangsverzeichnis
 \DeclareNewTOC[%
   %owner=\jobname,
   tocentrystyle=tocline,
@@ -307,7 +305,7 @@
 \def\minted{\begingroup \vspace{-0.3cm} \oldminted}
 \def\endminted{\oldendminted \vspace{-0.5cm} \endgroup}
 
-% ? Ab hier beginnen eigene Befehle um den Umgang zu erleichtern   
+%! Eigene Befehle zur erleichterten Nutzung
 \newcommand{\logisch}[1]{$``#1``$}
 \newcommand{\bild}[4][1.0]{\begin{figure}[H]
                       \centering
