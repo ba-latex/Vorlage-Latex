@@ -4,6 +4,7 @@ tasks:
 # having the image inside the workspace already saves time when building for the first time in a new gitpod
   - init: docker pull $(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])")
     command: exit
+  - command: docker run -d --name ngix-pdf --restart=always -v "$GITPOD_REPO_ROOT/Latex:/usr/share/nginx/html:ro" -p 12345:80 nginx
 
 vscode:
 # remember to update these together with .vscode/extensions.json
