@@ -98,34 +98,3 @@
   \cofoot{} 
   \rofoot{}
 }{}{}
-
-% ! Anpassung der Minted-Umgebung, um Abstände zu vereinheitlichen
-\let\oldminted\minted
-\let\oldendminted\endminted
-\def\minted{\begingroup \vspace{-0.3cm} \oldminted}
-\def\endminted{\oldendminted \vspace{-0.5cm} \endgroup}
-
-\xapptocmd{\inputminted}{\vspace{-0.5cm}}{}{}
-
-%! Eigene Befehle zur erleichterten Nutzung
-\newcommand{\logisch}[1]{$``#1``$}
-\newcommand{\bild}[4][1.0]{\begin{figure}[H]
-                      \centering
-                      \includegraphics[width=#1\columnwidth]{bilder/#2}
-                      \caption{#3}
-                      \label{fig:#4}
-                      \end{figure}}
-\newcommand{\fullref}[1]{(siehe Kapitel~\ref{#1}~-~\nameref{#1})}
-\newcommand{\literef}[1]{Kapitel~\ref{#1}~-~\nameref{#1}}
-\newcommand{\aref}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1}}}}
-\newcommand{\bref}[1]{\emph{\hyperref[{fig:#1}]{Abbildung \ref{fig:#1}}}}
-\newcommand{\striche}[1]{\glqq #1\grqq{}}
-\newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
-\newcommand{\python}[1]{\mintinline{python}{#1}}
-\newcommand{\svg}[4][1.0]{\begin{figure}[H]
-  \centering
-  \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
-  \caption{#3}
-  \label{fig:#4}
-  \end{figure}}
-\newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
