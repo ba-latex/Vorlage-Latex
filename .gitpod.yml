@@ -14,7 +14,9 @@ vscode:
     - anweber.statusbar-commands@1.6.0
     - aaron-bond.better-comments
     - CoenraadS.bracket-pair-colorizer
-    - James-Yu.latex-workshop
+# latex workshop 8.20.2 on openvsx (released on august 24th) has a weird bug where the enter key stops working
+# https://github.com/James-Yu/LaTeX-Workshop/issues/2845
+    - James-Yu.latex-workshop@8.19.2
 
 github:
   prebuilds:
