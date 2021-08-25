@@ -1,11 +1,61 @@
-%vorlage%
+% main.tex - Hauptdatei der Vorlage
+
+% An diese Stelle muss ein Schalter
 \input{vorlage}
+
 %Dokument-Anfang
 \begin{document}
 
 %! #########################################
 %! Inhalt der Arbeit
-\input{inhalt/Kapitel}
+\frontmatter
+
+%! Auswahl der Titelseite
+\include{inhalt/Titelseite_Praxisbeleg}
+%\include{inhalt/Titelseite_3Autoren}
+
+%! Nicht benötigte Verzeichnisse hier auskommentieren
+%? Inhaltsverzeichnis
+\tableofcontents
+\newpage
+
+%? Abbildungsverzeichnis
+\listoffigures
+\newpage
+
+%? Tabellenverzeichnis
+\listoftables
+\newpage
+
+%? Programmcodeverzeichnis
+\listofcodes
+\newpage
+
+%? Formelverzeichnis
+\listofformeln
+\newpage
+
+%? Abkürzungsverzeichnis
+\include{inhalt/Abkürzungen}
+
+%! Hier beginnt der eigentliche Inhalt der Arbeit.
+\mainmatter
+
+%! Eine der folgenden Zeilen wieder aktivieren und entsprechende Datei ablegen
+%? druckt Firmenlogo ab Kapitel 1 in Kopfzeile - SVG ist, auch bei kleinen Grafiken, zu bevorzugen, wenn vorhanden
+%\lohead{\includesvg[height=8mm,inkscapelatex=false]{bilder/firmenlogo.svg}}
+%\lohead{\includegraphics[height=8mm]{bilder/firmenlogo.png}}
+
+%! Es ist möglich, die ganze Arbeit in eine Datei ("Kapitel1.tex") zu schreiben.
+%! Sollten mehr Struktur und Übersicht gewünscht werden, können noch zusätzliche Dateien angelegt werden,
+%! diese müssen nach dem selben Schema wie "Kapitel1.tex" hinzugefügt werden:
+\include{inhalt/Kapitel1}
+
+%? Quellen- und Literaturverzeichnis
+\printbibliography
+
+%? Anhang
+\include{inhalt/Anhang}
 %!##########################################
 
 \end{document}
