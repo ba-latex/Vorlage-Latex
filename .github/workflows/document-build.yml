@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout commit before push
-        if: | 
+        if: |
           github.event_name == 'push'
           && github.event.before != '0000000000000000000000000000000000000000'
         id: checkout-push
