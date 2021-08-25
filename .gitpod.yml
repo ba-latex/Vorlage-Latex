@@ -4,6 +4,7 @@ tasks:
 # having the image inside the workspace already saves time when building for the first time in a new gitpod
   - init: docker pull $(cat .vscode/settings.json | python3 -c "import json, sys; print(json.load(sys.stdin)['vorlage-latex.buildcontainer'])")
     command: exit
+  - command: docker run -d --name nginx-pdf --restart=always -v "$GITPOD_REPO_ROOT/Latex:/usr/share/nginx/html:ro" -p 12345:80 nginx
 
 vscode:
 # remember to update these together with .vscode/extensions.json
@@ -13,7 +14,9 @@ vscode:
     - anweber.statusbar-commands@1.6.0
     - aaron-bond.better-comments
     - CoenraadS.bracket-pair-colorizer
-    - James-Yu.latex-workshop
+# latex workshop 8.20.2 on openvsx (released on august 24th) has a weird bug where the enter key stops working
+# https://github.com/James-Yu/LaTeX-Workshop/issues/2845
+    - James-Yu.latex-workshop@8.19.2
 
 github:
   prebuilds:
