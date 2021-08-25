@@ -64,7 +64,7 @@
 \usepackage{amsthm}
 \usepackage{tabularx}
 \usepackage{multirow}
-\usepackage{setspace} 
+\usepackage{setspace}
 \usepackage{booktabs}
 \usepackage{svg}
 \usepackage{graphicx}
@@ -140,7 +140,7 @@
 \usepackage{enumitem}
 
 %Abkürzungsverzeichnis - Formatierung (bspw. zur korrekten Anzeige von BASH-Befehlen)
-\renewcommand*{\aclabelfont}[1]{\acsfont{#1}} 
+\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
 
 %! Caption, um Tabellen und Abbildungen richtig zu beschriften
 \usepackage{caption}
@@ -184,7 +184,7 @@
 \setlength\bibhang{0pt}
 
 %! Formatierung der Fußnotenzitate / Literaturverzeichnis
-\renewcommand*{\newunitpunct}{\addcomma\space} 
+\renewcommand*{\newunitpunct}{\addcomma\space}
 
 %? Normales Zitat...
 \DeclareCiteCommand{\zitat}[\mkbibfootnote]
@@ -223,15 +223,15 @@
 
 
 %! Kopf- und Fußzeile
-\usepackage[automark]{scrlayer-scrpage} 
-\pagestyle{scrheadings} 
-\clearmainofpairofpagestyles 
+\usepackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearmainofpairofpagestyles
 \clearplainofpairofpagestyles
 \renewcommand*{\sectionmarkformat}{}
 \rohead{\textnormal{\headmark}}
 \lohead{}
-\lofoot{} 
-\cofoot{} 
+\lofoot{}
+\cofoot{}
 \rofoot{\textnormal{Seite}~\pagemark}
 \makeatletter
 \usepackage{geometry}
@@ -289,13 +289,13 @@
   \addcontentsline{toc}{section}{Anhangverzeichnis}
   \newpage
   \pagenumbering{gobble}
-  \pagestyle{scrheadings} 
-  \clearmainofpairofpagestyles 
+  \pagestyle{scrheadings}
+  \clearmainofpairofpagestyles
   \clearplainofpairofpagestyles
   \rohead{\textnormal{Anhang~\arabic{section}}}
   \lohead{\textnormal{\currentname}}
-  \lofoot{} 
-  \cofoot{} 
+  \lofoot{}
+  \cofoot{}
   \rofoot{}
 }{}{}
 

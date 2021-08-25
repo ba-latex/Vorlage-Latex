@@ -22,7 +22,7 @@ with open("Latex/inhalt/Abkürzung_sortiert.tex", "w+", encoding="utf-8") as neu
     i = 0
     anzahl = len(liste)
     #print(anzahl)
-    for zeile in inhalt: 
+    for zeile in inhalt:
         if zeile[0] == minimum:
             print(liste[i][2], file=neu)
             minimum += 1

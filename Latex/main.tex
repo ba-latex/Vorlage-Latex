@@ -1,6 +1,5 @@
 % main.tex - Hauptdatei der Vorlage
 
-% An diese Stelle muss ein Schalter
 \input{vorlage}
 
 %Dokument-Anfang
@@ -16,8 +15,10 @@
 
 %! Nicht benötigte Verzeichnisse hier auskommentieren
 %? Inhaltsverzeichnis
+\vfuzz=5pt
 \tableofcontents
 \newpage
+\vfuzz=0.1pt
 
 %? Abbildungsverzeichnis
 \listoffigures
@@ -52,7 +53,10 @@
 \include{inhalt/Kapitel1}
 
 %? Quellen- und Literaturverzeichnis
+% Quellen neigen dazu, zu breite Zeilen durch (z.B.) schlecht umgebrochene URLs zu erzeugen, die sich kaum vermeiden lassen. --> Ignorieren
+\hfuzz=10pt
 \printbibliography
+\hfuzz=0.1pt
 
 %? Anhang
 \include{inhalt/Anhang}

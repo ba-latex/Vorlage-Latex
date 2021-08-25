@@ -1,4 +1,4 @@
-%!	Anhang
+%! Anhang
 
 \clearpage
 \appendix
@@ -6,7 +6,7 @@
 
 %! Section Befehl wird umgeschrieben, um Überschriften zu verbergen
 %! Kann, falls Überschriften gewollt sind, entfernt oder erst später eingefügt werden.
-% Beginn 
+% Beginn
 \renewcommand{\section}[1]{
 \par\refstepcounter{section}
 \sectionmark{#1}
@@ -19,19 +19,19 @@
 %! Eine Variante auskommentieren
 %? Möglichkeit 1: ohne Nummerierung und ohne "Abbildung"
 %\renewcommand{\bild}[3][1.0]{\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=#1\columnwidth]{bilder/#2}
-%	\caption*{#3}
-%	\label{fig:#3}
-%	\end{figure}}
+%    \centering
+%    \includegraphics[width=#1\columnwidth]{bilder/#2}
+%    \caption*{#3}
+%    \label{fig:#3}
+%    \end{figure}}
 
 %? Möglichkeit 2: mit Nummerierung und "Abbildung", aber nicht im Abbildungsverzeichnis
 \renewcommand{\bild}[3][1.0]{\begin{figure}[H]
-	\centering
-	\includegraphics[width=#1\columnwidth]{bilder/#2}
-	\caption[]{#3}
-	\label{fig:#3}
-	\end{figure}}
+    \centering
+    \includegraphics[width=#1\columnwidth]{bilder/#2}
+    \caption[]{#3}
+    \label{fig:#3}
+    \end{figure}}
 
 %! Anhang 1
 \section{Erster Anhang}
@@ -42,12 +42,14 @@ Der erste Anhang der Arbeit.
 \section{Inhalt der CD}
 CD mit folgenden Inhalten:
 \begin{itemize}
-	\item dieses Dokument
-	\item \LaTeX -Dateien
-	\item \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{YouTube-Video} als Bonus
+    \item dieses Dokument
+    \item \LaTeX -Dateien
+    \item \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{YouTube-Video} als Bonus
 \end{itemize}
 \clearpage
 
+% Warnungen für vorgefertigte Dokumente deaktivieren
+\hbadness=10000
 %  Eidestattliche Erklärung und Erklärung zur Prüfung wissenschaftlicher Arbeiten
 %! hier zwischen Version für einen oder mehrere Autoren umschalten
 \input{inhalt/Erklärung_Praxisbeleg}
@@ -56,5 +58,7 @@ CD mit folgenden Inhalten:
 %  Abstract und Freigabeerklärung zur Bachelorthesis
 %! Falls nötig (z.B. bei Diplomarbeit) innerhalb der Datei Wortlaut anpassen, sowie Freigabeerklärung anpassen (erfordert Format Name, Vorname usw.)
 
-
 %\input{inhalt/Abstract_Freigabeerklärung_Bachelorthesis.tex}
+
+% Warnungen zurücksetzen
+\hbadness=1000
