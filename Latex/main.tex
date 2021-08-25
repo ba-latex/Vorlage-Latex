@@ -54,7 +54,10 @@
 \include{inhalt/Kapitel1}
 
 %? Quellen- und Literaturverzeichnis
+% Quellen neigen dazu, zu breite Zeilen durch (z.B.) schlecht umgebrochene URLs zu erzeugen, die sich kaum vermeiden lassen. --> Ignorieren
+\hfuzz=10pt
 \printbibliography
+\hfuzz=0.1pt
 
 %? Anhang
 \include{inhalt/Anhang}
