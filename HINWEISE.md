@@ -30,9 +30,9 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 \end{code}
 ```
 
-- Um Verzeichnisstrukturen darzustellen, wird `\dirtree{}` mit den eigenen Befehlen `\dtfolder` und `\dtfile` genutzt:
+- Um Verzeichnisstrukturen darzustellen, wird `\verzeichnis` mit den eigenen Befehlen `\dtfolder` und `\dtfile` genutzt:
 ```latex
-\dirtree{%
+\verzeichnis{%
     .1 \dtfolder Ordner 1. %Ebene 1
     .2 \dtfolder Unterordner 1. %Ebene 2
     .3 \dtfile Datei 1. %Ebene 3
@@ -40,7 +40,7 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
     .3 \dtfolder Unter-Unterordner 1. %Ebene 3
     .4 \dtfile Datei 2. %Ebene 4
     .3 \dtfolder Unter-Unterordner 2. %Ebene 3
-}
+}{Beschriftung}{label}
 ```
 
 - Für mehr Informationen dazu bitte die Minted-Dokumentation konsultieren. Es ist möglich mittels ` \mintinline{python}{print("Toller Code")}` Code in einer Zeile ähnlich dem Mathemathikmodus zu verwenden.
