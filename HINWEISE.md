@@ -31,6 +31,7 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 ```
 
 - Um Verzeichnisstrukturen darzustellen, wird `\verzeichnis` mit den eigenen Befehlen `\dtfolder` und `\dtfile` genutzt:
+  - Dieses Kommando basiert auf Dirtree, in dessen [Doku](http://tug.ctan.org/macros/generic/dirtree/dirtree.pdf) weitere nützilche Kommandos erläutert werden.
 ```latex
 \verzeichnis{%
     .1 \dtfolder Ordner 1. %Ebene 1
