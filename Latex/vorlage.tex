@@ -9,6 +9,8 @@
 \WarningFilter{fvextra}{}
 \WarningFilter{lineno}{}
 
+\pdfsuppresswarningpagegroup=1
+
 \ProvidesPackage{metadaten}
 \usepackage{metadaten}
 
@@ -75,6 +77,110 @@
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{blindtext}
+\usepackage{dirtree}
+\usepackage{varwidth}
+
+%! Centered Dirtree - https://tex.stackexchange.com/posts/100182/revisions
+\makeatletter
+\def\dirtree#1{%
+  %%2012\let
+  \DT@indent=\parindent
+  \parindent=\z@
+  %%2012\let
+  \DT@parskip=\parskip
+  \parskip=\z@
+  %%2012\let
+  \DT@baselineskip=\baselineskip
+  \baselineskip=\DTbaselineskip
+  \let\DT@strut=\strut
+  \def\strut{\vrule width\z@ height0.7\baselineskip depth0.3\baselineskip}%
+  \DT@counti=\z@
+  \let\next\DT@readarg
+  \next#1\@nil
+  \dimen\z@=\hsize
+  \advance\dimen\z@ -\DT@offset
+  \advance\dimen\z@ -\DT@width
+%  \setbox\z@=\hbox to\dimen\z@{%
+  \setbox\z@=\hbox{%
+%    \hsize=\dimen\z@
+    \vbox{\hbox{\@nameuse{DT@body@1}}}%
+  }%
+  \dimen\z@=\ht\z@
+  \advance\dimen0 by\dp\z@
+  \advance\dimen0 by-0.7\baselineskip
+  \ht\z@=0.7\baselineskip
+  \dp\z@=\dimen\z@
+  \par\leavevmode
+  \kern\DT@offset
+  \kern\DT@width
+  \box\z@
+  \endgraf
+  \DT@countii=\@ne
+  \DT@countiii=\z@
+  \dimen3=\dimen\z@
+  \@namedef{DT@lastlevel@1}{-0.7\baselineskip}%
+  \loop
+  \ifnum\DT@countii<\DT@counti
+    \advance\DT@countii \@ne
+    \advance\DT@countiii \@ne
+    \dimen\z@=\@nameuse{DT@level@\the\DT@countii}\DT@all
+    \advance\dimen\z@ by\DT@offset
+    \advance\dimen\z@ by-\DT@all
+    \leavevmode
+    \kern\dimen\z@
+    \DT@countiv=\DT@countii
+    \count@=\z@
+    %%2012\LOOP
+    \DT@loop
+      \advance\DT@countiv \m@ne
+      \ifnum\@nameuse{DT@level@\the\DT@countiv} >
+        \@nameuse{DT@level@\the\DT@countii}\relax
+      \else
+        \count@=\@ne
+      \fi
+    \ifnum\count@=\z@
+    %%2012\REPEAT
+    \DT@repeat
+    \edef\DT@hsize{\the\hsize}%
+    \count@=\@nameuse{DT@level@\the\DT@countii}\relax
+    \dimen\z@=\count@\DT@all
+    \advance\hsize by-\dimen\z@
+    \setbox\z@=\vbox{\hbox{\@nameuse{DT@body@\the\DT@countii}}}%
+    \hsize=\DT@hsize
+    \dimen\z@=\ht\z@
+    \advance\dimen\z@ by\dp\z@
+    \advance\dimen\z@ by-0.7\baselineskip
+    \ht\z@=0.7\baselineskip
+    \dp\z@=\dimen\z@
+    \@nameedef{DT@lastlevel@\the\DT@countii}{\the\dimen3}%
+    \advance\dimen3 by\dimen\z@
+    \advance\dimen3 by0.7\baselineskip
+    \dimen\z@=\@nameuse{DT@lastlevel@\the\DT@countii}\relax
+    \advance\dimen\z@ by-\@nameuse{DT@lastlevel@\the\DT@countiv}\relax
+    \advance\dimen\z@ by0.3\baselineskip
+    \ifnum\@nameuse{DT@level@\the\DT@countiv} <
+        \@nameuse{DT@level@\the\DT@countii}\relax
+      \advance\dimen\z@ by-0.5\baselineskip
+    \fi
+    \kern-0.5\DT@rulewidth
+    \hbox{\vbox to\z@{\vss\hrule width\DT@rulewidth height\dimen\z@}}%
+    \kern-0.5\DT@rulewidth
+    \kern-0.5\DT@dotwidth
+    \vrule width\DT@dotwidth height0.5\DT@dotwidth depth0.5\DT@dotwidth
+    \kern-0.5\DT@dotwidth
+    \vrule width\DT@width height0.5\DT@rulewidth depth0.5\DT@rulewidth
+    \kern\DT@sep
+    \hbox{\box\z@}%
+    \endgraf
+  \repeat
+  \parindent=\DT@indent
+  \parskip=\DT@parskip
+  %%2012\DT@baselineskip=\baselineskip
+  \baselineskip=\DT@baselineskip
+  \let\strut\DT@strut
+}
+
+\makeatother
 
 
 %! PageBreaks nach jeder Section
@@ -310,11 +416,11 @@
 %! Eigene Befehle zur erleichterten Nutzung
 \newcommand{\logisch}[1]{$``#1``$}
 \newcommand{\bild}[4][1.0]{\begin{figure}[H]
-                      \centering
-                      \includegraphics[width=#1\columnwidth]{bilder/#2}
-                      \caption{#3}
-                      \label{fig:#4}
-                      \end{figure}}
+  \centering
+  \includegraphics[width=#1\columnwidth]{bilder/#2}
+  \caption{#3}
+  \label{fig:#4}
+  \end{figure}}
 \newcommand{\fullref}[1]{(siehe Kapitel~\ref{#1}~-~\nameref{#1})}
 \newcommand{\literef}[1]{Kapitel~\ref{#1}~-~\nameref{#1}}
 \newcommand{\aref}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1}}}}
@@ -329,3 +435,16 @@
   \label{fig:#4}
   \end{figure}}
 \newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
+\newcommand{\fontheightsvg}[1]{\includesvg[height=1.75ex, inkscapelatex=false]{#1}}
+\newcommand{\dtfolder}{\fontheightsvg{bilder/folder}\hspace{0.1cm}}
+\newcommand{\dtfile}{\fontheightsvg{bilder/file}\hspace{0.1cm}}
+\newcommand{\verzeichnis}[3]{\begin{figure}[H]
+  % https://tex.stackexchange.com/a/99591/220899
+  \renewcommand{\DTstyle}{\textrm\expandafter\raisebox{-0.7ex}}
+  \centering
+  \begin{varwidth}{\textwidth}
+    \dirtree{#1}  
+  \end{varwidth}
+  \caption{#2}
+  \label{fig:#3}
+  \end{figure}}
