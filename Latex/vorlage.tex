@@ -9,6 +9,8 @@
 \WarningFilter{fvextra}{}
 \WarningFilter{lineno}{}
 
+\pdfsuppresswarningpagegroup=1
+
 \ProvidesPackage{metadaten}
 \usepackage{metadaten}
 
@@ -75,6 +77,7 @@
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{blindtext}
+\usepackage{dirtree}
 
 
 %! PageBreaks nach jeder Section
@@ -329,3 +332,6 @@
   \label{fig:#4}
   \end{figure}}
 \newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
+\newcommand{\fontheightsvg}[1]{\includesvg[height=1.75ex, inkscapelatex=false]{#1}}
+\newcommand{\dtfolder}{\fontheightsvg{bilder/folder}\hspace{0.1cm}}
+\newcommand{\dtfile}{\fontheightsvg{bilder/file}\hspace{0.1cm}}
