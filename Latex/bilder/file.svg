@@ -14,6 +14,8 @@
    viewBox="0 0 210 297"
    height="297mm"
    width="210mm">
+  <title
+     id="title1427">File-Icon</title>
   <defs
      id="defs844" />
   <sodipodi:namedview
@@ -56,7 +58,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title>File-Icon</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Colin Pohle</dc:title>
+          </cc:Agent>
+        </dc:creator>
       </cc:Work>
     </rdf:RDF>
   </metadata>
