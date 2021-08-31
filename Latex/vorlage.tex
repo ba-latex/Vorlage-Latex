@@ -439,6 +439,8 @@
 \newcommand{\dtfolder}{\fontheightsvg{bilder/folder}\hspace{0.1cm}}
 \newcommand{\dtfile}{\fontheightsvg{bilder/file}\hspace{0.1cm}}
 \newcommand{\verzeichnis}[3]{\begin{figure}[H]
+  % https://tex.stackexchange.com/a/99591/220899
+  \renewcommand{\DTstyle}{\textrm\expandafter\raisebox{-0.7ex}}
   \centering
   \begin{varwidth}{\textwidth}
     \dirtree{#1}  
