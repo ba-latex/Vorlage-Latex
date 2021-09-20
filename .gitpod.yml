@@ -9,9 +9,7 @@ tasks:
 vscode:
 # remember to update these together with .vscode/extensions.json
   extensions:
-# as of now, gitpod only runs vscode 1.56, however, statusbar-commands 1.7.0 requires vscode 1.57
-# gitpod doesn't pick the right version on its own so we have to hardcode it
-    - anweber.statusbar-commands@1.6.0
+    - anweber.statusbar-commands
     - aaron-bond.better-comments
     - CoenraadS.bracket-pair-colorizer
 # latex workshop 8.20.2 on openvsx (released on august 24th) has a weird bug where the enter key stops working
