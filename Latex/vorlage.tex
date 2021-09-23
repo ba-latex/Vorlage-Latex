@@ -405,13 +405,26 @@
   \rofoot{}
 }{}{}
 
-% ! Anpassung der Minted-Umgebung, um Abstände zu vereinheitlichen
+% ! Anpassung der Minted-Umgebung, um Abstände zu vereinheitlichen und die Optik zu verbessern
 \let\oldminted\minted
 \let\oldendminted\endminted
 \def\minted{\begingroup \vspace{-0.3cm} \oldminted}
 \def\endminted{\oldendminted \vspace{-0.5cm} \endgroup}
 
 \xapptocmd{\inputminted}{\vspace{-0.5cm}}{}{}
+
+\definecolor{mintedbg}{HTML}{fbfbfb}
+%Zeilennummern neu definieren, um Warnungen zu vermeiden und modern anmutende Zahlen zu nutzen
+\renewcommand{\theFancyVerbLine}{\scriptsize{\arabic{FancyVerbLine}}}
+\setminted{
+    tabsize=2,
+    breaklines,
+    autogobble,
+    fontfamily=courier,
+    linenos,
+    bgcolor=mintedbg,
+    style=paraiso-light %! siehe https://pygments.org/demo/#try, andere hübsche Optionen: solarized_light, rainbow_dash, gruvbox-light
+}
 
 %! Eigene Befehle zur erleichterten Nutzung
 \newcommand{\logisch}[1]{$``#1``$}
