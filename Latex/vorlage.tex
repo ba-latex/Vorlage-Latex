@@ -413,7 +413,6 @@
 
 \xapptocmd{\inputminted}{\vspace{-0.5cm}}{}{}
 
-\definecolor{mintedbg}{HTML}{fafafa}
 %Zeilennummern neu definieren, um Warnungen zu vermeiden und modern anmutende Zahlen zu nutzen
 \renewcommand{\theFancyVerbLine}{\scriptsize{\arabic{FancyVerbLine}}}
 \setminted{
@@ -422,7 +421,6 @@
     autogobble,
     fontfamily=courier,
     linenos,
-    bgcolor=mintedbg,
     %! see https://pygments.org/demo/#try, other nice options: paraiso-light, solarized-light, rainbow_dash, gruvbox-light, stata, tango
     style=emacs
 }
