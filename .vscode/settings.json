@@ -63,6 +63,6 @@
             ]
         }
     ],
-    "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.5.1",
+    "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.6.1",
     "editor.bracketPairColorization.enabled": true
 }
