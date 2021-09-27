@@ -272,10 +272,10 @@
 \DeclareFieldFormat{url}{In: \url{#1}}
 \DeclareFieldFormat{urldate}{\space\mkbibparens{#1}}
 \urlstyle{same}
- \DeclareNameFormat{author}{%
+\DeclareNameFormat{author}{%
       \nameparts{#1}%
       \usebibmacro{name:family-given}
-        {\namepartfamily}
+        {\MakeUppercase{\namepartfamily}}
         {\namepartgiven}
         {\namepartprefix}
         {\namepartsuffix}%
@@ -297,7 +297,7 @@
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}
    \setunit{\addnbspace}
-   \bibhyperref{\printnames{labelname}}
+   \bibhyperref{\printnames[author][1-3]{labelname}}
    \setunit{\labelnamepunct}
    \newunit
    \printfield{location}
@@ -315,7 +315,7 @@
   {\usebibmacro{citeindex}
    \setunit{\addnbspace}
    online:
-   \bibhyperref{\printnames{labelname}}
+   \bibhyperref{\printnames[author][1-3]{labelname}}
    \setunit{\labelnamepunct}
    \newunit
    \printfield{year}
