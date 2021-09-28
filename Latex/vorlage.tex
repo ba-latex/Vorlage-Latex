@@ -16,7 +16,7 @@
 
 \usepackage{tocbasic}
 \usepackage[ngerman]{babel}
-\usepackage[backend=biber, style=authortitle, isbn=false, dashed=false]{biblatex}
+\usepackage[backend=biber, labeldateparts=true, style=authortitle, isbn=false, dashed=false]{biblatex}
 
 
 
@@ -269,8 +269,19 @@
 
 
 %! Formatierung des Literaturverzeichnis
+\DeclareLabeldate{%
+\field{year}
+}
+
+\DeclareExtradate{%
+\scope{
+\field{labelyear}
+\field{year}}
+}
 \DeclareFieldFormat{url}{In: \url{#1}}
 \DeclareFieldFormat{urldate}{\space\mkbibparens{#1}}
+\DeclareFieldFormat{date}{#1\printfield{extradate}}
+
 \urlstyle{same}
 \DeclareNameFormat{author}{%
       \nameparts{#1}%
@@ -281,10 +292,13 @@
         {\namepartsuffix}%
 }
 \DeclareFieldFormat{title}{#1}
+
 \renewcommand{\multinamedelim}{\addsemicolon\space}
 \renewcommand{\finalnamedelim}{\addsemicolon\space}
 \renewcommand{\labelnamepunct}{\addcolon\space}
 \renewcommand*{\finentrypunct}{}
+
+
 
 \setlength\bibitemsep{\baselineskip}
 \setlength\bibhang{0pt}
@@ -302,7 +316,7 @@
    \newunit
    \printfield{location}
    \newunit
-   \printfield{year}
+   \printfield{labelyear}\printfield{extradate}
    \newunit
    \printfield{pages}
    }
@@ -318,7 +332,8 @@
    \bibhyperref{\printnames[author][1-3]{labelname}}
    \setunit{\labelnamepunct}
    \newunit
-   \printfield{year}
+   \printfield{labelyear}\printfield{extradate}
+   \newunit
    \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
