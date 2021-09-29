@@ -1,7 +1,7 @@
 # Vorlage-Latex
 Dies ist eine LaTeX-Vorlage für wissenschaftliche Arbeiten (Belege, Bachelorarbeiten usw.) an der [Staatlichen Studienakademie Glauchau (BA Glauchau)](https://www.ba-glauchau.de/) und entspricht weitestgehend den [Hinweisen zur Anfertigung wissenschaftlicher Arbeiten (HAWA)](https://www.ba-glauchau.de/fileadmin/glauchau/waehrend-des-studium/dokumente/pruefungen/4BA-F.207_Hinweise_zur_Anfertigung_wissenschaftlicher_Arbeiten.pdf).
 
-Die Vorlage unterstützt aktuell einen oder drei oder vier Autoren. An einer [Version für bis zu sechs Autoren](https://github.com/DSczyrba/Vorlage-Latex/issues/50) wird gearbeitet.
+Die Vorlage unterstützt aktuell einen, drei, oder vier Autoren. An einer [Version für bis zu sechs Autoren](https://github.com/DSczyrba/Vorlage-Latex/issues/50) wird gearbeitet.
 
 **Unterhaltung und Besprechung:**
 
