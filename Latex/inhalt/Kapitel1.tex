@@ -10,10 +10,13 @@ Weitere Hinweise befinden sich in der README.md oder im \href{https://github.com
 Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
 
 \section{Beispiele}
+%! "../vorlage/" ist normalerweise weder bei Pixel- noch bei Vektorgrafiken nötig. Die mitgelieferten Grafiken liegen in einem anderen Ordner
 \subsection{Pixelgrafiken}
-\bild[0.5]{ba-gc-logo}{Text zu einem Bild}{label1}
+Siehe Quelltext.
+%\bild[0.5]{../vorlage/ba-gc-logo}{Text zu einem Bild}{label1} %!bei Dateien in "bilder" ohne "../vorlage/"
 \subsection{Vektorgrafiken}
-\svg[0.5]{ba_glauchau_logo}{Text zu einer \ac{SVG}-Datei}{label2}
+Siehe Quelltext.
+%\svg[0.5]{../vorlage/ba-gc-logo}{Text zu einer \ac{SVG}-Datei}{label2} %!bei Dateien in "bilder" ohne "../vorlage/"
 \subsubsection{Programmcode}
 \begin{code}[H]
     \begin{minted}{python}
@@ -31,6 +34,45 @@ Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
     \caption{Beispielcode}
     \label{code:example}
 \end{code}
+
+\subsection{Ordnerstruktur}
+    \begin{figure}[H]
+        \dirtree{%
+          .1 Vorlage-Latex.
+            .2 HINWEISE.md.
+            .2 Latex.
+              .3 bilder.
+                .4 firmenlogo.svg.
+              .3 inhalt.
+                .4 Abkürzungen.tex.
+                .4 Anhang.tex.
+                .4 Kapitel1.tex.
+              .3 light.
+                .4 main.tex.
+                .4 README.md.
+                .4 vorlage\_light.tex.
+              .3 literatur.bib.
+              .3 main.tex.
+              .3 metadaten.sty.
+              .3 vorlage.
+                .4 Abstract\_Freigabeerklärung\_Bachelorthesis.tex.
+                .4 ba-gc-logo.png.
+                .4 ba-gc-logo.svg.
+                .4 dirtree\_file.svg.
+                .4 dirtree\_folder.svg.
+                .4 Erklärung\_3Autoren.tex.
+                .4 Erklärung\_4Autoren.tex.
+                .4 Erklärung\_Praxisbeleg.tex.
+                .4 Titelseite\_3Autoren.tex.
+                .4 Titelseite\_4Autoren.tex.
+                .4 Titelseite\_Praxisbeleg.tex.
+                .4 vorlage.tex.
+            .2 LICENSE.
+            .2 README.md.
+            .2 sortieren.py.
+          }
+       \caption{Ein hübscher Verzeichnis-Baum}
+    \end{figure}
 
 \section{Kapitel 1}
 \blindtext
