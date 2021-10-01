@@ -19,11 +19,10 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
 ```latex
 \begin{code}[H]
-    \inputminted[linenos, breaklines, gobble=0, frame=none,
+    \inputminted[
         firstline=27,
         lastline=37,
         firstnumber=17,
-        numbers=left,
         numbersep=5pt]{python}{sourcecodes/excel2.py}
     \caption{Auslesen der Daten aus dem Array}
     \label{code:4}
