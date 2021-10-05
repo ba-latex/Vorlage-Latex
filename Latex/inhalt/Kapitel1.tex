@@ -36,10 +36,12 @@ Siehe Quelltext.
 \end{code}
 
 \subsection{Ordnerstruktur}
-    \begin{figure}[H]
-        \dirtree{%
+    \verzeichnis{%
           .1 Vorlage-Latex.
             .2 HINWEISE.md.
+            .2 LICENSE.
+            .2 README.md.
+            .2 sortieren.py.
             .2 Latex.
               .3 bilder.
                 .4 firmenlogo.svg.
@@ -67,12 +69,37 @@ Siehe Quelltext.
                 .4 Titelseite\_4Autoren.tex.
                 .4 Titelseite\_Praxisbeleg.tex.
                 .4 vorlage.tex.
-            .2 LICENSE.
-            .2 README.md.
-            .2 sortieren.py.
-          }
-       \caption{Ein hübscher Verzeichnis-Baum}
-    \end{figure}
+    }{Ein hübscher Verzeichnis-Baum}{beispielbaum}
+  
+\subsection{Tabellen}
+
+\begin{table}[H]
+\begin{tabularx}{\columnwidth}{|p{3cm}|X|p{.2\columnwidth}|}
+\hline
+Gegenstand & Beispiel & Anmerkungen \\
+\hline
+Kurzer Verweis auf Anhang & \litearef{sec:anhang1} & Alias: aref \\
+\hline
+Kurzer Verweis auf Abbildung & \litebref{beispielbaum} & Alias: bref \\
+\hline
+Kurzer Verweis auf Tabelle & \litetref{beispieltabelle} & Alias: tref \\
+\hline
+Langer Verweis auf Anhang & \fullaref{sec:anhang1} & Alias: aref \\
+\hline
+Langer Verweis auf Abbildung & \fullbref{beispielbaum} & Alias: bref \\
+\hline
+Langer Verweis auf Tabelle & \fulltref{beispieltabelle} & Alias: tref \\
+\hline
+\multicolumn{2}{|c|}{verbundene Spalten mit zentriertem Text} & multicolumn \\
+\hline
+Zeile 1 & \multirow{2}{\hsize}{verbundene Zeilen inklusive automatischer Zeilenumbrüche} & multirow \\
+\cline{1-1}\cline{3-3}
+Zeile 2 & & mit hsize\\
+\hline
+\end{tabularx}
+\caption{Beispieltabelle}
+\label{beispieltabelle}
+\end{table}
 
 \section{Kapitel 1}
 \blindtext
