@@ -10,13 +10,12 @@ Weitere Hinweise befinden sich in der README.md oder im \href{https://github.com
 Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
 
 \section{Beispiele}
-%! "../vorlage/" ist normalerweise weder bei Pixel- noch bei Vektorgrafiken nötig. Die mitgelieferten Grafiken liegen in einem anderen Ordner
 \subsection{Pixelgrafiken}
 Siehe Quelltext.\fn{Dort wird das Kommando \striche{bild} aufgeführt. In dieser Vorlage sind allerdings keine Bilder (im vorgesehenen Ordner) enthalten.}
-%\bild[0.5]{../vorlage/ba-gc-logo}{Text zu einem Bild}{label1} %!bei Dateien in "bilder" ohne "../vorlage/"
+%\bild[0.5]{dateiname-ohne-endung}{Text zu einem Bild}{label1}
 \subsection{Vektorgrafiken}
 Siehe Quelltext.
-%\svg[0.5]{../vorlage/ba-gc-logo}{Text zu einer \ac{SVG}-Datei}{label2} %!bei Dateien in "bilder" ohne "../vorlage/"
+%\svg[0.5]{dateiname-ohne-endung}{Text zu einer \ac{SVG}-Datei}{label2}
 \subsubsection{Programmcode}
 \begin{code}[H]
     \begin{minted}{python}
@@ -78,17 +77,17 @@ Siehe Quelltext.
 \hline
 Gegenstand & Beispiel & Anmerkungen \\
 \hline
-Kurzer Verweis auf Anhang & \litearef{sec:anhang1} & Alias: aref \\
+Kurzer Verweis auf Anhang & \litearef{sec:anhang1} & Alias: \emph{\textbackslash aref} \\
 \hline
-Kurzer Verweis auf Abbildung & \litebref{beispielbaum} & Alias: bref \\
+Kurzer Verweis auf Abbildung & \litebref{beispielbaum} & Alias: \emph{\textbackslash bref} \\
 \hline
-Kurzer Verweis auf Tabelle & \litetref{beispieltabelle} & Alias: tref \\
+Kurzer Verweis auf Tabelle & \litetref{beispieltabelle} & Alias: \emph{\textbackslash tref} \\
 \hline
-Langer Verweis auf Anhang & \fullaref{sec:anhang1} & Alias: aref \\
+Langer Verweis auf Anhang & \fullaref{sec:anhang1} &  \\
 \hline
-Langer Verweis auf Abbildung & \fullbref{beispielbaum} & Alias: bref \\
+Langer Verweis auf Abbildung & \fullbref{beispielbaum} &  \\
 \hline
-Langer Verweis auf Tabelle & \fulltref{beispieltabelle} & Alias: tref \\
+Langer Verweis auf Tabelle & \fulltref{beispieltabelle} &  \\
 \hline
 \multicolumn{2}{|c|}{verbundene Spalten mit zentriertem Text} & multicolumn \\
 \hline
