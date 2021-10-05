@@ -11,6 +11,10 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 - Pixelgrafiken kann man mittels `\bild[skalierung]{dateiname}{Beschriftung}{label}` einfügen. Vektorgrafiken im SVG-Format analog dazu per `\svg[...]` (besser).
 
 - Abkürzungen werden in `Inhalt/Abkürzungen.tex` eingetragen und im Text bspw. mit `\ac{Kürzel}` verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html). Wichtig ist, dass zu Beginn der Umgebung `\begin{acronym}[SSHHH]` in die eckigen Klammern das längste Akronym eingetragen wird. Ansonsten wird die Seite nicht korrekt formatiert.
+    - Abkürzungen in der Mehrzahl: `\acp{Kürzel}`
+    - erzwungene Kurzform: `\acs{Kürzel}`
+    - erzwungene Langform: `\acf{Kürzel}`
+    - Abkürzungen in Überschriften ausschließlich ohne `\ac{}`-Kommandos verwenden
 
 - Abkürzungen müssen in der richtigen Reihenfolge eingetragen oder das `sortieren.py`-Script verwendet werden.
 

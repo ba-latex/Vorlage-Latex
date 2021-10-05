@@ -10,13 +10,13 @@ Weitere Hinweise befinden sich in der README.md oder im \href{https://github.com
 Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
 
 \section{Beispiele}
-%! "../vorlage/" ist normalerweise weder bei Pixel- noch bei Vektorgrafiken nötig. Die mitgelieferten Grafiken liegen in einem anderen Ordner
+\label{sec:beispiele}
 \subsection{Pixelgrafiken}
-Siehe Quelltext.
-%\bild[0.5]{../vorlage/ba-gc-logo}{Text zu einem Bild}{label1} %!bei Dateien in "bilder" ohne "../vorlage/"
+Siehe Quelltext.\fn{Dort wird das Kommando \striche{bild} aufgeführt. In dieser Vorlage sind allerdings keine Bilder (im vorgesehenen Ordner) enthalten.}
+%\bild[0.5]{dateiname-ohne-endung}{Text zu einem Bild}{label1}
 \subsection{Vektorgrafiken}
 Siehe Quelltext.
-%\svg[0.5]{../vorlage/ba-gc-logo}{Text zu einer \ac{SVG}-Datei}{label2} %!bei Dateien in "bilder" ohne "../vorlage/"
+%\svg[0.5]{dateiname-ohne-endung}{Text zu einer \ac{SVG}-Datei}{label2}
 \subsubsection{Programmcode}
 \begin{code}[H]
     \begin{minted}{python}
@@ -36,10 +36,12 @@ Siehe Quelltext.
 \end{code}
 
 \subsection{Ordnerstruktur}
-    \begin{figure}[H]
-        \dirtree{%
+    \verzeichnis{%
           .1 Vorlage-Latex.
             .2 HINWEISE.md.
+            .2 LICENSE.
+            .2 README.md.
+            .2 sortieren.py.
             .2 Latex.
               .3 bilder.
                 .4 firmenlogo.svg.
@@ -67,12 +69,38 @@ Siehe Quelltext.
                 .4 Titelseite\_4Autoren.tex.
                 .4 Titelseite\_Praxisbeleg.tex.
                 .4 vorlage.tex.
-            .2 LICENSE.
-            .2 README.md.
-            .2 sortieren.py.
-          }
-       \caption{Ein hübscher Verzeichnis-Baum}
-    \end{figure}
+    }{Ein Verzeichnis-Baum}{beispielbaum}
 
-\section{Kapitel 1}
-\blindtext
+\section{Test-/Dokutabelle}
+Diese Tabelle dient hauptsächlich zum Testen der einzelnen Kommandos, sowie als minimales Beispiel für eine \emph{tabularx}-Tabelle:
+\begin{table}[H]
+\begin{tabularx}{\columnwidth}{|p{3cm}|X|p{.2\columnwidth}|}
+\hline
+Gegenstand & Beispiel & Anmerkungen \\
+\hline
+Kurzer Verweis auf Kapitel & \literef{sec:beispiele} & \\
+\hline
+Kurzer Verweis auf Anhang & \litearef{sec:anhang1} & Alias: \emph{\textbackslash aref} \\
+\hline
+Kurzer Verweis auf Abbildung & \litebref{beispielbaum} & Alias: \emph{\textbackslash bref} \\
+\hline
+Kurzer Verweis auf Tabelle & \litetref{beispieltabelle} & Alias: \emph{\textbackslash tref} \\
+\hline
+Langer Verweis auf Kapitel & \fullref{sec:beispiele} & \\
+\hline
+Langer Verweis auf Anhang & \fullaref{sec:anhang1} &  \\
+\hline
+Langer Verweis auf Abbildung & \fullbref{beispielbaum} &  \\
+\hline
+Langer Verweis auf Tabelle & \fulltref{beispieltabelle} &  \\
+\hline
+\multicolumn{2}{|c|}{verbundene Spalten mit zentriertem Text} & \emph{\textbackslash multicolumn} \\
+\hline
+Zeile 1 & \multirow{2}{\hsize}{verbundene Zeilen inklusive automatischer Zeilenumbrüche} & \emph{\textbackslash multirow} \\
+\cline{1-1}\cline{3-3}
+Zeile 2 & & mit \emph{\textbackslash hsize}\\
+\hline
+\end{tabularx}
+\caption{Beispieltabelle}
+\label{beispieltabelle}
+\end{table}

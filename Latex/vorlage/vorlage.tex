@@ -18,8 +18,6 @@
 \usepackage[ngerman]{babel}
 \usepackage[backend=biber, labeldateparts=true, style=authortitle, isbn=false, dashed=false]{biblatex}
 
-
-
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{section,subsection,subsubsection}
 
@@ -76,7 +74,6 @@
 \usepackage{csquotes}
 \usepackage{listings}
 \usepackage{tikz}
-\usepackage{blindtext}
 \usepackage{dirtree}
 \usepackage{varwidth}
 
@@ -265,9 +262,6 @@
   \autodot{\space\space\space}
 }
 
-
-
-
 %! Formatierung des Literaturverzeichnis
 \DeclareLabeldate{%
 \field{year}
@@ -297,8 +291,6 @@
 \renewcommand{\finalnamedelim}{\addsemicolon\space}
 \renewcommand{\labelnamepunct}{\addcolon\space}
 \renewcommand*{\finentrypunct}{}
-
-
 
 \setlength\bibitemsep{\baselineskip}
 \setlength\bibhang{0pt}
@@ -441,30 +433,26 @@
 }
 
 %! Eigene Befehle zur erleichterten Nutzung
-\newcommand{\logisch}[1]{$``#1``$}
+% Hilfsbefehle
+\newcommand{\fontheightsvg}[1]{\includesvg[height=1.75ex, inkscapelatex=false]{#1}}
+\newcommand{\dtfolder}{\fontheightsvg{vorlage/dirtree_folder}\hspace{0.1cm}}
+\newcommand{\dtfile}{\fontheightsvg{vorlage/dirtree_file}\hspace{0.1cm}}
+
+% Umgebungen u.Ä.
+\newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
 \newcommand{\bild}[4][1.0]{\begin{figure}[H]
   \centering
   \includegraphics[width=#1\columnwidth]{bilder/#2}
   \caption{#3}
   \label{fig:#4}
   \end{figure}}
-\newcommand{\fullref}[1]{(siehe Kapitel~\ref{#1}~-~\nameref{#1})}
-\newcommand{\literef}[1]{Kapitel~\ref{#1}~-~\nameref{#1}}
-\newcommand{\aref}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1}}}}
-\newcommand{\bref}[1]{\emph{\hyperref[{fig:#1}]{Abbildung \ref{fig:#1}}}}
 \newcommand{\striche}[1]{\glqq #1\grqq{}}
-\newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
-\newcommand{\python}[1]{\mintinline{python}{#1}}
 \newcommand{\svg}[4][1.0]{\begin{figure}[H]
-  \centering
-  \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
-  \caption{#3}
-  \label{fig:#4}
-  \end{figure}}
-\newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
-\newcommand{\fontheightsvg}[1]{\includesvg[height=1.75ex, inkscapelatex=false]{#1}}
-\newcommand{\dtfolder}{\fontheightsvg{vorlage/dirtree_folder}\hspace{0.1cm}}
-\newcommand{\dtfile}{\fontheightsvg{vorlage/dirtree_file}\hspace{0.1cm}}
+    \centering
+    \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
+    \caption{#3}
+    \label{fig:#4}
+    \end{figure}}
 \newcommand{\verzeichnis}[3]{\begin{figure}[H]
   % https://tex.stackexchange.com/a/99591/220899
   \renewcommand{\DTstyle}{\textrm\expandafter\raisebox{-0.7ex}}
@@ -475,3 +463,23 @@
   \caption{#2}
   \label{fig:#3}
   \end{figure}}
+\newcommand{\logisch}[1]{$``#1``$}
+\newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
+\newcommand{\python}[1]{\mintinline{python}{#1}}
+
+% Referenzierung
+% Kapitel
+\newcommand{\fullref}[1]{(\emph{\hyperref[{#1}]{siehe Kapitel \ref{#1} - \nameref{#1}}})}
+\newcommand{\literef}[1]{\emph{\hyperref[{#1}]{Kapitel \ref{#1} - \nameref{#1}}}}
+% Anhänge
+\newcommand{\litearef}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1}}}}
+\newcommand{\aref}[1]{\litearef{#1}} %Kompatibilität
+\newcommand{\fullaref}[1]{(siehe \emph{\hyperref[{#1}]{Anhang \ref{#1}}})}
+% Abbildungen
+\newcommand{\litebref}[1]{\emph{\hyperref[{fig:#1}]{Abbildung \ref{fig:#1} - \nameref{fig:#1}}}}
+\newcommand{\bref}[1]{\litebref{#1}} %Kompatibilität
+\newcommand{\fullbref}[1]{\emph{(siehe \hyperref[{fig:#1}]{Abbildung \ref{fig:#1} - \nameref{fig:#1}}})}
+% Tabellen
+\newcommand{\litetref}[1]{\emph{\hyperref[{#1}]{Tabelle \ref{#1} - \nameref{#1}}}}
+\newcommand{\tref}[1]{\litetref{#1}} %Einheitlichkeit
+\newcommand{\fulltref}[1]{\emph{(siehe \hyperref[{#1}]{Tabelle \ref{#1} - \nameref{#1}}})}
