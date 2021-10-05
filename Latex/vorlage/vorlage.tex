@@ -448,10 +448,16 @@
   \caption{#3}
   \label{fig:#4}
   \end{figure}}
-\newcommand{\fullref}[1]{(siehe Kapitel~\ref{#1}~-~\nameref{#1})}
-\newcommand{\literef}[1]{Kapitel~\ref{#1}~-~\nameref{#1}}
-\newcommand{\aref}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1}}}}
-\newcommand{\bref}[1]{\emph{\hyperref[{fig:#1}]{Abbildung \ref{fig:#1}}}}
+\newcommand{\fullref}[1]{(\emph{\hyperref[{#1}]{siehe Kapitel \ref{#1} - \nameref{#1}}})}
+\newcommand{\literef}[1]{\emph{\hyperref[{#1}]{Kapitel \ref{#1} - \nameref{#1}}}}
+\newcommand{\litearef}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1} - \nameref{#1}}}}
+\newcommand{\aref}[1]{\litearef{#1}} %Kompatibilität
+\newcommand{\fullaref}[1]{(siehe \emph{\hyperref[{#1}]{Anhang \ref{#1} - \nameref{#1}}})}
+\newcommand{\litebref}[1]{\emph{\hyperref[{fig:#1}]{Abbildung \ref{fig:#1} - \nameref{#1}}}}
+\newcommand{\bref}[1]{\litebref{#1}} %Kompatibilität
+\newcommand{\fullbref}[1]{\emph{(siehe \hyperref[{fig:#1}]{Abbildung \ref{fig:#1} - \nameref{#1}}})}
+\newcommand{\tref}[1]{\emph{\hyperref[{#1}]{Tabelle \ref{#1} - \nameref{#1}}}}
+\newcommand{\fulltref}[1]{\emph{(siehe \hyperref[{#1}]{Tabelle \ref{#1} - \nameref{#1}}})}
 \newcommand{\striche}[1]{\glqq #1\grqq{}}
 \newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
 \newcommand{\python}[1]{\mintinline{python}{#1}}
