@@ -6,7 +6,11 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 
 - Fußnoten sollten durch `\fn{Fußnotentext}`, Online-Zitate durch `\onlinezitat{key}`, andere Zitate durch `\zitat{key}` eingetragen werden. Beispiele dazu, wie Quellen zu speichern sind, sind in `literatur.bib` zu finden.
 
-- Mit `\label{bezeichner:name}` können Bezeichner für Elemente erstellt und später bspw. mit `\literef{label}` (generiert "Kapitel X"), `\fullref{label}` (generiert "siehe Kapitel X"), `\aref{label}` (für Anhänge), `\bref{label}` (für Abbildungen) usw. aufgerufen werden.
+- Mit `\label{bezeichner:name}` können Bezeichner für Elemente erstellt werden. Auf diese kann über LaTeX-eigene oder in `vorlage/vorlage-commands.tex` definierte Kommandos zugegriffen werden.
+    - Die vordefinierten Kommandos sind folgendermaßen aufgebaut:
+        - Universelle Kommandos für kurze (`\uniliteref`) bzw. lange (`\unifullref`) Referenzen
+        - Typ-spezifische Varianten davon (`\litearef` bzw. `\fullaref`) für Anhänge (a), Abbildungen (b), Codes (c), Formeln (f), Kapitel (=Sektionen, s) unt Tabellen (t)
+        - Kurz-Versionen der `lite`-Kommandos, z.B. `\cref` um `\litecref` und dadurch `\uniliteref{Code}` auszulösen
 
 - Pixelgrafiken kann man mittels `\bild[skalierung]{dateiname}{Beschriftung}{label}` einfügen. Vektorgrafiken im SVG-Format analog dazu per `\svg[...]` (besser).
 
