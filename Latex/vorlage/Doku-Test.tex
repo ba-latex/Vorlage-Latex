@@ -34,6 +34,22 @@ Siehe Quelltext.
     \caption{Beispielcode}
     \label{code:example}
 \end{code}
+An dieser Stelle wird noch ein einzeiliger Code eingefügt, der keine Zeilennummerierung erhalten soll.
+Dies kann genutzt werden, wenn man nur kurz auf eine Funktion eingehen möchte und diese nicht im Quellcodeverzeichnis erscheinen soll.
+\mint{python}|print("Hallo Vorlage")|
+
+Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktioniert.
+
+\begin{code}[H]
+  \begin{minted}{python}
+      class Wooo(Foo):
+          def __init__(self, boo):
+              self.doo = boo
+              moo = 1 + 2 +3
+  \end{minted}
+  \caption{Beispielcode}
+  \label{code:example2}
+\end{code}
 
 \subsection{Ordnerstruktur}
     \verzeichnis{%
