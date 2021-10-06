@@ -39,28 +39,28 @@
 
 % Anhänge
 \newcommand{\litearef}[1]{\uniliteref{Anhang}{#1}}
-\newcommand{\aref}[1]{\litearef{#1}} %Kompatibilität/Kurz
 \newcommand{\fullaref}[1]{\unifullref{Anhang}{#1}}
+\newcommand{\aref}[1]{\litearef{#1}}
 % Abbildungen
 \newcommand{\litebref}[1]{\uniliteref{Abbildung}{#1}}
-\newcommand{\bref}[1]{\litearef{#1}} %Kompatibilität/Kurz
 \newcommand{\fullbref}[1]{\unifullref{Abbildung}{#1}}
+\newcommand{\bref}[1]{\litearef{#1}}
 % Code
 \newcommand{\litecref}[1]{\uniliteref{Code}{#1}}
-\newcommand{\cref}[1]{\litearef{#1}} %Kompatibilität/Kurz
 \newcommand{\fullcref}[1]{\unifullref{Code}{#1}}
+\newcommand{\cref}[1]{\litearef{#1}}
 % Formeln
 \newcommand{\litecref}[1]{\uniliteref{Formel}{#1}}
-\newcommand{\cref}[1]{\litearef{#1}} %Kompatibilität/Kurz
 \newcommand{\fullcref}[1]{\unifullref{Formel}{#1}}
+\newcommand{\cref}[1]{\litearef{#1}}
 % Kapitel
 \newcommand{\fullsref}[1]{\unifullref{Kapitel}{#1}}
-\newcommand{\fullref}[1]{\fullsref{#1}} %Kompatibilität
 \newcommand{\litesref}[1]{\uniliteref{Kapitel}{#1}}
-\newcommand{\literef}[1]{\litesref{#1}} %Kompatibilität
-\newcommand{\sref}[1]{\litesref{#1}} %kurz
+\newcommand{\sref}[1]{\litesref{#1}}
 % Tabellen
 \newcommand{\litetref}[1]{\uniliteref{Tabelle}{#1}}
-\newcommand{\tref}[1]{\litearef{#1}} %Kompatibilität/Kurz
 \newcommand{\fulltref}[1]{\unifullref{Tabelle}{#1}}
-
+\newcommand{\tref}[1]{\litearef{#1}}
+% Kompatibilität
+\newcommand{\literef}[1]{\litesref{#1}}
+\newcommand{\fullref}[1]{\fullsref{#1}}
