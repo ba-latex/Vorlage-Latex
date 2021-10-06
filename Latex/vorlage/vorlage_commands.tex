@@ -10,14 +10,14 @@
   \centering
   \includegraphics[width=#1\columnwidth]{bilder/#2}
   \caption{#3}
-  \label{fig:#4}
+  \label{#4}
   \end{figure}}
 \newcommand{\striche}[1]{\glqq #1\grqq{}}
 \newcommand{\svg}[4][1.0]{\begin{figure}[H]
     \centering
     \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
     \caption{#3}
-    \label{fig:#4}
+    \label{#4}
     \end{figure}}
 \newcommand{\verzeichnis}[3]{\begin{figure}[H]
   % https://tex.stackexchange.com/a/99591/220899
@@ -27,7 +27,7 @@
     \dirtree{#1}  
   \end{varwidth}
   \caption{#2}
-  \label{fig:#3}
+  \label{#3}
   \end{figure}}
 \newcommand{\logisch}[1]{$``#1``$}
 \newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
