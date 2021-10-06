@@ -370,12 +370,10 @@
 \linespread{1.3}
 \newcommand\frontmatter{%
     \cleardoublepage
-  %\@mainmatterfalse
   \pagenumbering{Roman}}
 
 \newcommand\mainmatter{%
     \cleardoublepage
- % \@mainmattertrue
   \pagenumbering{arabic}}
 
 \newcommand\backmatter{%
@@ -384,7 +382,6 @@
   \else
     \clearpage
   \fi
- % \@mainmatterfalse
    }
 
 %! Inhalts-/Anhangsverzeichnis
@@ -422,6 +419,8 @@
 
 %Zeilennummern neu definieren, um Warnungen zu vermeiden und modern anmutende Zahlen zu nutzen
 \renewcommand{\theFancyVerbLine}{\scriptsize{\arabic{FancyVerbLine}}}
+
+%Standardformatierung für minted-Umgebung erstellen
 \setminted{
     tabsize=2,
     breaklines,
@@ -431,6 +430,9 @@
     %! see https://pygments.org/demo/#try, other nice options: paraiso-light, solarized-light, rainbow_dash, gruvbox-light, stata, tango
     style=emacs
 }
+%Keine Zeilennnummer, wenn der einzeilige \mint-Befehl genutzt wird
+\xpretocmd{\mint}{\setminted{linenos=false}}{}{}
+\xpretocmd{\minted}{\setminted{linenos=true}}{}{}
 
 %! Eigene Befehle zur erleichterten Nutzung
 % Hilfsbefehle
