@@ -3,7 +3,6 @@
     "recommendations": [
         "anweber.statusbar-commands",
         "aaron-bond.better-comments",
-        "CoenraadS.bracket-pair-colorizer",
         "James-Yu.latex-workshop"
     ]
 }

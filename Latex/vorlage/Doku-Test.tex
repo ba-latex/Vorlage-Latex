@@ -1,0 +1,122 @@
+%Alle Kapitel beginnen mit der Hauptüberschrift
+\section{Einleitung}
+Diese PDF wurde mit der Vorlage erstellt, um die Funktion und Formatierung dieser zu zeigen.
+
+Die Vorlage\onlinezitat{SCZYRBA2020} ist ein Gemeinschaftsprojekt im Rahmen unseres Studiums.
+Der Docker-Container\onlinezitat{HILLE2021} gehört dazu.
+Die Vorlage richtet sich weitestgehend nach dem Dokument \ac{HAWA}\onlinezitat{HAWA} der \href{https://www.ba-glauchau.de/}{Staatlichen Studienakademie Glauchau}.
+
+Weitere Hinweise befinden sich in der README.md oder im \href{https://github.com/DSczyrba/Vorlage-Latex/wiki}{Wiki}.
+Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
+
+\section{Beispiele}
+\label{sec:beispiele}
+\subsection{Pixelgrafiken}
+Siehe Quelltext.\fn{Dort wird das Kommando \striche{bild} aufgeführt. In dieser Vorlage sind allerdings keine Bilder (im vorgesehenen Ordner) enthalten.}
+%\bild[0.5]{dateiname-ohne-endung}{Text zu einem Bild}{label1}
+\subsection{Vektorgrafiken}
+Siehe Quelltext.
+%\svg[0.5]{dateiname-ohne-endung}{Text zu einer \ac{SVG}-Datei}{label2}
+\subsubsection{Programmcode}
+\begin{code}[H]
+    \begin{minted}{python}
+        import asdf
+        from foo import bar
+        
+        def yolo():
+            return "glhf"
+        
+        class Wooo(Foo):
+            def __init__(self, boo):
+                self.doo = boo
+                moo = 1 + 2 +3
+    \end{minted}
+    \caption{Beispielcode}
+    \label{code:example}
+\end{code}
+An dieser Stelle wird noch ein einzeiliger Code eingefügt, der keine Zeilennummerierung erhalten soll.
+Dies kann genutzt werden, wenn man nur kurz auf eine Funktion eingehen möchte und diese nicht im Quellcodeverzeichnis erscheinen soll.
+\mint{python}|print("Hallo Vorlage")|
+
+Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktioniert.
+
+\begin{code}[H]
+  \begin{minted}{python}
+      class Wooo(Foo):
+          def __init__(self, boo):
+              self.doo = boo
+              moo = 1 + 2 +3
+  \end{minted}
+  \caption{Beispielcode}
+  \label{code:example2}
+\end{code}
+
+\subsection{Ordnerstruktur}
+    \verzeichnis{%
+          .1 Vorlage-Latex.
+            .2 HINWEISE.md.
+            .2 LICENSE.
+            .2 README.md.
+            .2 sortieren.py.
+            .2 Latex.
+              .3 bilder.
+                .4 firmenlogo.svg.
+              .3 inhalt.
+                .4 Abkürzungen.tex.
+                .4 Anhang.tex.
+                .4 Kapitel1.tex.
+              .3 light.
+                .4 main.tex.
+                .4 README.md.
+                .4 vorlage\_light.tex.
+              .3 literatur.bib.
+              .3 main.tex.
+              .3 metadaten.sty.
+              .3 vorlage.
+                .4 Abstract\_Freigabeerklärung\_Bachelorthesis.tex.
+                .4 ba-gc-logo.png.
+                .4 ba-gc-logo.svg.
+                .4 dirtree\_file.svg.
+                .4 dirtree\_folder.svg.
+                .4 Erklärung\_3Autoren.tex.
+                .4 Erklärung\_4Autoren.tex.
+                .4 Erklärung\_Praxisbeleg.tex.
+                .4 Titelseite\_3Autoren.tex.
+                .4 Titelseite\_4Autoren.tex.
+                .4 Titelseite\_Praxisbeleg.tex.
+                .4 vorlage.tex.
+    }{Ein Verzeichnis-Baum}{beispielbaum}
+
+\section{Test-/Dokutabelle}
+Diese Tabelle dient hauptsächlich zum Testen der einzelnen Kommandos, sowie als minimales Beispiel für eine \emph{tabularx}-Tabelle:
+\begin{table}[H]
+\begin{tabularx}{\columnwidth}{|p{3cm}|X|p{.2\columnwidth}|}
+\hline
+Gegenstand & Beispiel & Anmerkungen \\
+\hline
+Kurzer Verweis auf Kapitel & \literef{sec:beispiele} & \\
+\hline
+Kurzer Verweis auf Anhang & \litearef{sec:anhang1} & Alias: \emph{\textbackslash aref} \\
+\hline
+Kurzer Verweis auf Abbildung & \litebref{beispielbaum} & Alias: \emph{\textbackslash bref} \\
+\hline
+Kurzer Verweis auf Tabelle & \litetref{beispieltabelle} & Alias: \emph{\textbackslash tref} \\
+\hline
+Langer Verweis auf Kapitel & \fullref{sec:beispiele} & \\
+\hline
+Langer Verweis auf Anhang & \fullaref{sec:anhang1} &  \\
+\hline
+Langer Verweis auf Abbildung & \fullbref{beispielbaum} &  \\
+\hline
+Langer Verweis auf Tabelle & \fulltref{beispieltabelle} &  \\
+\hline
+\multicolumn{2}{|c|}{verbundene Spalten mit zentriertem Text} & \emph{\textbackslash multicolumn} \\
+\hline
+Zeile 1 & \multirow{2}{\hsize}{verbundene Zeilen inklusive automatischer Zeilenumbrüche} & \emph{\textbackslash multirow} \\
+\cline{1-1}\cline{3-3}
+Zeile 2 & & mit \emph{\textbackslash hsize}\\
+\hline
+\end{tabularx}
+\caption{Beispieltabelle}
+\label{beispieltabelle}
+\end{table}

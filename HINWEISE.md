@@ -2,7 +2,7 @@
 
 Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umgesetzt werden können:
 
-- Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden.
+- Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden. Sollte ein sehr langer Titel gewählt werden, ist es möglich, dass dieser auf den Titelseiten oder den Erklärungen zu Problemen führt. Diese müssen in den jeweiligen Titelseiten- (verringerte Abstände und/oder Schriftgröße) bzw. Erklärungsdateien (zusätzliche Zeilen) behoben werden.
 
 - Fußnoten sollten durch `\fn{Fußnotentext}`, Online-Zitate durch `\onlinezitat{key}`, andere Zitate durch `\zitat{key}` eingetragen werden. Beispiele dazu, wie Quellen zu speichern sind, sind in `literatur.bib` zu finden.
 
@@ -11,6 +11,10 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 - Pixelgrafiken kann man mittels `\bild[skalierung]{dateiname}{Beschriftung}{label}` einfügen. Vektorgrafiken im SVG-Format analog dazu per `\svg[...]` (besser).
 
 - Abkürzungen werden in `Inhalt/Abkürzungen.tex` eingetragen und im Text bspw. mit `\ac{Kürzel}` verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html). Wichtig ist, dass zu Beginn der Umgebung `\begin{acronym}[SSHHH]` in die eckigen Klammern das längste Akronym eingetragen wird. Ansonsten wird die Seite nicht korrekt formatiert.
+    - Abkürzungen in der Mehrzahl: `\acp{Kürzel}`
+    - erzwungene Kurzform: `\acs{Kürzel}`
+    - erzwungene Langform: `\acf{Kürzel}`
+    - Abkürzungen in Überschriften ausschließlich ohne `\ac{}`-Kommandos verwenden
 
 - Abkürzungen müssen in der richtigen Reihenfolge eingetragen oder das `sortieren.py`-Script verwendet werden.
 
@@ -19,15 +23,28 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
 ```latex
 \begin{code}[H]
-    \inputminted[linenos, breaklines, gobble=0, frame=none,
+    \inputminted[
         firstline=27,
         lastline=37,
         firstnumber=17,
-        numbers=left,
         numbersep=5pt]{python}{sourcecodes/excel2.py}
     \caption{Auslesen der Daten aus dem Array}
     \label{code:4}
 \end{code}
+```
+
+- Um Verzeichnisstrukturen darzustellen, wird `\verzeichnis` mit den eigenen Befehlen `\dtfolder` und `\dtfile` genutzt:
+  - Dieses Kommando basiert auf Dirtree, in dessen [Doku](http://tug.ctan.org/macros/generic/dirtree/dirtree.pdf) weitere nützilche Kommandos erläutert werden.
+```latex
+\verzeichnis{%
+    .1 \dtfolder Ordner 1. %Ebene 1
+    .2 \dtfolder Unterordner 1. %Ebene 2
+    .3 \dtfile Datei 1. %Ebene 3
+    .2 \dtfolder Unterordner 2. %Ebene 2
+    .3 \dtfolder Unter-Unterordner 1. %Ebene 3
+    .4 \dtfile Datei 2. %Ebene 4
+    .3 \dtfolder Unter-Unterordner 2. %Ebene 3
+}{Beschriftung}{label}
 ```
 
 - Für mehr Informationen dazu bitte die Minted-Dokumentation konsultieren. Es ist möglich mittels ` \mintinline{python}{print("Toller Code")}` Code in einer Zeile ähnlich dem Mathemathikmodus zu verwenden.
