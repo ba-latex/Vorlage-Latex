@@ -278,12 +278,15 @@
 
 \urlstyle{same}
 \DeclareNameFormat{author}{%
-      \nameparts{#1}%
-      \usebibmacro{name:family-given}
-        {\MakeUppercase{\namepartfamily}}
-        {\namepartgiven}
-        {\namepartprefix}
-        {\namepartsuffix}%
+  \nameparts{#1}%
+  \usebibmacro{name:family-given}
+    {\expandafter\ifblank\expandafter{\namepartgiven}
+       {\namepartfamily}% no family name, don't uppercase
+       {\MakeUppercase{\namepartfamily}}%
+    }
+    {\namepartgiven}
+    {\namepartprefix}
+    {\namepartsuffix}%
 }
 \DeclareFieldFormat{title}{#1}
 
