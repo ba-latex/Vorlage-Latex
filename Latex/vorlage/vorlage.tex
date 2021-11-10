@@ -16,7 +16,13 @@
 
 \usepackage{tocbasic}
 \usepackage[ngerman]{babel}
-\usepackage[backend=biber, labeldateparts=true, style=authortitle, isbn=false, dashed=false]{biblatex}
+\usepackage[%
+  backend=biber,
+  labeldateparts=true,
+  style=authortitle,
+  isbn=false,
+  dashed=false,
+  maxnames=3]{biblatex}
 
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{section,subsection,subsubsection}
@@ -71,11 +77,13 @@
 \usepackage{float}
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
 \usepackage{lineno}
+\usepackage[T1]{fontenc}
 \usepackage{csquotes}
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{dirtree}
 \usepackage{varwidth}
+\usepackage{ifthen}
 
 %! Centered Dirtree - https://tex.stackexchange.com/posts/100182/revisions
 \makeatletter
@@ -278,12 +286,16 @@
 
 \urlstyle{same}
 \DeclareNameFormat{author}{%
-      \nameparts{#1}%
-      \usebibmacro{name:family-given}
-        {\MakeUppercase{\namepartfamily}}
-        {\namepartgiven}
-        {\namepartprefix}
-        {\namepartsuffix}%
+  \nameparts{#1}%
+  \usebibmacro{name:family-given}
+    {\expandafter\ifblank\expandafter{\namepartgiven}
+       {\namepartfamily}% no family name, don't uppercase
+       {\MakeUppercase{\namepartfamily}}%
+    }
+    {\namepartgiven}
+    {\namepartprefix}
+    {\namepartsuffix}%
+    \ifthenelse{\value{listcount}=1\AND\ifmorenames}{\andothersdelim\bibstring{andothers}}{}%
 }
 \DeclareFieldFormat{title}{#1}
 
@@ -291,6 +303,7 @@
 \renewcommand{\finalnamedelim}{\addsemicolon\space}
 \renewcommand{\labelnamepunct}{\addcolon\space}
 \renewcommand*{\finentrypunct}{}
+\renewcommand{\andothersdelim}{\addsemicolon\space}
 
 \setlength\bibitemsep{\baselineskip}
 \setlength\bibhang{0pt}
@@ -303,7 +316,7 @@
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}
    \setunit{\addnbspace}
-   \bibhyperref{\printnames[author][1-3]{labelname}}
+   \bibhyperref{\printnames[author]{labelname}}
    \setunit{\labelnamepunct}
    \newunit
    \printfield{location}
@@ -321,11 +334,10 @@
   {\usebibmacro{citeindex}
    \setunit{\addnbspace}
    online:
-   \bibhyperref{\printnames[author][1-3]{labelname}}
+   \bibhyperref{\printnames[author]{labelname}}
    \setunit{\labelnamepunct}
    \newunit
    \printfield{labelyear}\printfield{extradate}
-   \newunit
    \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
