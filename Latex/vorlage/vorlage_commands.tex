@@ -39,8 +39,8 @@
 
 % Anhänge - Sonderbehandlung, da nameref auf Anhänge nicht funktioniert
 % https://github.com/DSczyrba/Vorlage-Latex/issues/29
-\newcommand{\litearef}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1}}}}
-\newcommand{\fullaref}[1]{(\emph{\hyperref[{#1}]{siehe Anhang \ref{#1}}})}
+\newcommand{\litearef}[1]{\uniliteref{Anhang}{#1}}
+\newcommand{\fullaref}[1]{\unifullref{Anhang}{#1}}
 \newcommand{\aref}[1]{\litearef{#1}}
 % Abbildungen
 \newcommand{\litebref}[1]{\uniliteref{Abbildung}{#1}}
