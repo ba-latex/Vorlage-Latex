@@ -7,30 +7,33 @@
 %! Section Befehl wird umgeschrieben, um Überschriften zu verbergen
 %! Kann, falls Überschriften gewollt sind, entfernt oder erst später eingefügt werden.
 % Beginn
-\renewcommand{\section}[1]{
-\par\refstepcounter{section}
-\sectionmark{#1}
-\addcontentsline{atoc}{section}{\bfseries\protect\numberline{\thesection}{\mdseries#1}}
-\lohead{\textnormal{#1}}
+\makeatletter
+\renewcommand{\section}[1]{%
+\par\refstepcounter{section}%
+\sectionmark{#1}%
+\NR@gettitle{#1}%<---------
+\addcontentsline{atoc}{section}{\bfseries\protect\numberline{\thesection}{\mdseries#1}}%
+\lohead{\textnormal{#1}}%
 }
+\makeatother
 % Ende
 
 %! Anpassung der Darstellung von Abbildungen im Anhang
 %! Eine Variante auskommentieren
-%? Möglichkeit 1: ohne Nummerierung und ohne "Abbildung"
-%\renewcommand{\bild}[3][1.0]{\begin{figure}[H]
-%    \centering
-%    \includegraphics[width=#1\columnwidth]{bilder/#2}
-%    \caption*{#3}
-%    \label{#3}
-%    \end{figure}}
+%? Möglichkeit 1: ohne Nummerierung
+%\renewcommand{\bild}[4][1.0]{\begin{figure}[H]
+    %\centering
+    %\includegraphics[width=#1\columnwidth]{bilder/#2}
+    %\caption*{\bfseries Abbildung \mdseries #3}
+    %\label{#4}
+    %\end{figure}}
 
-%? Möglichkeit 2: mit Nummerierung und "Abbildung", aber nicht im Abbildungsverzeichnis
-\renewcommand{\bild}[3][1.0]{\begin{figure}[H]
+%? Möglichkeit 2: mit Nummerierung aber nicht im Abbildungsverzeichnis
+\renewcommand{\bild}[4][1.0]{\begin{figure}[H]
     \centering
     \includegraphics[width=#1\columnwidth]{bilder/#2}
     \caption[]{#3}
-    \label{#3}
+    \label{#4}
     \end{figure}}
 
 %! Anhang 1
