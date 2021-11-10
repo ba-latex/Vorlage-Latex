@@ -12,11 +12,12 @@
 %! Inhalt der Arbeit
 \frontmatter
 
-%! Auswahl der Titelseite
-\include{vorlage/Titelseite_1Autor}
-%\include{vorlage/Titelseite_2Autoren}
-%\include{vorlage/Titelseite_3Autoren}
-%\include{vorlage/Titelseite_4Autoren}
+%! automatische Auswahl der Titelseite
+\ifthenelse{\isundefined{\autorzwei}}{\include{vorlage/Titelseite_1Autor}}{%
+    \ifthenelse{\isundefined{\autordrei}}{\include{vorlage/Titelseite_2Autoren}}{%
+        \ifthenelse{\isundefined{\autorvier}}{\include{vorlage/Titelseite_3Autoren}}{\include{vorlage/Titelseite_4Autoren}}
+    }
+}
 
 %! Nicht benötigte Verzeichnisse hier auskommentieren
 %? Inhaltsverzeichnis
