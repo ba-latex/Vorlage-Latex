@@ -245,7 +245,13 @@
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={\titel}}
 \hypersetup{pdfsubject={\kurzbeschreibung}}
-\hypersetup{pdfauthor={\autoren}}
+\ifthenelse{\isundefined{\autorzwei}}{\hypersetup{pdfauthor={\autoreins}}}{%
+    \ifthenelse{\isundefined{\autordrei}}{\hypersetup{pdfauthor={\autoreins, \autorzwei}}}{%
+        \ifthenelse{\isundefined{\autorvier}}{\hypersetup{pdfauthor={\autoreins, \autorzwei, \autordrei}}}{%
+        \hypersetup{pdfauthor={\autoreins, \autorzwei, \autordrei, \autorvier}}
+        }
+    }
+}
 \usepackage[numbered]{bookmark}
 \usepackage[printonlyused]{acronym}
 \usepackage{enumitem}
