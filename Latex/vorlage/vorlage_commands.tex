@@ -1,0 +1,67 @@
+%! Eigene Befehle zur erleichterten Nutzung
+% Hilfsbefehle
+\newcommand{\fontheightsvg}[1]{\includesvg[height=1.75ex, inkscapelatex=false]{#1}}
+\newcommand{\dtfolder}{\fontheightsvg{vorlage/dirtree_folder}\hspace{0.1cm}}
+\newcommand{\dtfile}{\fontheightsvg{vorlage/dirtree_file}\hspace{0.1cm}}
+
+% Umgebungen u.Ä.
+\newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
+\newcommand{\bild}[4][1.0]{\begin{figure}[H]
+  \centering
+  \includegraphics[width=#1\columnwidth]{bilder/#2}
+  \caption{#3}
+  \label{#4}
+  \end{figure}}
+\newcommand{\striche}[1]{\glqq #1\grqq{}}
+\newcommand{\svg}[4][1.0]{\begin{figure}[H]
+    \centering
+    \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
+    \caption{#3}
+    \label{#4}
+    \end{figure}}
+\newcommand{\verzeichnis}[3]{\begin{figure}[H]
+  % https://tex.stackexchange.com/a/99591/220899
+  \renewcommand{\DTstyle}{\textrm\expandafter\raisebox{-0.7ex}}
+  \centering
+  \begin{varwidth}{\textwidth}
+    \dirtree{#1}  
+  \end{varwidth}
+  \caption{#2}
+  \label{#3}
+  \end{figure}}
+\newcommand{\logisch}[1]{$``#1``$}
+\newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
+\newcommand{\python}[1]{\mintinline{python}{#1}}
+
+% Referenzierung
+\newcommand{\uniliteref}[2]{\emph{\hyperref[{#2}]{#1 \ref{#2} - \nameref{#2}}}}
+\newcommand{\unifullref}[2]{(\emph{\hyperref[{#2}]{siehe #1 \ref{#2} - \nameref{#2}}})}
+
+% Anhänge - Sonderbehandlung, da nameref auf Anhänge nicht funktioniert
+% https://github.com/DSczyrba/Vorlage-Latex/issues/29
+\newcommand{\litearef}[1]{\uniliteref{Anhang}{#1}}
+\newcommand{\fullaref}[1]{\unifullref{Anhang}{#1}}
+\newcommand{\aref}[1]{\litearef{#1}}
+% Abbildungen
+\newcommand{\litebref}[1]{\uniliteref{Abbildung}{#1}}
+\newcommand{\fullbref}[1]{\unifullref{Abbildung}{#1}}
+\newcommand{\bref}[1]{\litebref{#1}}
+% Code
+\newcommand{\litecref}[1]{\uniliteref{Code}{#1}}
+\newcommand{\fullcref}[1]{\unifullref{Code}{#1}}
+\newcommand{\cref}[1]{\litecref{#1}}
+% Formeln
+\newcommand{\litefref}[1]{\uniliteref{Formel}{#1}}
+\newcommand{\fullfref}[1]{\unifullref{Formel}{#1}}
+\newcommand{\fref}[1]{\litefref{#1}}
+% Kapitel
+\newcommand{\fullsref}[1]{\unifullref{Kapitel}{#1}}
+\newcommand{\litesref}[1]{\uniliteref{Kapitel}{#1}}
+\newcommand{\sref}[1]{\litesref{#1}}
+% Tabellen
+\newcommand{\litetref}[1]{\uniliteref{Tabelle}{#1}}
+\newcommand{\fulltref}[1]{\unifullref{Tabelle}{#1}}
+\newcommand{\tref}[1]{\litetref{#1}}
+% Kompatibilität
+\newcommand{\literef}[1]{\litesref{#1}}
+\newcommand{\fullref}[1]{\fullsref{#1}}

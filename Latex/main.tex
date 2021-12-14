@@ -1,6 +1,9 @@
 % main.tex - Hauptdatei der Vorlage
-
+% Vorlage
 \input{vorlage/vorlage}
+% vordefinierte Kommandos der Vorlage
+\input{vorlage/vorlage_commands}
+% Auf gleiche Art können auch eigene Kommandos in eine Datei wie 'inhalt/kommandos.tex' ausgelagert werden
 
 %Dokument-Anfang
 \begin{document}
@@ -9,10 +12,12 @@
 %! Inhalt der Arbeit
 \frontmatter
 
-%! Auswahl der Titelseite
-\include{vorlage/Titelseite_Praxisbeleg}
-%\include{vorlage/Titelseite_3Autoren}
-%\include{vorlage/Titelseite_4Autoren}
+%! automatische Auswahl der Titelseite
+\ifthenelse{\isundefined{\autorzwei}}{\include{vorlage/Titelseite_1Autor}}{%
+    \ifthenelse{\isundefined{\autordrei}}{\include{vorlage/Titelseite_2Autoren}}{%
+        \ifthenelse{\isundefined{\autorvier}}{\include{vorlage/Titelseite_3Autoren}}{\include{vorlage/Titelseite_4Autoren}}
+    }
+}
 
 %! Nicht benötigte Verzeichnisse hier auskommentieren
 %? Inhaltsverzeichnis

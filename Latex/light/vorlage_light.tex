@@ -214,7 +214,7 @@
   %owner=\jobname,
   tocentrystyle=tocline,
   tocentryentrynumberformat=\PrefixBy{Anhang},
-  listname={Anhangverzeichnis}% Titel des Verzeichnisses
+  listname={Anhangsverzeichnis}% Titel des Verzeichnisses
 ]{atoc}% Dateierweiterung (a=appendix, toc=table of contents)
 
 
@@ -224,12 +224,8 @@
                       \centering
                       \includegraphics[width=#1\columnwidth]{bilder/#2}
                       \caption{#3}
-                      \label{fig:#4}
+                      \label{#4}
                       \end{figure}}
-\newcommand{\fullref}[1]{(siehe Kapitel~\ref{#1}~-~\nameref{#1})}
-\newcommand{\literef}[1]{Kapitel~\ref{#1}~-~\nameref{#1}}
-\newcommand{\aref}[1]{\emph{\hyperref[{#1}]{Anhang \ref{#1}}}}
-\newcommand{\bref}[1]{\emph{\hyperref[{fig:#1}]{Abbildung \ref{fig:#1}}}}
 \newcommand{\striche}[1]{\glqq #1\grqq{}}
 \newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
 \newcommand{\python}[1]{\mintinline{python}{#1}}
@@ -237,6 +233,34 @@
   \centering
   \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
   \caption{#3}
-  \label{fig:#4}
+  \label{#4}
   \end{figure}}
 \newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
+
+% Referenzierung
+\newcommand{\uniliteref}[2]{\emph{\hyperref[{#2}]{#1 \ref{#2} - \nameref{#2}}}}
+\newcommand{\unifullref}[2]{(\emph{\hyperref[{#2}]{siehe #1 \ref{#2} - \nameref{#2}}})}
+
+% Abbildungen
+\newcommand{\litebref}[1]{\uniliteref{Abbildung}{#1}}
+\newcommand{\fullbref}[1]{\unifullref{Abbildung}{#1}}
+\newcommand{\bref}[1]{\litebref{#1}}
+% Code
+\newcommand{\litecref}[1]{\uniliteref{Code}{#1}}
+\newcommand{\fullcref}[1]{\unifullref{Code}{#1}}
+\newcommand{\cref}[1]{\litecref{#1}}
+% Formeln
+\newcommand{\litefref}[1]{\uniliteref{Formel}{#1}}
+\newcommand{\fullfref}[1]{\unifullref{Formel}{#1}}
+\newcommand{\fref}[1]{\litefref{#1}}
+% Kapitel
+\newcommand{\fullsref}[1]{\unifullref{Kapitel}{#1}}
+\newcommand{\litesref}[1]{\uniliteref{Kapitel}{#1}}
+\newcommand{\sref}[1]{\litesref{#1}}
+% Tabellen
+\newcommand{\litetref}[1]{\uniliteref{Tabelle}{#1}}
+\newcommand{\fulltref}[1]{\unifullref{Tabelle}{#1}}
+\newcommand{\tref}[1]{\litetref{#1}}
+% Kompatibilität
+\newcommand{\literef}[1]{\litesref{#1}}
+\newcommand{\fullref}[1]{\fullsref{#1}}
