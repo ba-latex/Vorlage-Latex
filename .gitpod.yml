@@ -12,6 +12,7 @@ vscode:
     - anweber.statusbar-commands
     - aaron-bond.better-comments
     - James-Yu.latex-workshop
+    - gruntfuggly.triggertaskonsave
 
 github:
   prebuilds:
