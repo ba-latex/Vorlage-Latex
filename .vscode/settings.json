@@ -63,6 +63,14 @@
             ]
         }
     ],
+    "triggerTaskOnSave.tasks": {
+        "Build + Refresh": [
+            "Latex/*.sty",
+            "Latex/*.tex",
+            "Latex/*.bib",
+            "Latex/inhalt/*.tex"
+        ]
+    },
     "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.6.1",
     "editor.bracketPairColorization.enabled": true
 }
