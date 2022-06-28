@@ -305,7 +305,10 @@ TSWLatexianTemp*
 # excluding build artifacts from vcs is good practice
 /Latex/main.pdf
 /Latex/main-diff.pdf
+/Latex/main_abstract.pdf
+/Latex/main_abstract-diff.pdf
 
 # temporary build files
 /Latex/svg-inkscape/
 /Latex/.build/
+/Latex/.build-abstract/
