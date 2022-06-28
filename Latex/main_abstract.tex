@@ -1,5 +1,14 @@
-\cleardoublepage
-\section{Abstract zur Bachelorthesis}
+% Vorlage
+\input{vorlage/vorlage}
+
+\begin{document}
+\KOMAoption{headsepline}{false}
+\KOMAoption{footsepline}{false}
+\ifthenelse{\isundefined{\jahr}}{\color{red}\Large Jahr-Kommando in metadaten.sty aktivieren}{
+    \cleardoublepage
+\rofoot{}
+\rohead{}
+\lohead{}
     % Alternativ zu Vektorgrafik-Logos (SVG) werden Befehle zur Nutzung von Pixelgrafik-Logos (z.B. PNG) bereitgestellt,
     % falls Inkscape nicht installiert werden, bzw. nicht der PATH-Variable hinzugefügt werden soll.
     %! Die SVG-Version sieht im Druck deutlich besser aus.
@@ -51,43 +60,6 @@
             Lorem, ipsum, dolor, sit, amet
         }
     }
-    \clearpage
-\section{Erklärung Freigabe/Sperre der Bachelorthesis}
-    \begin{flushright}
-        {\small nach 4BA-F.300\\}
-    \end{flushright}
-    \begin{center}
-        \Large\textbf{Freigabeerklärung}\\
-    \end{center}
-    \normalsize
 
-    Hiermit erklären wir uns
-    %nicht
-    einverstanden, dass die Bachelorthesis des Studierenden\\
-
-    Name, Vorname: Mustermensch, Maximilian(e)\hfill Studiengang: \studiengang
-
-    zur öffentlichen Einsichtnahme durch den Dokumentenserver der Bibliothek der Staatlichen Studienakademie Glauchau bereitgestellt wird.
-
-    Thema der Arbeit:\\
-
-    \large\titel\\\normalsize
-
-    \noindent\rule{0.3\columnwidth}{0.4pt}\\
-    Ort, Datum
-
-    \vspace*{2cm}
-    \noindent\rule{0.5\columnwidth}{0.4pt}\\
-    Stempel, Unterschrift des Praxispartners\\
-
-    Arbeit zur Veröffentlichung freigegeben:\hfill ja$\quad\square$\hfill nein$\quad\square$
-
-    \vfill
-    \begin{minipage}{0.5\columnwidth}
-        \noindent\rule{0.5\columnwidth}{0.4pt}\\
-        Datum
-    \end{minipage}
-    \begin{minipage}{0.45\columnwidth}
-        \noindent\rule{0.8\columnwidth}{0.4pt}\\
-        Unterschrift Leiter/in d. Studiengangs
-    \end{minipage}
+}
+\end{document}

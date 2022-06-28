@@ -3,6 +3,7 @@
     "recommendations": [
         "anweber.statusbar-commands",
         "aaron-bond.better-comments",
-        "James-Yu.latex-workshop"
+        "James-Yu.latex-workshop",
+        "gruntfuggly.triggertaskonsave"
     ]
 }

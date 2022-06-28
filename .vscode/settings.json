@@ -61,8 +61,25 @@
             "arguments": [
                 "Delete temporary files"
             ]
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Build abstract LaTeX using Docker",
+            "text": "$(gear) Build Abstract",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Build abstract LaTeX using Docker"
+            ]
         }
     ],
+    "triggerTaskOnSave.tasks": {
+        "Build + Refresh": [
+            "Latex/*.sty",
+            "Latex/*.tex",
+            "Latex/*.bib",
+            "Latex/inhalt/*.tex"
+        ]
+    },
     "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.6.1",
     "editor.bracketPairColorization.enabled": true
 }
