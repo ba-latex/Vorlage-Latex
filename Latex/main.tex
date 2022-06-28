@@ -13,11 +13,7 @@
 \frontmatter
 
 %! automatische Auswahl der Titelseite
-\ifthenelse{\isundefined{\autorzwei}}{\include{vorlage/Titelseite_1Autor}}{%
-    \ifthenelse{\isundefined{\autordrei}}{\include{vorlage/Titelseite_2Autoren}}{%
-        \ifthenelse{\isundefined{\autorvier}}{\include{vorlage/Titelseite_3Autoren}}{\include{vorlage/Titelseite_4Autoren}}
-    }
-}
+\ifthenelse{\isundefined{\autorzwei}}{\include{vorlage/Titelseite_1Autor}}{\include{vorlage/Titelseite_mehrere_Autoren}}
 \ifthenelse{\isundefined{\sperre}}{}{\include{vorlage/Sperrvermerk}}
 
 \ifthenelse{\isundefined{\jahr}}{}{\input{vorlage/Platzhalter_Themenblatt}}
