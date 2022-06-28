@@ -61,6 +61,15 @@
             "arguments": [
                 "Delete temporary files"
             ]
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Build abstract LaTeX using Docker",
+            "text": "$(gear) Build Abstract",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Build abstract LaTeX using Docker"
+            ]
         }
     ],
     "triggerTaskOnSave.tasks": {
