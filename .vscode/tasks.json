@@ -41,7 +41,7 @@
             "group": "build",
             "windows": {
                 // Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
-                "command": "docker run --init --rm -v \\\"${workspaceFolder}/Latex:/latex\\\" -e HOST_PATH=\\\"${workspaceFolder}/Latex\\\" -e DISABLE_DIFFPDF=1 ${config:vorlage-latex.buildcontainer}"
+                "command": "docker run --init --rm -v \\\"${workspaceFolder}/Latex:/latex\\\" -e HOST_PATH=\\\"${workspaceFolder}/Latex\\\" -e DISABLE_DIFFPDF=1 -e DELETE_TEMP=1 -e BUILD_DIRECTORY=.build-abstract -e TARGET=main_abstract ${config:vorlage-latex.buildcontainer}"
             }
         },
         {
