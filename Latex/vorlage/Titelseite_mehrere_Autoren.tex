@@ -15,9 +15,13 @@
 \textbf{Vorgelegt am:}\quad\quad\quad & \abgabedatum\\
 
 \textbf{Von:}           ~ & \textbf{\autoreins}\\
-                        ~ & \textbf{\autorzwei}\\
-\vspace{1.0cm}
-                        ~ & \textbf{\autordrei}\\
+\ifthenelse{\isundefined{\autordrei}}{\vspace{1.0cm} ~ & \textbf{\autorzwei}\\}{%
+        \ifthenelse{\isundefined{\autorvier}}{~ & \textbf{\autorzwei}\\
+        \vspace{1.0cm}
+        ~ & \textbf{\autordrei}\\}{~ & \textbf{\autorzwei}\\ ~ & \textbf{\autordrei}\\ \vspace{1.0cm} ~ & \textbf{\autorvier}\\}
+    }
+
+
 
 \textbf{Studiengang:}   ~ & \studiengang \\
 \vspace{1.0cm}
@@ -26,9 +30,12 @@
 \textbf{Seminargruppe:} ~ & \seminargruppe \\
 
 \textbf{Matrikelnummer:} ~ & \matnumeins \\
-                         ~ & \matnumzwei \\
-\vspace{1.0cm}
-                         ~ & \matnumdrei \\
+\ifthenelse{\isundefined{\autordrei}}{\vspace{1.0cm}
+~ & \matnumzwei \\}{%
+        \ifthenelse{\isundefined{\autorvier}}{~ & \matnumzwei \\
+        \vspace{1.0cm} ~ & \matnumdrei \\}{~ & \matnumzwei \\ ~ & \matnumdrei \\ \vspace{1.0cm} ~ & \matnumvier \\}
+    }
+
 \textbf{Gutachter:}     ~ & \betreuereins \\ ~ & (\institutioneins)\\
                         ~ & \betreuerzwei \\ ~ & (\institutionzwei)\\
 
