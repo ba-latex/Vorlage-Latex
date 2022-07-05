@@ -58,17 +58,18 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 - Die Formelumgebung wird wie folgt aufgerufen:
 ```latex
 \begin{formel}[H]
-\captionabove{Die erste aller Formeln}
-$[\lnot P\land\lnot Q] \lor R$ \vspace{3mm}\\
-$P=\text{was ganz tolles}$ \\
-$Q=\text{was noch viel tolleres}$
-\label{formel:test}
-\end{formel}
+      %! Diese Formel stammt aus der HAWA und wird dort als Beispiel genutzt
+      \begin{captionbeside}{\textbf{Druckverlust}}[r]
+        $\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$
+      \end{captionbeside}
+      $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
+      $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
+      $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$\\
+      \label{formel:ohm}
+    \end{formel}
 ```
 
-- Soll die Caption darunter stehen muss `\captionabove{}` durch `\caption{}` ersetzt werden und über `\label{}` geschrieben werden.
-
-- Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Erklärung der Formelzeichen auch. Siehe dazu auch das HAWA-Dokument.
+- Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Legende ebenfalls. Siehe dazu auch das HAWA-Dokument.
 
 - Normale Anführungszeichen ("") entsprechen nicht der Deutschen Rechtschreibung. Hierzu das Kommando `\striche{Text}` verwenden.
 
