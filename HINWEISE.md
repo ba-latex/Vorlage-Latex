@@ -58,15 +58,18 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 - Die Formelumgebung wird wie folgt aufgerufen:
 ```latex
 \begin{formel}[H]
-      %! Diese Formel stammt aus der HAWA und wird dort als Beispiel genutzt
-      \begin{captionbeside}{\textbf{Druckverlust}}[r]
-        $\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$
-      \end{captionbeside}
-      $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
-      $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
-      $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$\\
-      \label{formel:ohm}
-    \end{formel}
+  \pretocmd{\captionbelow}{\onelinecaptionstrue}{}{}
+  \KOMAoptions{captions=centeredbeside}
+  %! Diese Formel stammt aus der HAWA und wird dort als Beispiel genutzt
+  \begin{captionbeside}{\textbf{Druckverlust}}[r]
+    $\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}=\arccos 90\deg$
+  \end{captionbeside}
+  \pretocmd{\captionbelow}{}{}{}
+  $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
+  $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
+  $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$\\
+  \label{formel:ohm}
+\end{formel}
 ```
 
 - Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Legende ebenfalls. Siehe dazu auch das HAWA-Dokument.
