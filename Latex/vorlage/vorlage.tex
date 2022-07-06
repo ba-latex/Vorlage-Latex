@@ -1,5 +1,5 @@
 %! LaTeX Vorlage
-\documentclass[12pt, fleqn, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc, parskip=half-]{scrartcl}
+\documentclass[12pt, fleqn, captions=nooneline, titlepage, footsepline, headsepline, toc=sectionentrywithdots, listof=entryprefix, bibliography=totoc, parskip=half-]{scrreprt}
 
 \usepackage{silence} %unnötige Warnungen unterdrücken
 \WarningFilter{latex}{You have requested}
@@ -48,7 +48,7 @@
   \renewcommand*{\ext@toc}{atoc}
   \RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
   \RedeclareSectionCommands[tocnumwidth=85pt]{section, subsection, subsubsection}
-  \addtokomafont{sectionentry}{\mdseries}
+  %\addtokomafont{sectionentry}{\mdseries}
   \renewcommand*\listoflofentryname{\mdseries}
   \renewcommand{\thesection}{\arabic{section}}
   \renewcommand{\@dotsep}{10000}
@@ -191,7 +191,7 @@
 
 %! PageBreaks nach jeder Section
 \let\oldsection\section
-\renewcommand\section{\clearpage\oldsection}
+%\renewcommand\chapter{\clearpage\oldsection}
 
 %! Code-Integration im Dokument
 %? Inklusive Erzeugung eines Custom-Enviroments für Programmcodes
@@ -199,7 +199,7 @@
 %\SetupFloatingEnvironment{listing}{name=Program code}
 %\SetupFloatingEnvironment{listing}{listname=List of Program Code}
 
-
+\usepackage{scrhack}
 \DeclareNewTOC[
   type=code,                           % Name der Umgebung
   types=codes,                         % Erweiterung (\listofschemes)
