@@ -90,20 +90,10 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
     }{Ein Verzeichnis-Baum}{beispielbaum}
 
     \subsection{Formeln}
-    
-    \begin{formel}[H]
-      \pretocmd{\captionbelow}{\onelinecaptionstrue}{}{}
-      \KOMAoptions{captions=centeredbeside}
-      %! Diese Formel stammt aus der HAWA und wird dort als Beispiel genutzt
-      \begin{captionbeside}{\textbf{Druckverlust}}[r]
-        $\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$
-      \end{captionbeside}
-      \pretocmd{\captionbelow}{}{}{}
-      $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
-      $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
-      $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$\\
-      \label{formel:ohm}
-    \end{formel}
+    \formula{$\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$}{%
+    $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
+    $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
+    $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$}{Druckverlust}{formel:ohm}
 
 \section{Test-/Dokutabelle}
 Diese Tabelle dient hauptsächlich zum Testen der einzelnen Kommandos, sowie als minimales Beispiel für eine \emph{tabularx}-Tabelle:
