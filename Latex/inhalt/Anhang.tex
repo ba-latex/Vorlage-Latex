@@ -8,11 +8,11 @@
 %! Kann, falls Überschriften gewollt sind, entfernt oder erst später eingefügt werden.
 % Beginn
 \makeatletter
-\renewcommand{\section}[1]{%
-\par\refstepcounter{section}%
+\renewcommand{\chapter}[1]{%
+\par\refstepcounter{chapter}%
 \sectionmark{#1}%
 \NR@gettitle{#1}%<---------
-\addcontentsline{atoc}{section}{\bfseries\protect\numberline{\thesection}{\mdseries#1}}%
+\addcontentsline{atoc}{chapter}{\bfseries\protect\numberline{\thechapter}{\mdseries#1}}%
 \lohead{\textnormal{#1}}%
 }
 \makeatother
