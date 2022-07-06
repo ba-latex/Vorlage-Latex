@@ -54,8 +54,8 @@
 \AfterTOCHead[atoc]{\let\if@dynlist\if@tocleft}
 \newcommand*{\useappendixtocs}{
   \renewcommand*{\ext@toc}{atoc}
-  \RedeclareSectionCommands[tocindent=0pt]{section, subsection, subsubsection}
-  \RedeclareSectionCommands[tocnumwidth=85pt]{section, subsection, subsubsection}
+  \RedeclareSectionCommands[tocindent=0pt]{chapter, section, subsection, subsubsection}
+  \RedeclareSectionCommands[tocnumwidth=85pt]{chapter, section, subsection, subsubsection}
   \renewcommand*\listoflofentryname{\mdseries}
   \renewcommand{\thesection}{\arabic{section}}
   \renewcommand{\@dotsep}{10000}
