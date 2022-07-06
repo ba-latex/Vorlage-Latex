@@ -1,6 +1,6 @@
 # Hinweise
 
-Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umgesetzt werden können
+Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umgesetzt werden können.
 
 ## Allgemeines
 
