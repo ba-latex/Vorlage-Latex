@@ -43,7 +43,7 @@
 \newcommand{\formula}[4]{\begin{formel}[H]
   \pretocmd{\captionbelow}{\onelinecaptionstrue}{}{}
   \KOMAoptions{captions=centeredbeside}
-  \begin{captionbeside}{\textbf{#3}}[r]#1\end{captionbeside}
+  \begin{captionbeside}[#3]{\textbf{#3}}[r]#1\end{captionbeside}
   \pretocmd{\captionbelow}{}{}{}#2\label{#4}\end{formel}}
 
 % Referenzierung
