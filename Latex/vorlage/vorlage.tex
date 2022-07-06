@@ -1,13 +1,14 @@
 %! LaTeX Vorlage
 \documentclass[12pt, fleqn, captions=nooneline, titlepage, footsepline, headsepline, toc=chapterentrywithdots, listof=entryprefix, bibliography=totoc, parskip=half-]{scrreprt}
+\usepackage{showframe}
 
 \usepackage{silence} %unnötige Warnungen unterdrücken
 \WarningFilter{latex}{You have requested}
-\WarningFilter{scrlayer-scrpage}{\headheight to low}
-\WarningFilter{scrlayer-scrpage}{\footheight to low}
-\WarningFilter{scrlayer-scrpage}{Very small head height detected}
-\WarningFilter{fvextra}{}
-\WarningFilter{lineno}{}
+% \WarningFilter{scrlayer-scrpage}{\headheight to low}
+% \WarningFilter{scrlayer-scrpage}{\footheight to low}
+% \WarningFilter{scrlayer-scrpage}{Very small head height detected}
+% \WarningFilter{fvextra}{} % was caused by loading csquotes before minted (which loads fvextra)
+% \WarningFilter{lineno}{}
 
 \pdfsuppresswarningpagegroup=1
 
@@ -91,7 +92,6 @@
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
 \usepackage{lineno}
 \usepackage[T1]{fontenc}
-\usepackage{csquotes}
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{dirtree}
@@ -231,6 +231,7 @@
 }
 \BeforeStartingTOC[loc]{\renewcommand*\autodot{\space\space\space\space}}
 
+\usepackage{csquotes}
 
 %! Formelverzeichnis
 \DeclareNewTOC[
