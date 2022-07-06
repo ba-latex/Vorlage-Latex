@@ -35,7 +35,7 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
         \linkcaption{Beispielcode}
         \label{code:example2}
         \end{code}
-        \vgcaption{https://link-wo-es-den-code-gibt.de}{06.07.2022}
+        \vgcaption{https://example.com}{06.07.2022}
         ```
 
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
