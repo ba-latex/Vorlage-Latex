@@ -24,7 +24,9 @@
   dashed=false,
   maxnames=3]{biblatex}
 
-%! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
+\renewcommand{\autodot}{}
+
+  %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{section,subsection,subsubsection}
 
 %! Formatierung aller Verzeichnisse
