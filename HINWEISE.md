@@ -26,7 +26,7 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 
 - `\vglink{url}{datum}` erzeugt eine Fußnote mit vgl. link (xx.xx.2020) nach der gültigen Formatierung
 
-- Soll in der Capption einer Abbildung / Tabelle / Code / Formel / usw. eine Fußnote verwendet werden, oder ein `\vglink`, so sind zwei zusätzliche Befehle notwendig:
+- Soll in der Caption einer Abbildung / Tabelle / Code / Formel / usw. eine Fußnote verwendet werden, oder ein `\vglink`, so sind zwei zusätzliche Befehle notwendig:
     - Statt `\caption{Beispielcaption}` muss in der Float-Umgebung dann `\linkcaption{Beispielcaption}` verwendet werden.
     - Nach der Float-Umgebung, muss dann entweder mit `\footnotetext{Die gewünschte Fußnote}` oder mit `\vgcaption{Link}{Datum}` der entsprechende Fußnotentext gesetzt werden. 
     - Beispiel mit `\vgcaption`:
