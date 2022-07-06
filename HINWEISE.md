@@ -26,46 +26,58 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 
 - `\vglink{url}{datum}` erzeugt eine Fußnote mit vgl. link (xx.xx.2020) nach der gültigen Formatierung
 
+- Soll in der Capption einer Abbildung / Tabelle / Code / Formel / usw. eine Fußnote verwendet werden, oder ein `\vglink`, so sind zwei zusätzliche Befehle notwendig:
+    - Statt `\caption{Beispielcaption}` muss in der Float-Umgebung dann `\linkcaption{Beispielcaption}` verwendet werden.
+    - Nach der Float-Umgebung, muss dann entweder mit `\footnotetext{Die gewünschte Fußnote}` oder mit `\vgcaption{Link}{Datum}` der entsprechende Fußnotentext gesetzt werden. 
+    - Beispiel mit `\vgcaption`:
+        ```tex
+        \begin{code}[H]
+        \linkcaption{Beispielcode}
+        \label{code:example2}
+        \end{code}
+        \vgcaption{https://link-wo-es-den-code-gibt.de}{06.07.2022}
+        ```
+
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
-```latex
-\begin{code}[H]
-    \inputminted[
-        firstline=27,
-        lastline=37,
-        firstnumber=17,
-        numbersep=5pt]{python}{sourcecodes/excel2.py}
-    \caption{Auslesen der Daten aus dem Array}
-    \label{code:4}
-\end{code}
-```
+    ```tex
+    \begin{code}[H]
+        \inputminted[
+            firstline=27,
+            lastline=37,
+            firstnumber=17,
+            numbersep=5pt]{python}{sourcecodes/excel2.py}
+        \caption{Auslesen der Daten aus dem Array}
+        \label{code:4}
+    \end{code}
+    ```
 
 - Um Verzeichnisstrukturen darzustellen, wird `\verzeichnis` mit den eigenen Befehlen `\dtfolder` und `\dtfile` genutzt:
   - Dieses Kommando basiert auf Dirtree, in dessen [Doku](http://tug.ctan.org/macros/generic/dirtree/dirtree.pdf) weitere nützilche Kommandos erläutert werden.
-```latex
-\verzeichnis{%
-    .1 \dtfolder Ordner 1. %Ebene 1
-    .2 \dtfolder Unterordner 1. %Ebene 2
-    .3 \dtfile Datei 1. %Ebene 3
-    .2 \dtfolder Unterordner 2. %Ebene 2
-    .3 \dtfolder Unter-Unterordner 1. %Ebene 3
-    .4 \dtfile Datei 2. %Ebene 4
-    .3 \dtfolder Unter-Unterordner 2. %Ebene 3
-}{Beschriftung}{label}
-```
+    ```tex
+    \verzeichnis{%
+        .1 \dtfolder Ordner 1. %Ebene 1
+        .2 \dtfolder Unterordner 1. %Ebene 2
+        .3 \dtfile Datei 1. %Ebene 3
+        .2 \dtfolder Unterordner 2. %Ebene 2
+        .3 \dtfolder Unter-Unterordner 1. %Ebene 3
+        .4 \dtfile Datei 2. %Ebene 4
+        .3 \dtfolder Unter-Unterordner 2. %Ebene 3
+    }{Beschriftung}{label}
+    ```
 
 - Für mehr Informationen dazu bitte die Minted-Dokumentation konsultieren. Es ist möglich mittels ` \mintinline{python}{print("Toller Code")}` Code in einer Zeile ähnlich dem Mathemathikmodus zu verwenden.
 
 - Die Formelumgebung wird wie folgt aufgerufen:
-```latex
-\formula{$Formel$}{Legende}{Beschreibung}{Label}
-```
-Beispiel:
-```latex
-\formula{$\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$}{%
-    $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
-    $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
-    $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$}{Druckverlust}{formel:ohm}
-```
+    ```tex
+    \formula{$Formel$}{Legende}{Beschreibung}{Label}
+    ```
+    - Beispiel:
+    ```tex
+    \formula{$\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$}{%
+        $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
+        $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
+        $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$}{Druckverlust}{formel:ohm}
+    ```
 
 - Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Legende ebenfalls. Siehe dazu auch das HAWA-Dokument.
 
@@ -80,17 +92,17 @@ Beispiel:
   -  `editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && editorLangId == 'latex'` durch `editorTextFocus && editorLangId == 'latex'` ersetzen (bzw. `!config.latex-workshop.bind.altKeymap.enabled &&` entfernen)
   -  mit Enter bestätigen
   -  alternativ kann folgender Codeblock in die "keybindings.json" des Benutzers einfügen: (STRG+UMSCH+P --> Einstellungen: Tastenkombinationen öffnen (JSON))
-```json
-[
-    {
-        "key": "ctrl+alt+j",
-        "command": "latex-workshop.synctex",
-        "when": "editorTextFocus && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+alt+j",
-        "command": "-latex-workshop.synctex",
-        "when": "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && editorLangId == 'latex'"
-    }
-]
-```
+    ```json
+    [
+        {
+            "key": "ctrl+alt+j",
+            "command": "latex-workshop.synctex",
+            "when": "editorTextFocus && editorLangId == 'latex'"
+        },
+        {
+            "key": "ctrl+alt+j",
+            "command": "-latex-workshop.synctex",
+            "when": "editorTextFocus && !config.latex-workshop.bind.altKeymap.enabled && editorLangId == 'latex'"
+        }
+    ]
+    ```
