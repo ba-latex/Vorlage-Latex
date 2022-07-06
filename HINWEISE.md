@@ -1,10 +1,14 @@
 # Hinweise
 
-Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umgesetzt werden können:
+Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umgesetzt werden können
+
+## Allgemeines
 
 - Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden. Sollte ein sehr langer Titel gewählt werden, ist es möglich, dass dieser auf den Titelseiten oder den Erklärungen zu Problemen führt. Diese müssen in den jeweiligen Titelseiten- (verringerte Abstände und/oder Schriftgröße) bzw. Erklärungsdateien (zusätzliche Zeilen) behoben werden.
 
 - Anhand der Metadaten wird automatisch entschieden, welche Versionen der Titelseite und Erklärungen verwendet werden und ob Abstract zur Bachelorarbeit und Freigabeerklärung aktiviert werden.
+
+## Fußnoten und Referenzen
 
 - Fußnoten sollten durch `\fn{Fußnotentext}`, Online-Zitate durch `\onlinezitat{key}`, andere Zitate durch `\zitat{key}` eingetragen werden. Beispiele dazu, wie Quellen zu speichern sind, sind in `literatur.bib` zu finden.
 
@@ -14,21 +18,12 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
         - Typ-spezifische Varianten davon (`\litearef` bzw. `\fullaref`) für Anhänge (a), Abbildungen (b), Codes (c), Formeln (f), Kapitel (=Sektionen, s) unt Tabellen (t)
         - Kurz-Versionen der `lite`-Kommandos, z.B. `\cref` um `\litecref` und dadurch `\uniliteref{Code}` auszulösen
 
-- Pixelgrafiken kann man mittels `\bild[skalierung]{dateiname}{Beschriftung}{label}` einfügen. Vektorgrafiken im SVG-Format analog dazu per `\svg[...]` (besser).
-
-- Abkürzungen werden in `Inhalt/Abkürzungen.tex` eingetragen und im Text bspw. mit `\ac{Kürzel}` verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html). Wichtig ist, dass zu Beginn der Umgebung `\begin{acronym}[SSHHH]` in die eckigen Klammern das längste Akronym eingetragen wird. Ansonsten wird die Seite nicht korrekt formatiert.
-    - Abkürzungen in der Mehrzahl: `\acp{Kürzel}`
-    - erzwungene Kurzform: `\acs{Kürzel}`
-    - erzwungene Langform: `\acf{Kürzel}`
-    - Abkürzungen in Überschriften ausschließlich ohne `\ac{}`-Kommandos verwenden
-
-- Abkürzungen müssen in der richtigen Reihenfolge eingetragen oder das `sortieren.py`-Script verwendet werden.
-
 - `\vglink{url}{datum}` erzeugt eine Fußnote mit vgl. link (xx.xx.2020) nach der gültigen Formatierung
 
-- Soll in der Caption einer Abbildung / Tabelle / Code / Formel / usw. eine Fußnote verwendet werden, oder ein `\vglink`, so sind zwei zusätzliche Befehle notwendig:
-    - Statt `\caption{Beispielcaption}` muss in der Float-Umgebung dann `\linkcaption{Beispielcaption}` verwendet werden.
-    - Nach der Float-Umgebung, muss dann entweder mit `\footnotetext{Die gewünschte Fußnote}` oder mit `\vgcaption{Link}{Datum}` der entsprechende Fußnotentext gesetzt werden. 
+- Soll in der Caption einer Abbildung / Tabelle / Code / Formel / usw. eine Fußnote verwendet werden, oder ein `\vglink`, so sind zwei zusätzliche Befehle notwendig.
+    - Statt `\caption{Beispielcaption}` muss in der Float-Umgebung `\linkcaption{Beispielcaption}` verwendet werden.
+    Diese Fußnote wird am Ende der Caption angefügt.
+    - Nach der Float-Umgebung, muss entweder mit `\footnotetext{Die gewünschte Fußnote}` oder mit `\vgcaption{Link}{Datum}` der entsprechende Fußnotentext gesetzt werden. 
     - Beispiel mit `\vgcaption`:
         ```tex
         \begin{code}[H]
@@ -37,7 +32,29 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
         \end{code}
         \vgcaption{https://example.com}{06.07.2022}
         ```
+    - **Besonderheit:** Soll die Fußnote im Text der Caption stehen, ist eine andere Vorgehensweise nötig (ausführlich: https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption):
+        ```tex
+        \begin{code}[H]
+        \caption[Caption ohne Fußnote]{Caption mit\footnotemark Fußnote}
+        \end{code}
+        \footnotetext{Text der Fußnote}
+        ```
 
+## Grafiken
+- Pixelgrafiken kann man mittels `\bild[skalierung]{dateiname}{Beschriftung}{label}` einfügen
+- Vektorgrafiken im SVG-Format analog dazu per `\svg[...]` (besser).
+
+## Abkürzungen
+- Abkürzungen werden in `Inhalt/Abkürzungen.tex` eingetragen und im Text bspw. mit `\ac{Kürzel}` verwendet, siehe [Acronym](https://www.namsu.de/Extra/pakete/Acronym.html). Wichtig ist, dass zu Beginn der Umgebung `\begin{acronym}[SSHHH]` in die eckigen Klammern das längste Akronym eingetragen wird. Ansonsten wird die Seite nicht korrekt formatiert.
+    - Abkürzungen in der Mehrzahl: `\acp{Kürzel}`
+    - erzwungene Kurzform: `\acs{Kürzel}`
+    - erzwungene Langform: `\acf{Kürzel}`
+    - Abkürzungen in Überschriften ausschließlich ohne `\ac{}`-Kommandos verwenden
+
+- Abkürzungen müssen in der richtigen Reihenfolge eingetragen oder das `sortieren.py`-Script verwendet werden.
+
+
+## Float-Umgebungen (Code, Verzeichnisse, usw.)
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
     ```tex
     \begin{code}[H]
@@ -81,6 +98,7 @@ Hier befinden sich einige Hinweise, wie verschiedene Anforderungen der HAWA umge
 
 - Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Legende ebenfalls. Siehe dazu auch das HAWA-Dokument.
 
+## Sonstiges
 - Normale Anführungszeichen ("") entsprechen nicht der Deutschen Rechtschreibung. Hierzu das Kommando `\striche{Text}` verwenden.
 
 - Reverse SyncTeX: Um aus der PDF-Ansicht an die entsprechende Stelle im Code zu gelangen, diese mit gehaltener STRG-Taste anklicken.
