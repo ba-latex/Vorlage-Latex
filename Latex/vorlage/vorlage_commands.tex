@@ -34,6 +34,10 @@
   \end{figure}}
 \newcommand{\logisch}[1]{$``#1``$}
 \newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
+% Muss statt \caption in die Umgebung wenn eine Fußnote verwendet werden soll, in Verbindung mit der Zeile darunter
+\newcommand{\linkcaption}[1]{\caption[#1]{#1\footnotemark}}
+% Muss unter die Umgebung, wenn eine Fußnote in der Umgebung verwendet werden soll
+\newcommand{\vgcaption}[2]{\footnotetext{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
 \newcommand{\python}[1]{\mintinline{python}{#1}}
 %! #1 - Formel, #2 - Legende, #3 - Caption, #4 - Label
 \newcommand{\formula}[4]{\begin{formel}[H]
