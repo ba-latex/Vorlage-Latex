@@ -29,6 +29,7 @@
 \usepackage{chngcntr}
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
+\RedeclareSectionCommand[style=section]{chapter}
 
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{section,subsection,subsubsection}
@@ -196,8 +197,8 @@
 
 
 %! PageBreaks nach jeder Section
-\let\oldsection\section
-%\renewcommand\chapter{\clearpage\oldsection}
+\let\oldchapter\chapter
+\renewcommand\chapter{\clearpage\oldchapter}
 
 %! Code-Integration im Dokument
 %? Inklusive Erzeugung eines Custom-Enviroments für Programmcodes
