@@ -84,6 +84,7 @@
 \usepackage{dirtree}
 \usepackage{varwidth}
 \usepackage{ifthen}
+\usepackage{etoolbox}
 
 %! Centered Dirtree - https://tex.stackexchange.com/posts/100182/revisions
 \makeatletter
@@ -229,12 +230,11 @@
   % counterwithin=chapter
 ]{lom}
 \setuptoc{lom}{totoc}
-\renewcommand*{\formelformat}{%
+\renewcommand*{\formelformat}{\hfill%
   \formelname~\theformel%
   \autodot{\space\space\space}
 }
 \BeforeStartingTOC[lom]{\renewcommand*\autodot{\space\space\space\space}}
-
 
 %! Schriftart
 %! Die HAWA schreibt Arial vor, welches in Standard LaTeX-Distributionen nicht mitgeliefert wird. Helvetica ist nahezu identisch.

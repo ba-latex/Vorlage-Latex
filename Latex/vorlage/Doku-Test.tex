@@ -31,9 +31,10 @@ Siehe Quelltext.
                 self.doo = boo
                 moo = 1 + 2 +3
     \end{minted}
-    \caption{Beispielcode}
+    \caption[Beispielcode]{Beispielcode}
     \label{code:example}
 \end{code}
+
 An dieser Stelle wird noch ein einzeiliger Code eingefügt, der keine Zeilennummerierung erhalten soll.
 Dies kann genutzt werden, wenn man nur kurz auf eine Funktion eingehen möchte und diese nicht im Quellcodeverzeichnis erscheinen soll.
 \mint{python}|print("Hallo Vorlage")|
@@ -47,10 +48,10 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
               self.doo = boo
               moo = 1 + 2 +3
   \end{minted}
-  \caption{Beispielcode}
+  \linkcaption{Beispielcode}
   \label{code:example2}
 \end{code}
-
+\vgcaption{https://link-wo-es-den-code-gibt.de}{06.07.2022}
 \subsection{Ordnerstruktur}
     \verzeichnis{%
           .1 \dtfolder Vorlage-Latex.
@@ -88,6 +89,12 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
                 .4 \dtfile Titelseite\_4Autoren.tex.
                 .4 \dtfile vorlage.tex.
     }{Ein Verzeichnis-Baum}{beispielbaum}
+
+    \subsection{Formeln}
+    \formula{$\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$}{%
+    $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
+    $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
+    $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$}{Druckverlust}{formel:ohm}
 
 \section{Test-/Dokutabelle}
 Diese Tabelle dient hauptsächlich zum Testen der einzelnen Kommandos, sowie als minimales Beispiel für eine \emph{tabularx}-Tabelle:
