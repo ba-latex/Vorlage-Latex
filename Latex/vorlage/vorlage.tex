@@ -24,9 +24,13 @@
   dashed=false,
   maxnames=3]{biblatex}
 
+%!  Änderungen für scrreprt
 \renewcommand{\autodot}{}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
 
-  %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
+%! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{section,subsection,subsubsection}
 
 %! Formatierung aller Verzeichnisse
@@ -201,7 +205,7 @@
 %\SetupFloatingEnvironment{listing}{name=Program code}
 %\SetupFloatingEnvironment{listing}{listname=List of Program Code}
 
-\usepackage{scrhack}
+\usepackage{scrhack} %necessary to use float with scrreprt
 \DeclareNewTOC[
   type=code,                           % Name der Umgebung
   types=codes,                         % Erweiterung (\listofschemes)
