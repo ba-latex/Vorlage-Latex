@@ -1,5 +1,5 @@
 %Alle Kapitel beginnen mit der Hauptüberschrift
-\section{Einleitung}
+\chapter{Einleitung}
 Diese PDF wurde mit der Vorlage erstellt, um die Funktion und Formatierung dieser zu zeigen.
 
 Die Vorlage\onlinezitat{Vorlage} ist ein Gemeinschaftsprojekt im Rahmen unseres Studiums.
@@ -9,15 +9,15 @@ Die Vorlage richtet sich weitestgehend nach dem Dokument \ac{HAWA}\onlinezitat{H
 Weitere Hinweise befinden sich in der README.md oder im \href{https://github.com/DSczyrba/Vorlage-Latex/wiki}{Wiki}.
 Eine ausführliche Dokumentation zu diesem Dokument wird folgen.
 
-\section{Beispiele}
+\chapter{Beispiele}
 \label{sec:beispiele}
-\subsection{Pixelgrafiken}
+\section{Pixelgrafiken}
 Siehe Quelltext.\fn{Dort wird das Kommando \striche{bild} aufgeführt. In dieser Vorlage sind allerdings keine Bilder (im vorgesehenen Ordner) enthalten.}
 %\bild[0.5]{dateiname-ohne-endung}{Text zu einem Bild}{label1}
-\subsection{Vektorgrafiken}
+\section{Vektorgrafiken}
 Siehe Quelltext.
 %\svg[0.5]{dateiname-ohne-endung}{Text zu einer \ac{SVG}-Datei}{label2}
-\subsubsection{Programmcode}
+\section{Programmcode}
 \begin{code}[H]
     \begin{minted}{python}
         import asdf
@@ -52,7 +52,7 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
   \label{code:example2}
 \end{code}
 \vgcaption{https://link-wo-es-den-code-gibt.de}{06.07.2022}
-\subsection{Ordnerstruktur}
+\section{Ordnerstruktur}
     \verzeichnis{%
           .1 \dtfolder Vorlage-Latex.
             .2 \dtfile HINWEISE.md.
@@ -90,13 +90,18 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
                 .4 \dtfile vorlage.tex.
     }{Ein Verzeichnis-Baum}{beispielbaum}
 
-    \subsection{Formeln}
+    \section{Formeln}
     \formula{$\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$}{%
     $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
     $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
     $\Delta p = $ Druckverlust bei $V_{max} \left[bar\right]$}{Druckverlust}{formel:ohm}
 
-\section{Test-/Dokutabelle}
+    \section{Überschriften}
+    \subsection{in verschiedenen}
+    \subsubsection{Größen}
+    Kapitelüberschriften werden per \emph{\textbackslash chapter}, Abschnitte per \emph{\textbackslash section}, Unterabschnitte per \emph{\textbackslash subsection} und Unterunterabschnitte per \emph{\textbackslash subsubsection} eingefügt.
+
+\chapter{Test-/Dokutabelle}
 Diese Tabelle dient hauptsächlich zum Testen der einzelnen Kommandos, sowie als minimales Beispiel für eine \emph{tabularx}-Tabelle:
 \begin{table}[H]
 \begin{tabularx}{\columnwidth}{|p{3cm}|X|p{.2\columnwidth}|}
