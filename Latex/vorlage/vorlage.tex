@@ -308,6 +308,7 @@
 \DeclareFieldFormat{date}{#1\printfield{extradate}}
 
 \urlstyle{same}
+%? Author-Format für Literaturverzeichnis
 \DeclareNameFormat{author}{%
   \nameparts{#1}%
   \usebibmacro{name:family-given}
@@ -319,6 +320,19 @@
     {\namepartprefix}
     {\namepartsuffix}%
     \ifthenelse{\value{listcount}=1\AND\ifmorenames}{\andothersdelim\bibstring{andothers}}{}%
+}
+%? Author-Format für Fußnoten
+\DeclareNameFormat{author_fn}{%
+\nameparts{#1}%
+\usebibmacro{name:family}
+  {\expandafter\ifblank\expandafter{\namepartgiven}
+     {\namepartfamily}% no family name, don't uppercase
+     {\MakeUppercase{\namepartfamily}}%
+  }
+  {\namepartgiven}
+  {\namepartprefix}
+  {\namepartsuffix}%
+  \ifthenelse{\value{listcount}=1\AND\ifmorenames}{\andothersdelim\bibstring{andothers}}{}%
 }
 \DeclareFieldFormat{title}{#1}
 
@@ -339,7 +353,7 @@
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}
    \setunit{\addnbspace}
-   \bibhyperref{\printnames[author]{labelname}}
+   \bibhyperref{\printnames[author_fn]{labelname}}
    \setunit{\labelnamepunct}
    \newunit
    \printfield{location}
@@ -357,13 +371,47 @@
   {\usebibmacro{citeindex}
    \setunit{\addnbspace}
    online:
-   \bibhyperref{\printnames[author]{labelname}}
+   \bibhyperref{\printnames[author_fn]{labelname}}
    \setunit{\labelnamepunct}
    \newunit
    \printfield{labelyear}\printfield{extradate}
    \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
+
+%? Sinngemäßes Zitat
+\DeclareCiteCommand{\vgzitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}
+   \setunit{\addnbspace}
+   vgl. 
+   \bibhyperref{\printnames[author_fn]{labelname}}
+   \setunit{\labelnamepunct}
+   \newunit
+   \printfield{location}
+   \newunit
+   \printfield{labelyear}\printfield{extradate}
+   \newunit
+   \printfield{pages}
+   }
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+
+%? Sinngemäßes Online Zitat
+\DeclareCiteCommand{\vgonlinezitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}
+   \setunit{\addnbspace}
+   vgl. online:
+   \bibhyperref{\printnames[author_fn]{labelname}}
+   \setunit{\labelnamepunct}
+   \newunit
+   \printfield{labelyear}\printfield{extradate}
+   \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
 \renewcommand{\bibfootnotewrapper}[1]{\bibsentence#1}
 
 \DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
