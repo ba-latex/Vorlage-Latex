@@ -39,7 +39,7 @@
 \addtokomafont{subsubsection}{\normalsize}
 \renewcommand*{\chaptermarkformat}{}
 
-\input{vorlage/vorlage_subs/verzeichnisse.tex}
+\input{vorlage/vorlage_subs/verzeichnisse}
 
 %! Ermöglicht die Ausgabe des aktuellen Titels.
 \usepackage{nameref}
@@ -63,18 +63,19 @@
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 \usepackage{tikz}
-\usepackage{dirtree}
 \usepackage{varwidth}
 \usepackage{ifthen}
 \usepackage{etoolbox}
 
-\input{vorlage/vorlage_subs/dirtree.tex}
+%! Abbildungen von Verzeichnisstrukturen
+\input{vorlage/vorlage_subs/dirtree}
 
 %! PageBreaks nach jeder Section
 \let\oldchapter\chapter
 \renewcommand\chapter{\clearpage\oldchapter}
 
-\input{vorlage/vorlage_subs/minted.tex}
+%! Code-Umgebungen
+\input{vorlage/vorlage_subs/minted}
 
 \usepackage{scrhack} %necessary to use float with scrreprt
 \usepackage{csquotes}
@@ -86,15 +87,9 @@
 \renewcommand{\familydefault}{\sfdefault}
 %! Hyperref und PDF-meta
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={\titel}}
-\hypersetup{pdfsubject={\kurzbeschreibung}}
-\ifthenelse{\isundefined{\autorzwei}}{\hypersetup{pdfauthor={\autoreins}}}{%
-    \ifthenelse{\isundefined{\autordrei}}{\hypersetup{pdfauthor={\autoreins, \autorzwei}}}{%
-        \ifthenelse{\isundefined{\autorvier}}{\hypersetup{pdfauthor={\autoreins, \autorzwei, \autordrei}}}{%
-        \hypersetup{pdfauthor={\autoreins, \autorzwei, \autordrei, \autorvier}}
-        }
-    }
-}
+
+%! PDF-Metadaten (Autor/Titel/Beschreibung)
+\input{vorlage/vorlage_subs/pdf_metadaten}
 \usepackage[numbered]{bookmark}
 \usepackage[printonlyused]{acronym}
 \usepackage{enumitem}
@@ -102,10 +97,14 @@
 %Abkürzungsverzeichnis - Formatierung (bspw. zur korrekten Anzeige von BASH-Befehlen)
 \renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
 
-\input{vorlage/vorlage_subs/captions.tex}
+%! Untertitel/Legenden
+\input{vorlage/vorlage_subs/captions}
 
-\input{vorlage/vorlage_subs/literatur_zitate.tex}
+%! Literaturverzeichnis und Zitierbefehle
+\input{vorlage/vorlage_subs/literatur_zitate}
 
-\input{vorlage/vorlage_subs/kopf_fußzeile.tex}
+%! Kopf- und Fußzeilen
+\input{vorlage/vorlage_subs/kopf_fußzeile}
 
-\input{vorlage/vorlage_subs/umbrüche.tex}
+%! verbesserte Umbrüche (hoffentlich)
+\input{vorlage/vorlage_subs/umbrüche}
