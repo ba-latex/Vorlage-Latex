@@ -1,0 +1,25 @@
+%! Kopf- und Fußzeile
+\usepackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearmainofpairofpagestyles
+\clearplainofpairofpagestyles
+\renewcommand*{\sectionmarkformat}{}
+\rohead{\textnormal{\headmark}}
+\lohead{}
+\lofoot{}
+\cofoot{}
+\rofoot{\textnormal{Seite}~\pagemark}
+\makeatletter
+\usepackage{geometry}
+\setlength{\footheight}{18.85002pt}
+\geometry{a4paper,
+          left=25mm,right=25mm,top=20mm,bottom=20mm,
+          includehead=false,
+          includefoot=false,
+          headheight = \baselineskip,
+          headsep = \dimexpr\Gm@tmargin-\headheight-10mm,
+          footskip = \dimexpr\Gm@bmargin-10mm,
+          %showframe,
+          bindingoffset=0mm}
+\setlength{\footheight}{\baselineskip}
+\makeatother

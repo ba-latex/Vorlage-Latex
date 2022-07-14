@@ -1,0 +1,22 @@
+%! Versuch von besseren Seitenumbrüchen
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+\widowpenalties= 3 10000 10000 150
+
+\linespread{1.3}
+\newcommand\frontmatter{%
+    \cleardoublepage
+  \pagenumbering{Roman}}
+
+\newcommand\mainmatter{%
+    \cleardoublepage
+  \pagenumbering{arabic}}
+
+\newcommand\backmatter{%
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+   }

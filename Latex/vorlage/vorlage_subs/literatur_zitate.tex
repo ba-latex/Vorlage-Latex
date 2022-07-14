@@ -1,0 +1,127 @@
+%! Formatierung des Literaturverzeichnis
+\DeclareLabeldate{%
+\field{year}
+}
+
+\DeclareExtradate{%
+\scope{
+\field{labelyear}
+\field{year}}
+}
+\DeclareFieldFormat{url}{In: \url{#1}}
+\DeclareFieldFormat{urldate}{\space\mkbibparens{#1}}
+\DeclareFieldFormat{urlday}{\forcezerosmdt{#1}}
+\DeclareFieldFormat{urlmonth}{\forcezerosmdt{#1}}
+\DeclareFieldFormat{urlyear}{\forcezerosmdt{#1}}
+\DeclareFieldFormat{date}{#1\printfield{extradate}}
+
+\urlstyle{same}
+%? Author-Format für Literaturverzeichnis
+\DeclareNameFormat{author}{%
+  \nameparts{#1}%
+  \usebibmacro{name:family-given}
+    {\expandafter\ifblank\expandafter{\namepartgiven}
+       {\namepartfamily}% no family name, don't uppercase
+       {\MakeUppercase{\namepartfamily}}%
+    }
+    {\namepartgiven}
+    {\namepartprefix}
+    {\namepartsuffix}%
+    \ifthenelse{\value{listcount}=1\AND\ifmorenames}{\andothersdelim\bibstring{andothers}}{}%
+}
+%? Author-Format für Fußnoten
+\DeclareNameFormat{author_fn}{%
+\nameparts{#1}%
+\usebibmacro{name:family}
+  {\expandafter\ifblank\expandafter{\namepartgiven}
+     {\namepartfamily}% no family name, don't uppercase
+     {\MakeUppercase{\namepartfamily}}%
+  }
+  {\namepartgiven}
+  {\namepartprefix}
+  {\namepartsuffix}%
+  \ifthenelse{\value{listcount}=1\AND\ifmorenames}{\andothersdelim\bibstring{andothers}}{}%
+}
+\DeclareFieldFormat{title}{#1}
+
+\renewcommand{\multinamedelim}{\addsemicolon\space}
+\renewcommand{\finalnamedelim}{\addsemicolon\space}
+\renewcommand{\labelnamepunct}{\addcolon\space}
+\renewcommand*{\finentrypunct}{}
+\renewcommand{\andothersdelim}{\addsemicolon\space}
+
+\setlength\bibitemsep{\baselineskip}
+\setlength\bibhang{0pt}
+
+%! Formatierung der Fußnotenzitate / Literaturverzeichnis
+\renewcommand*{\newunitpunct}{\addcomma\space}
+
+%? Normales Zitat...
+\DeclareCiteCommand{\zitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}
+   \setunit{\addnbspace}
+   \bibhyperref{\printnames[author_fn]{labelname}}
+   \setunit{\labelnamepunct}
+   \newunit
+   \printfield{location}
+   \newunit
+   \printfield{labelyear}\printfield{extradate}
+   \newunit
+   \printfield{pages}
+   }
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+%? Online Zitat
+\DeclareCiteCommand{\onlinezitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}
+   \setunit{\addnbspace}
+   online:
+   \bibhyperref{\printnames[author_fn]{labelname}}
+   \setunit{\labelnamepunct}
+   \newunit
+   \printfield{labelyear}\printfield{extradate}
+   \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+%? Sinngemäßes Zitat
+\DeclareCiteCommand{\vgzitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}
+   \setunit{\addnbspace}
+   vgl. 
+   \bibhyperref{\printnames[author_fn]{labelname}}
+   \setunit{\labelnamepunct}
+   \newunit
+   \printfield{location}
+   \newunit
+   \printfield{labelyear}\printfield{extradate}
+   \newunit
+   \printfield{pages}
+   }
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+
+%? Sinngemäßes Online Zitat
+\DeclareCiteCommand{\vgonlinezitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}
+   \setunit{\addnbspace}
+   vgl. online:
+   \bibhyperref{\printnames[author_fn]{labelname}}
+   \setunit{\labelnamepunct}
+   \newunit
+   \printfield{labelyear}\printfield{extradate}
+   \printtext{(}\printfield{urlday}\printtext{.}\printfield{urlmonth}\printtext{.}\printfield{urlyear}\printtext{)}}
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+\renewcommand{\bibfootnotewrapper}[1]{\bibsentence#1}
+
+\DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
+\addbibresource{literatur.bib}
+
