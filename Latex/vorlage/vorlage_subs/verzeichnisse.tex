@@ -1,7 +1,7 @@
+%! Formatierung aller Verzeichnisse
 %! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
 \RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{chapter, section,subsection,subsubsection}
 
-%! Formatierung aller Verzeichnisse
 \renewcaptionname{ngerman}{\refname}{Quellenverzeichnis}
 \setuptoc{toc}{totoc}
 \setuptoc{lof}{totoc}
@@ -12,9 +12,8 @@
 \renewcommand*\listoflotentryname{\bfseries\tablename}
 \BeforeStartingTOC[lot]{\renewcommand*\autodot{\space\space\space\space}}
 
-%? Anhangsverzeichnis
+%! Anhangsverzeichnis
 \providecaptionname{ngerman}{\listofatocentryname}{Anhang}
-
 
 \makeatletter
 \AfterTOCHead[atoc]{\let\if@dynlist\if@tocleft}
