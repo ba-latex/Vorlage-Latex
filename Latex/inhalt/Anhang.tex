@@ -50,9 +50,9 @@ CD mit folgenden Inhalten:
 % Warnungen für vorgefertigte Dokumente deaktivieren
 \hbadness=10000
 % automatische Auswahl der Erklärungen
-\ifthenelse{\isundefined{\autorzwei}}{\input{vorlage/Erklärung/Erklärung_1Autor}}{%
-    \ifthenelse{\isundefined{\autordrei}}{\input{vorlage/Erklärung/Erklärung_2Autoren}}{%
-        \ifthenelse{\isundefined{\autorvier}}{\input{vorlage/Erklärung/Erklärung_3Autoren}}{\input{vorlage/Erklärung/Erklärung_4Autoren}}
+\ifthenelse{\isundefined{\autorzwei}}{\input{vorlage/Erklärung/1Autor}}{%
+    \ifthenelse{\isundefined{\autordrei}}{\input{vorlage/Erklärung/2Autoren}}{%
+        \ifthenelse{\isundefined{\autorvier}}{\input{vorlage/Erklärung/3Autoren}}{\input{vorlage/Erklärung/4Autoren}}
     }
 }
 
