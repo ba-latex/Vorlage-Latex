@@ -1,0 +1,46 @@
+%! Code-Integration im Dokument
+%? Inklusive Erzeugung eines Custom-Enviroments für Programmcodes
+\usepackage{minted}
+
+% ! Anpassung der Minted-Umgebung, um Abstände zu vereinheitlichen und die Optik zu verbessern
+\let\oldminted\minted
+\let\oldendminted\endminted
+\def\minted{\begingroup \vspace{-0.3cm} \oldminted}
+\def\endminted{\oldendminted \vspace{-0.5cm} \endgroup}
+
+\xapptocmd{\inputminted}{\vspace{-0.5cm}}{}{}
+
+%Zeilennummern neu definieren, um Warnungen zu vermeiden und modern anmutende Zahlen zu nutzen
+\renewcommand{\theFancyVerbLine}{\scriptsize{\arabic{FancyVerbLine}}}
+
+%Standardformatierung für minted-Umgebung erstellen
+\setminted{
+    tabsize=2,
+    breaklines,
+    autogobble,
+    fontfamily=courier,
+    linenos,
+    %! see https://pygments.org/demo/#try, other nice options: paraiso-light, solarized-light, rainbow_dash, gruvbox-light, stata, tango
+    style=emacs
+}
+%Keine Zeilennnummer, wenn der einzeilige \mint-Befehl genutzt wird
+\xpretocmd{\mint}{\setminted{linenos=false}}{}{}
+\xpretocmd{\minted}{\setminted{linenos=true}}{}{}
+
+\DeclareNewTOC[
+  type=code,                           % Name der Umgebung
+  types=codes,                         % Erweiterung (\listofschemes)
+  float,                               % soll gleiten
+  floatpos=H,
+  tocentryentrynumberformat=\bfseries, % voreingestellte Gleitparameter
+  name=Code,                           % Name in Überschriften
+  listname={Programmcodeverzeichnis},  % Listenname
+  % counterwithin=chapter
+]{loc}
+\setuptoc{loc}{totoc}
+
+\renewcommand*{\codeformat}{%
+  \codename~\thecode%
+  \autodot{\space\space\space}
+}
+\BeforeStartingTOC[loc]{\renewcommand*\autodot{\space\space\space\space}}

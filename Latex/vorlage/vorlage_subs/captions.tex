@@ -1,0 +1,15 @@
+\usepackage{caption}
+% Captions linksbündig, auch wenn einzeilig
+\captionsetup{
+  labelsep=none,
+  justification=raggedright,
+  singlelinecheck=false
+}
+\renewcommand*{\figureformat}{%
+  \figurename~\thefigure%
+  \autodot{\space\space\space}
+}
+\renewcommand*{\tableformat}{%
+  \tablename~\thetable%
+  \autodot{\space\space\space}
+}

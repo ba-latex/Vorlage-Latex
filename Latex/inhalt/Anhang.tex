@@ -4,7 +4,7 @@
 \appendix
 \clearpage
 
-%! Section Befehl wird umgeschrieben, um Überschriften zu verbergen
+%! Chapter Befehl wird umgeschrieben, um Überschriften zu verbergen
 %! Kann, falls Überschriften gewollt sind, entfernt oder erst später eingefügt werden.
 % Beginn
 \makeatletter
@@ -50,9 +50,9 @@ CD mit folgenden Inhalten:
 % Warnungen für vorgefertigte Dokumente deaktivieren
 \hbadness=10000
 % automatische Auswahl der Erklärungen
-\ifthenelse{\isundefined{\autorzwei}}{\input{vorlage/Erklärung_1Autor}}{%
-    \ifthenelse{\isundefined{\autordrei}}{\input{vorlage/Erklärung_2Autoren}}{%
-        \ifthenelse{\isundefined{\autorvier}}{\input{vorlage/Erklärung_3Autoren}}{\input{vorlage/Erklärung_4Autoren}}
+\ifthenelse{\isundefined{\autorzwei}}{\input{vorlage/Erklärung/1Autor}}{%
+    \ifthenelse{\isundefined{\autordrei}}{\input{vorlage/Erklärung/2Autoren}}{%
+        \ifthenelse{\isundefined{\autorvier}}{\input{vorlage/Erklärung/3Autoren}}{\input{vorlage/Erklärung/4Autoren}}
     }
 }
 
