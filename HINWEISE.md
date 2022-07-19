@@ -10,7 +10,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 
 ## Fußnoten und Referenzen
 
-- Fußnoten sollten durch `\fn{Fußnotentext}`, Online-Zitate durch `\onlinezitat{key}`, andere Zitate durch `\zitat[Seite]{key}` eingetragen werden. Beispiele dazu, wie Quellen zu speichern sind, sind in `literatur.bib` zu finden. Außerdem existieren äquivalente Befehle für sinngemäße Befehle: `\vgonlinezitat{key}` bzw. `\vgzitat[Seite]{key}`. In `Doku-Test.tex` sind Beispiele zur Nutzung zu finden.
+- Fußnoten sollten durch `\fn{Fußnotentext}`, Online-Zitate durch `\onlinezitat{key}`, andere Zitate durch `\zitat[Seite]{key}` eingetragen werden. Beispiele dazu, wie Quellen zu speichern sind, sind in `literatur.bib` zu finden. Außerdem existieren äquivalente Befehle für sinngemäße Zitate: `\vgonlinezitat{key}` bzw. `\vgzitat[Seite]{key}`. In `Doku-Test.tex` sind Beispiele zur Nutzung zu finden.
 
 - Mit `\label{bezeichner:name}` können Bezeichner für Elemente erstellt werden. Auf diese kann über LaTeX-eigene oder in `vorlage/vorlage-commands.tex` definierte Kommandos zugegriffen werden.
     - Die vordefinierten Kommandos sind folgendermaßen aufgebaut:
