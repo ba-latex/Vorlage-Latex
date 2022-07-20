@@ -31,7 +31,7 @@
   type=code,                           % Name der Umgebung
   types=codes,                         % Erweiterung (\listofschemes)
   float,                               % soll gleiten
-  floatpos=H,
+  floatpos=h,
   tocentryentrynumberformat=\bfseries, % voreingestellte Gleitparameter
   name=Code,                           % Name in Überschriften
   listname={Programmcodeverzeichnis},  % Listenname
@@ -44,3 +44,4 @@
   \autodot{\space\space\space}
 }
 \BeforeStartingTOC[loc]{\renewcommand*\autodot{\space\space\space\space}}
+\AtBeginEnvironment{minted}{\vspace{\baselineskip}}
