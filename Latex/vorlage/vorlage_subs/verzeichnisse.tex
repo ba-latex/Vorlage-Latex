@@ -1,0 +1,73 @@
+%! Formatierung aller Verzeichnisse
+%! Das Inhaltsverzeichnis wird an dieser Stelle formatiert.
+\RedeclareSectionCommands[beforeskip=-.1\baselineskip, afterskip=.1\baselineskip, tocindent=0pt, tocnumwidth=45pt]{chapter, section,subsection,subsubsection}
+
+\renewcaptionname{ngerman}{\refname}{Quellenverzeichnis}
+\setuptoc{toc}{totoc}
+\setuptoc{lof}{totoc}
+\setuptoc{lot}{totoc}
+\renewcommand*\listoflofentryname{\bfseries\figurename}
+\BeforeStartingTOC[lof]{\renewcommand*\autodot{\space\space\space\space}}
+\addtokomafont{captionlabel}{\bfseries}
+\renewcommand*\listoflotentryname{\bfseries\tablename}
+\BeforeStartingTOC[lot]{\renewcommand*\autodot{\space\space\space\space}}
+
+%! Anhangsverzeichnis
+\providecaptionname{ngerman}{\listofatocentryname}{Anhang}
+
+\makeatletter
+\AfterTOCHead[atoc]{\let\if@dynlist\if@tocleft}
+\newcommand*{\useappendixtocs}{
+  \renewcommand*{\ext@toc}{atoc}
+  \RedeclareSectionCommands[tocindent=0pt]{chapter, section, subsection, subsubsection}
+  \RedeclareSectionCommands[tocnumwidth=85pt]{chapter, section, subsection, subsubsection}
+  \renewcommand*\listoflofentryname{\mdseries}
+  \renewcommand{\thechapter}{\arabic{chapter}}
+  \renewcommand{\@dotsep}{10000}
+  }
+\newcommand*{\usestandardtocs}{
+  \renewcommand*{\ext@toc}{toc}
+  }
+\makeatother
+
+%! Formelverzeichnis
+\DeclareNewTOC[
+  type=formel,                         % Name der Umgebung
+  types=formeln,                       % Erweiterung (\listofschemes)
+  float,                               % soll gleiten
+  tocentryentrynumberformat=\bfseries, % voreingestellte Gleitparameter
+  name=Formel,                         % Name in Überschriften
+  listname={Formelverzeichnis},        % Listenname
+  % counterwithin=chapter
+]{lom}
+\setuptoc{lom}{totoc}
+\renewcommand*{\formelformat}{\hfill%
+  \formelname~\theformel%
+  \autodot{\space\space\space}
+}
+\BeforeStartingTOC[lom]{\renewcommand*\autodot{\space\space\space\space}}
+
+%! Inhalts-/Anhangsverzeichnis
+\DeclareNewTOC[%
+  %owner=\jobname,
+  tocentrystyle=tocline,
+  tocentryentrynumberformat=\PrefixBy{Anhang},
+  listname={Anhangsverzeichnis}% Titel des Verzeichnisses
+]{atoc}% Dateierweiterung (a=appendix, toc=table of contents)
+
+\usepackage{xpatch}
+\xapptocmd\appendix{%
+  \useappendixtocs
+  \listofatocs
+  \addcontentsline{toc}{chapter}{Anhangsverzeichnis}
+  \newpage
+  \pagenumbering{gobble}
+  \pagestyle{scrheadings}
+  \clearmainofpairofpagestyles
+  \clearplainofpairofpagestyles
+  \rohead{\textnormal{Anhang~\arabic{chapter}}}
+  \lohead{\textnormal{\currentname}}
+  \lofoot{}
+  \cofoot{}
+  \rofoot{}
+}{}{}
