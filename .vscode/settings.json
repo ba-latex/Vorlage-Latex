@@ -70,6 +70,15 @@
             "arguments": [
                 "Build abstract LaTeX using Docker"
             ]
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Build FREIGABEERKLÄRUNG using Docker",
+            "text": "$(gear) Build FGE",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Build FREIGABEERKLÄRUNG using Docker"
+            ]
         }
     ],
     "triggerTaskOnSave.tasks": {
