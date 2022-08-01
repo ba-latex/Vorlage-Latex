@@ -18,7 +18,7 @@ Siehe Quelltext.\fn{Dort wird das Kommando \striche{bild} aufgeführt. In dieser
 Siehe Quelltext.
 %\svg[0.5]{dateiname-ohne-endung}{Text zu einer \ac{SVG}-Datei}{label2}
 \section{Programmcode}
-\begin{code}[H]
+\begin{code}[h]
     \begin{minted}{python}
         import asdf
         from foo import bar
@@ -41,7 +41,7 @@ Dies kann genutzt werden, wenn man nur kurz auf eine Funktion eingehen möchte u
 
 Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktioniert.
 
-\begin{code}[H]
+\begin{code}[h]
   \begin{minted}{python}
       class Wooo(Foo):
           def __init__(self, boo):
@@ -91,6 +91,8 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
     }{Ein Verzeichnis-Baum}{beispielbaum}
 
     \section{Formeln}
+    Formeln werden mittels \striche{\textbackslash formula} in die Arbeit eingebunden.
+    Die Beschriftungen befinden sich, wie es die HAWA\onlinezitat[Abs. 3.3.3.7]{HAWA} verlangt, rechts neben der Formel.
     \formula{$\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$}{%
     $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
     $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
@@ -103,7 +105,7 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
 
 \chapter{Test-/Dokutabelle}
 Diese Tabelle dient hauptsächlich zum Testen der einzelnen Kommandos, sowie als minimales Beispiel für eine \emph{tabularx}-Tabelle:
-\begin{table}[H]
+\begin{table}[h]
 \begin{tabularx}{\columnwidth}{|p{3cm}|X|p{.2\columnwidth}|}
 \hline
 Gegenstand & Beispiel & Anmerkungen \\
