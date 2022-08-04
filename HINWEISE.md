@@ -6,7 +6,9 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 
 - Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden. Sollte ein sehr langer Titel gewählt werden, ist es möglich, dass dieser auf den Titelseiten oder den Erklärungen zu Problemen führt. Diese müssen in den jeweiligen Titelseiten- (verringerte Abstände und/oder Schriftgröße) bzw. Erklärungsdateien (zusätzliche Zeilen) behoben werden.
 
-- Anhand der Metadaten wird automatisch entschieden, welche Versionen der Titelseite und Erklärungen verwendet werden und ob Abstract zur Bachelorarbeit und Freigabeerklärung aktiviert werden.
+- Anhand der Metadaten wird automatisch entschieden, welche Versionen der Titelseite und Erklärungen verwendet werden.
+
+- in den Dateien `main_abstract.tex` und `main_zustimmung.tex` befinden sich das Abstract und die Zustimmung zur Plagiatsprüfung, da beide jeweils extra abzugeben sind.
 
 ## Fußnoten und Referenzen
 
@@ -26,7 +28,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
     - Nach der Float-Umgebung, muss entweder mit `\footnotetext{Die gewünschte Fußnote}` oder mit `\vgcaption{Link}{Datum}` der entsprechende Fußnotentext gesetzt werden. 
     - Beispiel mit `\vgcaption`:
         ```tex
-        \begin{code}[H]
+        \begin{code}[h]
         \linkcaption{Beispielcode}
         \label{code:example2}
         \end{code}
@@ -34,7 +36,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
         ```
     - **Besonderheit:** Soll die Fußnote im Text der Caption stehen, ist eine andere Vorgehensweise nötig (ausführlich: https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption):
         ```tex
-        \begin{code}[H]
+        \begin{code}[h]
         \caption[Caption ohne Fußnote]{Caption mit\footnotemark Fußnote}
         \end{code}
         \footnotetext{Text der Fußnote}
@@ -57,7 +59,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 ## Float-Umgebungen (Code, Verzeichnisse, usw.)
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
     ```tex
-    \begin{code}[H]
+    \begin{code}[h]
         \inputminted[
             firstline=27,
             lastline=37,
