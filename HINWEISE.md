@@ -8,6 +8,8 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 
 - Anhand der Metadaten wird automatisch entschieden, welche Versionen der Titelseite und Erklärungen verwendet werden.
 
+- in den Dateien `main_abstract.tex` und `main_zustimmung.tex` befinden sich das Abstract und die Zustimmung zur Plagiatsprüfung, da beide jeweils extra abzugeben sind.
+
 ## Fußnoten und Referenzen
 
 - Fußnoten sollten durch `\fn{Fußnotentext}`, Online-Zitate durch `\onlinezitat{key}`, andere Zitate durch `\zitat[Seite]{key}` eingetragen werden. Beispiele dazu, wie Quellen zu speichern sind, sind in `literatur.bib` zu finden. Außerdem existieren äquivalente Befehle für sinngemäße Zitate: `\vgonlinezitat{key}` bzw. `\vgzitat[Seite]{key}`. In `Doku-Test.tex` sind Beispiele zur Nutzung zu finden.
