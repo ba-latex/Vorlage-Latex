@@ -53,44 +53,33 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
 \end{code}
 \vgcaption{https://link-wo-es-den-code-gibt.de}{06.07.2022}
 \section{Ordnerstruktur}
+    In diesem Abschnitt wird eine Ordnerstruktur in \litebref{beispielbaum} gezeigt.
+    Ordnerstrukturen können im Quellcode definiert werden.
+    Die Symbole für Ordner und Dateien können, auf Wunsch, ausgetauscht oder erweitert werden, um verschiedene Dateitypen abzubilden.
     \verzeichnis{%
-          .1 \dtfolder Vorlage-Latex.
-            .2 \dtfile HINWEISE.md.
-            .2 \dtfile LICENSE.
-            .2 \dtfile README.md.
-            .2 \dtfile sortieren.py.
-            .2 \dtfolder Latex.
-              .3 \dtfolder bilder.
-                .4 \dtfile firmenlogo.svg.
-              .3 \dtfolder inhalt.
-                .4 \dtfile Abkürzungen.tex.
-                .4 \dtfile Anhang.tex.
-                .4 \dtfile Kapitel1.tex.
-              .3 \dtfolder light.
-                .4 \dtfile main.tex.
-                .4 \dtfile README.md.
-                .4 \dtfile vorlage\_light.tex.
-              .3 \dtfile literatur.bib.
-              .3 \dtfile main.tex.
-              .3 \dtfile metadaten.sty.
-              .3 \dtfolder vorlage.
-                .4 \dtfile Abstract\_Freigabeerklärung\_Bachelorthesis.tex.
-                .4 \dtfile ba-gc-logo.png.
-                .4 \dtfile ba-gc-logo.svg.
-                .4 \dtfile dirtree\_file.svg.
-                .4 \dtfile dirtree\_folder.svg.
-                .4 \dtfile Erklärung\_1Autor.tex.
-                .4 \dtfile Erklärung\_2Autoren.tex.
-                .4 \dtfile Erklärung\_3Autoren.tex.
-                .4 \dtfile Erklärung\_4Autoren.tex.
-                .4 \dtfile Titelseite\_1Autor.tex.
-                .4 \dtfile Titelseite\_2Autoren.tex.
-                .4 \dtfile Titelseite\_3Autoren.tex.
-                .4 \dtfile Titelseite\_4Autoren.tex.
-                .4 \dtfile vorlage.tex.
+          .1 \dtfolder Vorlage-Latex. .2 \dtfile HINWEISE.md.
+          .2 \dtfile LICENSE.
+          .2 \dtfile README.md.
+          .2 \dtfile sortieren.py.
+          .2 \dtfolder Latex.
+            .3 \dtfolder bilder.
+              .4 \dtfile firmenlogo.svg.
+            .3 \dtfolder inhalt.
+              .4 \dtfile Abkürzungen.tex.
+              .4 \dtfile Anhang.tex.
+            .3 \dtfolder light.
+              .4 \dtfile main.tex.
+              .4 \dtfile README.md.
+              .4 \dtfile vorlage\_light.tex.
+            .3 \dtfile literatur.bib.
+            .3 \dtfile main.tex.
+            .3 \dtfile main\_abstract.tex.
+            .3 \dtfile metadaten.sty.
     }{Ein Verzeichnis-Baum}{beispielbaum}
 
     \section{Formeln}
+    Formeln werden mittels \striche{\textbackslash formula} in die Arbeit eingebunden.
+    Die Beschriftungen befinden sich, wie es die HAWA\onlinezitat[Abs. 3.3.3.7]{HAWA} verlangt, rechts neben der Formel.
     \formula{$\Delta p_{WZ}=\Delta p\cdot\dfrac{\dot{V}^2_S}{\dot{V}^2_G}$}{%
     $\dot{V}^2_S = $ Spitzendurchfluss $\left[ m^3/h\right]$\\
     $\dot{V}^2_G = $ maximaler Durchfluss im Wasserzähler $\left[ m^3/h\right]$\\
@@ -135,4 +124,4 @@ Zeile 2 & & mit \emph{\textbackslash hsize}\\
 \label{beispieltabelle}
 \end{table}
 
-In diesem Satz wird eine Quelle mit nur einem Autor zitiert\onlinezitat{HAWA}, eine Quelle mit drei Autoren\vgonlinezitat{Vorlage} wird sinngemäß zitiert und eine Quelle mit vier Autoren\onlinezitat[Abs.~2.3]{rfc3596}, welche als \emph{Autor 1; u.a.} dargestellt werden sollte, existiert ebenfalls. Es folgt ein Buch-Zitat mit Seitenangabe\zitat[9]{KOHM2020}.
+In diesem Satz wird eine Quelle mit nur einem Autor zitiert\onlinezitat{HAWA}, eine Quelle mit drei Autoren\vgonlinezitat{Vorlage} wird sinngemäß zitiert und eine Quelle mit vier Autoren\onlinezitat[Abs.~2.3]{rfc3596}, welche als \emph{Autor 1; u.a.} dargestellt werden sollte, existiert ebenfalls. Es folgen ein Buch-Zitat mit Seitenangabe\zitat[9]{KOHM2020} und ein sinngemäßes Zitat aus einer unveröffentlichten Quelle\vguvzitat{UV}.

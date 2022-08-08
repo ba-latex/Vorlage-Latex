@@ -14,7 +14,9 @@
 
 %! automatische Auswahl der Titelseite
 \ifthenelse{\isundefined{\autorzwei}}{\include{vorlage/Titelseite_1Autor}}{\include{vorlage/Titelseite_mehrere_Autoren}}
+\vfuzz=10pt
 \ifthenelse{\isundefined{\sperre}}{}{\include{vorlage/Sperrvermerk}}
+\vfuzz=0.1pt
 
 \ifthenelse{\isundefined{\jahr}}{}{\input{vorlage/Platzhalter_Themenblatt}}
 

@@ -70,6 +70,15 @@
             "arguments": [
                 "Build abstract LaTeX using Docker"
             ]
+        },
+        {
+            "alignment": "left",
+            "tooltip": "Build Zustimmung LaTeX using Docker",
+            "text": "$(gear) Build Zustimmung",
+            "command": "workbench.action.tasks.runTask",
+            "arguments": [
+                "Build Zustimmung LaTeX using Docker"
+            ]
         }
     ],
     "triggerTaskOnSave.tasks": {
