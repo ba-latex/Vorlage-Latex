@@ -84,7 +84,7 @@
   type=code,                         % Name der Umgebung
   types=codes,                       % Erweiterung (\listofschemes)
   float,                               % soll gleiten
-  floatpos=hptb,
+  floatpos=H,
   tocentryentrynumberformat=\bfseries,                        % voreingestellte Gleitparameter
   name=Code,                         % Name in Überschriften
   listname={Programmcodeverzeichnis}, % Listenname
@@ -220,7 +220,7 @@
 
 % ? Ab hier beginnen eigene Befehle um den Umgang zu erleichtern
 \newcommand{\logisch}[1]{$``#1``$}
-\newcommand{\bild}[4][1.0]{\begin{figure}[hptb]
+\newcommand{\bild}[4][1.0]{\begin{figure}[H]
                       \centering
                       \includegraphics[width=#1\columnwidth]{bilder/#2}
                       \caption{#3}
@@ -229,7 +229,7 @@
 \newcommand{\striche}[1]{\glqq #1\grqq{}}
 \newcommand{\vglink}[2]{\footnote{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
 \newcommand{\python}[1]{\mintinline{python}{#1}}
-\newcommand{\svg}[4][1.0]{\begin{figure}[hptb]
+\newcommand{\svg}[4][1.0]{\begin{figure}[H]
   \centering
   \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
   \caption{#3}

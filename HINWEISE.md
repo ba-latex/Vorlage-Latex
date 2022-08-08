@@ -28,7 +28,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
     - Nach der Float-Umgebung, muss entweder mit `\footnotetext{Die gewünschte Fußnote}` oder mit `\vgcaption{Link}{Datum}` der entsprechende Fußnotentext gesetzt werden. 
     - Beispiel mit `\vgcaption`:
         ```tex
-        \begin{code}[hptb]
+        \begin{code}[H]
         \linkcaption{Beispielcode}
         \label{code:example2}
         \end{code}
@@ -36,7 +36,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
         ```
     - **Besonderheit:** Soll die Fußnote im Text der Caption stehen, ist eine andere Vorgehensweise nötig (ausführlich: https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption):
         ```tex
-        \begin{code}[hptb]
+        \begin{code}[H]
         \caption[Caption ohne Fußnote]{Caption mit\footnotemark Fußnote}
         \end{code}
         \footnotetext{Text der Fußnote}
@@ -59,7 +59,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 ## Float-Umgebungen (Code, Verzeichnisse, usw.)
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
     ```tex
-    \begin{code}[hptb]
+    \begin{code}[H]
         \inputminted[
             firstline=27,
             lastline=37,

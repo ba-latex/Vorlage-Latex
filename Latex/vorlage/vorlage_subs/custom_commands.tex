@@ -7,7 +7,7 @@
 % Umgebungen u.Ä.
 \newcommand{\fn}[1]{\footnote{\hspace{0.5em}#1}}
 %! #1 - Breite, #2 - Dateiname, #3 Caption, #4 - Label
-\newcommand{\bild}[4][1.0]{\begin{figure}[hptb]
+\newcommand{\bild}[4][1.0]{\begin{figure}[H]
   \centering
   \includegraphics[width=#1\columnwidth]{bilder/#2}
   \caption{#3}
@@ -15,14 +15,14 @@
   \end{figure}}
 \newcommand{\striche}[1]{\glqq #1\grqq{}}
 %! #1 - Breite, #2 - Dateiname, #3 Caption, #4 - Label
-\newcommand{\svg}[4][1.0]{\begin{figure}[hptb]
+\newcommand{\svg}[4][1.0]{\begin{figure}[H]
     \centering
     \includesvg[width=#1\columnwidth,inkscapelatex=false]{bilder/#2}
     \caption{#3}
     \label{#4}
     \end{figure}}
 %! #1 - Dirtree, #2 - Caption, #3 - Label
-\newcommand{\verzeichnis}[3]{\begin{figure}[hptb]
+\newcommand{\verzeichnis}[3]{\begin{figure}[H]
   % https://tex.stackexchange.com/a/99591/220899
   \renewcommand{\DTstyle}{\textrm\expandafter\raisebox{-0.7ex}}
   \centering
@@ -40,7 +40,7 @@
 \newcommand{\vgcaption}[2]{\footnotetext{\hspace{0.5em}vgl.~\href{#1}{#1}~(#2)}}
 \newcommand{\python}[1]{\mintinline{python}{#1}}
 %! #1 - Formel, #2 - Legende, #3 - Caption, #4 - Label
-\newcommand{\formula}[4]{\begin{formel}[hptb]
+\newcommand{\formula}[4]{\begin{formel}[H]
   \pretocmd{\captionbelow}{\onelinecaptionstrue}{}{}
   \KOMAoptions{captions=centeredbeside}
   \begin{captionbeside}[#3]{\textbf{#3}}[r]#1\end{captionbeside}
