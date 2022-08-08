@@ -120,6 +120,44 @@
   {\addsemicolon\space}
   {\usebibmacro{postnote}}
 
+%? Unveröffentlichtes Zitat
+\DeclareCiteCommand{\uvzitat}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}
+   \setunit{\addnbspace}
+   unveröffentlicht:
+   \bibhyperref{\printnames[author_fn]{labelname}}
+   \setunit{\labelnamepunct}
+   \newunit
+   \printfield{location}
+   \newunit
+   \printfield{labelyear}\printfield{extradate}
+   \newunit
+   \printfield{pages}
+   }
+  {\addsemicolon\space}
+  {\usebibmacro{postnote}}
+
+%? Sinngemäßes, unveröffentlichtes Zitat
+\DeclareCiteCommand{\vguvzitat}[\mkbibfootnote]
+{\usebibmacro{prenote}}
+{\usebibmacro{citeindex}
+ \setunit{\addnbspace}
+ vgl. unveröffentlicht:
+ \bibhyperref{\printnames[author_fn]{labelname}}
+ \setunit{\labelnamepunct}
+ \newunit
+ \printfield{location}
+ \newunit
+ \printfield{labelyear}\printfield{extradate}
+ \newunit
+ \printfield{pages}
+ }
+{\addsemicolon\space}
+{\usebibmacro{postnote}}
+
+
+
 \renewcommand{\bibfootnotewrapper}[1]{\bibsentence#1}
 
 \DeclareMultiCiteCommand{\zitate}[\mkbibfootnote]{\footpartcite}{\addsemicolon\space}
