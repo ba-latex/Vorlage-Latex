@@ -39,12 +39,25 @@
 %! CD-Inhalt
 \chapter{Inhalt der CD}
 \label{cd-inhalt}
-CD mit folgenden Inhalten:
-\begin{itemize}
-    \item dieses Dokument
-    \item \LaTeX -Dateien
-    \item \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{YouTube-Video} als Bonus
-\end{itemize}
+\renewcommand\DTstyle{\sffamily}
+\dirtree{%
+.1 CD mit folgenden Inhalten:.
+.2 \dtfolder Anhänge.
+.2 \dtfolder LaTeX-Quellen.
+.2 \dtfolder Online-Quellen.
+.2 \dtfile dieses Dokument.
+.2 \dtfile \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{YouTube-Video} als Bonus.
+}
+\vspace*{\fill}
+\begin{center}
+    \begin{tikzpicture}
+        \draw (0,0) rectangle (12.2,12.2);
+        \draw (6.1,6.1) circle (5.5);
+        \draw (6.1,6.1) circle (.75);
+        \draw (6.1,6.1) circle (2.4);
+    \end{tikzpicture}
+\end{center}
+\vspace*{\fill}
 \clearpage
 
 % Warnungen für vorgefertigte Dokumente deaktivieren
