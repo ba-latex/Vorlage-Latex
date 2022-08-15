@@ -1,0 +1,30 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 28.94 69.09"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:cc="http://creativecommons.org/ns#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title>USB-Stick</title>
+  <g fill="none" stroke="#000" stroke-width="2" transform="translate(-22.57 -47.14)">
+    <rect width="27.69" height="49.85" x="23.19" y="47.77" stroke-miterlimit="0" ry="6.73"/>
+    <rect width="18.36" height="17.99" x="27.86" y="97.62" stroke-miterlimit="0" ry="0"/>
+    <g transform="translate(.03 .46)">
+      <path d="M30.88 107.98h4.41v3.37h-4.41z"/>
+      <rect width="4.41" height="3.37" x="38.74" y="107.98" ry="0"/>
+    </g>
+  </g>
+  <metadata
+     id="metadata1274">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>USB-Stick</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Colin Pohle</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>  
+</svg>
