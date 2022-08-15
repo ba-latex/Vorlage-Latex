@@ -36,13 +36,22 @@
     \label{#4}
     \end{figure}}
 
-%! CD-Inhalt
+%! CD/USB-Inhalt, für USB-Stick entsprechend anpassen, Icon ein-/ CD ausblenden
 \chapter{Inhalt der CD}
 \label{cd-inhalt}
 \renewcommand\DTstyle{\sffamily}
 \renewcommand{\DTstyle}{\textrm\expandafter\raisebox{-0.7ex}}
 \dirtree{%
-.1 CD mit folgenden Inhalten:.
+.1 
+%! CD
+\begin{tikzpicture}
+    \draw circle (0.16);
+    \draw circle (0.07);
+    \draw circle (0.02);
+\end{tikzpicture}
+%! USB
+%\hspace{.2em}\dtusb
+\raisebox{.05em}{ CD mit folgenden Inhalten:}.
 .2 \dtfolder Anhänge.
 .2 \dtfolder LaTeX-Quellen.
 .2 \dtfolder Online-Quellen.
