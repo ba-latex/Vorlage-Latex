@@ -47,35 +47,85 @@
   \begin{captionbeside}[#3]{\textbf{#3}}[r]#1\end{captionbeside}
   \pretocmd{\captionbelow}{}{}{}#2\label{#4}\end{formel}}
 
-% Referenzierung
-\newcommand{\uniliteref}[2]{\emph{\hyperref[{#2}]{#1 \ref{#2} - \nameref{#2}}}}
-\newcommand{\unifullref}[2]{(\emph{\hyperref[{#2}]{siehe #1 \ref{#2} - \nameref{#2}}})}
+%! Referenzierung
+\newcommand{\literef}[1]{\emph{\hyperref[{#1}]{\autoref{#1} - \nameref{#1}}}}
+\newcommand{\fullref}[1]{(\emph{\hyperref[{#1}]{siehe \autoref{#1} - \nameref{#1}}})}
 
-% Anhänge - Sonderbehandlung, da nameref auf Anhänge nicht funktioniert
-% https://github.com/DSczyrba/Vorlage-Latex/issues/29
-\newcommand{\litearef}[1]{\uniliteref{Anhang}{#1}}
-\newcommand{\fullaref}[1]{\unifullref{Anhang}{#1}}
+% Kompatibilität zu alter "Architektur"
+\newcommand{\litearef}[1]{\literef{#1}}
+\newcommand{\fullaref}[1]{\fullref{#1}}
 \newcommand{\aref}[1]{\litearef{#1}}
 % Abbildungen
-\newcommand{\litebref}[1]{\uniliteref{Abbildung}{#1}}
-\newcommand{\fullbref}[1]{\unifullref{Abbildung}{#1}}
+\newcommand{\litebref}[1]{\literef{#1}}
+\newcommand{\fullbref}[1]{\fullref{#1}}
 \newcommand{\bref}[1]{\litebref{#1}}
 % Code
-\newcommand{\litecref}[1]{\uniliteref{Code}{#1}}
-\newcommand{\fullcref}[1]{\unifullref{Code}{#1}}
+\newcommand{\litecref}[1]{\literef{#1}}
+\newcommand{\fullcref}[1]{\fullref{#1}}
 \newcommand{\cref}[1]{\litecref{#1}}
 % Formeln
-\newcommand{\litefref}[1]{\uniliteref{Formel}{#1}}
-\newcommand{\fullfref}[1]{\unifullref{Formel}{#1}}
+\newcommand{\litefref}[1]{\literef{#1}}
+\newcommand{\fullfref}[1]{\fullref{#1}}
 \newcommand{\fref}[1]{\litefref{#1}}
 % Kapitel
-\newcommand{\fullsref}[1]{\unifullref{Kapitel}{#1}}
-\newcommand{\litesref}[1]{\uniliteref{Kapitel}{#1}}
+\newcommand{\fullsref}[1]{\fullref{#1}}
+\newcommand{\litesref}[1]{\literef{#1}}
 \newcommand{\sref}[1]{\litesref{#1}}
 % Tabellen
-\newcommand{\litetref}[1]{\uniliteref{Tabelle}{#1}}
-\newcommand{\fulltref}[1]{\unifullref{Tabelle}{#1}}
+\newcommand{\litetref}[1]{\literef{#1}}
+\newcommand{\fulltref}[1]{\fullref{#1}}
 \newcommand{\tref}[1]{\litetref{#1}}
-% Kompatibilität
-\newcommand{\literef}[1]{\litesref{#1}}
-\newcommand{\fullref}[1]{\fullsref{#1}}
+
+% automatische Ermittlung des ref-Typs nach https://tex.stackexchange.com/questions/33776/get-label-target-type
+\makeatletter
+
+% Helper macro to extract the type (section,subsection...) or the type name
+% out of the label reference. Works with hyperref only.
+% Argument #1 is a macro of form \def\...#1...\@nil{...}
+% Argument #2 is the label reference, e.g. "sect:test"
+\newcommand*\@autoref[2]{% \HyPsd@@@autoref from hyperref, modified
+  \expandafter\ifx\csname r@#2\endcsname\relax
+    ??%
+  \else
+    \expandafter\expandafter\expandafter\@@autoref
+        \csname r@#2\endcsname{}{}{}{}\@nil#1\@nil
+  \fi
+}
+\def\@@autoref#1#2#3#4#5\@nil#6\@nil{% \HyPsd@autorefname, modified
+  #6#4.\@nil}% Argument #4 = type and number, e.g. "section.1" or "subsection.1.2"
+
+% \reftype results in the type name, e.g. "section" or "figure".
+% The starred variant will remove a star, if existent, i.e. "section*" will become "section"
+\newcommand\reftype{%
+  \@ifstar
+    {\@autoref\@@reftype}%
+    {\@autoref\@reftype}}
+\def\@reftype#1.#2\@nil{#1}
+\def\@@reftype#1.#2\@nil{\@@@reftype#1*\@nil}
+\def\@@@reftype#1*#2\@nil{#1}
+
+% \autoreftype results in the type prose name (plus space character),
+% e.g. "section" in English or "Abschnitt" in German
+% (like \autoref, but without number).
+% \HyPsd@@autorefname is defined in the hyperref package.
+\newcommand*\autoreftype[1]{\@autoref\HyPsd@@autorefname{#1}}
+
+% An alternative version of \autoreftype without space at the end.
+% Since the \space is hard coded inside \HyPsd@@autorefname we use our
+% own version called \@autoreftype instead.
+% Furthermore we offer a starred variant which will work with labels to
+% \section* etc., too.
+\renewcommand*\autoreftype{%
+  \@ifstar
+    {\@autoref\@@autoreftype}%
+    {\@autoref\@autoreftype}}
+\def\@autoreftype#1.#2\@nil{% = \HyPsd@@autorefname without \space
+  \ltx@IfUndefined{#1autorefname}%
+    {\ltx@IfUndefined{#1name}%
+      {}%
+      {\csname#1name\endcsname}}%
+    {\csname#1autorefname\endcsname}}
+\def\@@autoreftype#1.#2\@nil{%
+  \expandafter\@autoreftype\@@@reftype#1*\@nil.\@nil}
+
+\makeatother
