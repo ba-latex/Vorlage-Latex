@@ -14,11 +14,8 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 
 - Fußnoten sollten durch `\fn{Fußnotentext}`, Online-Zitate durch `\onlinezitat{key}`, andere Zitate durch `\zitat[Seite]{key}` eingetragen werden. Beispiele dazu, wie Quellen zu speichern sind, sind in `literatur.bib` zu finden. Außerdem existieren äquivalente Befehle für sinngemäße Zitate: `\vgonlinezitat{key}` bzw. `\vgzitat[Seite]{key}`. In `Doku-Test.tex` sind Beispiele zur Nutzung zu finden.
 
-- Mit `\label{bezeichner:name}` können Bezeichner für Elemente erstellt werden. Auf diese kann über LaTeX-eigene oder in `vorlage/vorlage-commands.tex` definierte Kommandos zugegriffen werden.
-    - Die vordefinierten Kommandos sind folgendermaßen aufgebaut:
-        - Universelle Kommandos für kurze (`\uniliteref`) bzw. lange (`\unifullref`) Referenzen
-        - Typ-spezifische Varianten davon (`\litearef` bzw. `\fullaref`) für Anhänge (a), Abbildungen (b), Codes (c), Formeln (f), Kapitel (=Sektionen, s) unt Tabellen (t)
-        - Kurz-Versionen der `lite`-Kommandos, z.B. `\cref` um `\litecref` und dadurch `\uniliteref{Code}` auszulösen
+- Mit `\label{bezeichner:name}` können Bezeichner für Elemente erstellt werden. Auf diese kann über LaTeX-eigene oder in `vorlage/vorlage-commands.tex` definierte Kommandos `\literef` und `\fullref` zugegriffen werden.
+Für weitere Details zu Referenzen siehe `Doku-Test.tex` bzw. die standardmäßig daraus generierte PDF.
 
 - `\vglink{url}{datum}` erzeugt eine Fußnote mit vgl. link (xx.xx.2020) nach der gültigen Formatierung
 
