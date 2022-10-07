@@ -53,7 +53,7 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
 \end{code}
 \vgcaption{https://link-wo-es-den-code-gibt.de}{06.07.2022}
 \section{Ordnerstruktur}
-    In diesem Abschnitt wird eine Ordnerstruktur in \litebref{beispielbaum} gezeigt.
+    In diesem Abschnitt wird eine Ordnerstruktur in \literef{beispielbaum} gezeigt.
     Ordnerstrukturen können im Quellcode definiert werden.
     Die Symbole für Ordner und Dateien können, auf Wunsch, ausgetauscht oder erweitert werden, um verschiedene Dateitypen abzubilden.
     \verzeichnis{%
@@ -92,26 +92,17 @@ Ein weiterer Code um zu schauen, ob danach die Zeilennummerierung wieder funktio
 
 \chapter{Test-/Dokutabelle}
 Diese Tabelle dient hauptsächlich zum Testen der einzelnen Kommandos, sowie als minimales Beispiel für eine \emph{tabularx}-Tabelle:
+\hbadness=10000 %"Tabelle 1" in Spalte Beispiel erzeugt sonst eine Warnung
 \begin{table}[H]
 \begin{tabularx}{\columnwidth}{|p{3cm}|X|p{.2\columnwidth}|}
 \hline
-Gegenstand & Beispiel & Anmerkungen \\
+Gegenstand & Beispiel & Befehl \\
 \hline
-Kurzer Verweis auf Kapitel & \literef{sec:beispiele} & \\
+Kurzer Verweis & \literef{sec:beispiele} & \emph{\textbackslash literef}\\
 \hline
-Kurzer Verweis auf Anhang & \litearef{cd-inhalt} & Alias: \emph{\textbackslash aref} \\
+Langer Verweis & \fullref{beispielbaum} & \emph{\textbackslash fullref}\\
 \hline
-Kurzer Verweis auf Abbildung & \litebref{beispielbaum} & Alias: \emph{\textbackslash bref} \\
-\hline
-Kurzer Verweis auf Tabelle & \litetref{beispieltabelle} & Alias: \emph{\textbackslash tref} \\
-\hline
-Langer Verweis auf Kapitel & \fullref{sec:beispiele} & \\
-\hline
-Langer Verweis auf Anhang & \fullaref{cd-inhalt} &  \\
-\hline
-Langer Verweis auf Abbildung & \fullbref{beispielbaum} &  \\
-\hline
-Langer Verweis auf Tabelle & \fulltref{beispieltabelle} &  \\
+Verweis ohne Objektname & \autoref{beispieltabelle} & \emph{\textbackslash autoref}\\
 \hline
 \multicolumn{2}{|c|}{verbundene Spalten mit zentriertem Text} & \emph{\textbackslash multicolumn} \\
 \hline
@@ -123,5 +114,6 @@ Zeile 2 & & mit \emph{\textbackslash hsize}\\
 \caption{Beispieltabelle}
 \label{beispieltabelle}
 \end{table}
+\hbadness=1000
 
 In diesem Satz wird eine Quelle mit nur einem Autor zitiert\onlinezitat{HAWA}, eine Quelle mit drei Autoren\vgonlinezitat{Vorlage} wird sinngemäß zitiert und eine Quelle mit vier Autoren\onlinezitat[Abs.~2.3]{rfc3596}, welche als \emph{Autor 1; u.a.} dargestellt werden sollte, existiert ebenfalls. Es folgen ein Buch-Zitat mit Seitenangabe\zitat[9]{KOHM2020} und ein sinngemäßes Zitat aus einer unveröffentlichten Quelle\vguvzitat{UV}.
