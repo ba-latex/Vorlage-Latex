@@ -52,29 +52,24 @@
 \newcommand{\fullref}[1]{(\emph{\hyperref[{#1}]{siehe \autoref{#1} - \nameref{#1}}})}
 
 % Kompatibilität zu alter "Architektur"
-\newcommand{\litearef}[1]{\literef{#1}}
-\newcommand{\fullaref}[1]{\fullref{#1}}
-\newcommand{\aref}[1]{\litearef{#1}}
-% Abbildungen
-\newcommand{\litebref}[1]{\literef{#1}}
-\newcommand{\fullbref}[1]{\fullref{#1}}
-\newcommand{\bref}[1]{\litebref{#1}}
-% Code
-\newcommand{\litecref}[1]{\literef{#1}}
-\newcommand{\fullcref}[1]{\fullref{#1}}
-\newcommand{\cref}[1]{\litecref{#1}}
-% Formeln
-\newcommand{\litefref}[1]{\literef{#1}}
-\newcommand{\fullfref}[1]{\fullref{#1}}
-\newcommand{\fref}[1]{\litefref{#1}}
-% Kapitel
-\newcommand{\fullsref}[1]{\fullref{#1}}
-\newcommand{\litesref}[1]{\literef{#1}}
-\newcommand{\sref}[1]{\litesref{#1}}
-% Tabellen
-\newcommand{\litetref}[1]{\literef{#1}}
-\newcommand{\fulltref}[1]{\fullref{#1}}
-\newcommand{\tref}[1]{\litetref{#1}}
+\let\aref\literef
+\let\bref\literef
+\let\cref\literef
+\let\fref\literef
+\let\sref\literef
+\let\tref\literef
+\let\litearef\literef
+\let\litebref\literef
+\let\litecref\literef
+\let\litefref\literef
+\let\litesref\literef
+\let\litetref\literef
+\let\fullaref\fullref
+\let\fullbref\fullref
+\let\fullcref\fullref
+\let\fullfref\fullref
+\let\fullsref\fullref
+\let\fulltref\fullref
 
 % automatische Ermittlung des ref-Typs nach https://tex.stackexchange.com/questions/33776/get-label-target-type
 \makeatletter
