@@ -53,11 +53,15 @@
 \usepackage{amsthm}
 \usepackage{tabularx}
 \usepackage{multirow}
-\usepackage{setspace}
 \usepackage{booktabs}
 \usepackage{svg}
 \usepackage{graphicx}
 \usepackage{float}
+%! floatplacement für Codes muss in minted.tex definiert werden
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+\floatplacement{figure}{htbp}
+\floatplacement{formel}{htbp}
 \usepackage[a4paper,lmargin={2.5cm},rmargin={2.5cm},tmargin={2cm},bmargin={2cm}]{geometry}
 \usepackage{lineno}
 \usepackage[T1]{fontenc}
@@ -79,6 +83,7 @@
 
 \usepackage{scrhack} %necessary to use float with scrreprt
 \usepackage{csquotes}
+\usepackage{setspace}
 
 %! Schriftart
 %! Die HAWA schreibt Arial vor, welches in Standard LaTeX-Distributionen nicht mitgeliefert wird. Helvetica ist nahezu identisch.

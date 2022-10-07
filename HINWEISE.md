@@ -25,7 +25,7 @@ Für weitere Details zu Referenzen siehe `Doku-Test.tex` bzw. die standardmäßi
     - Nach der Float-Umgebung, muss entweder mit `\footnotetext{Die gewünschte Fußnote}` oder mit `\vgcaption{Link}{Datum}` der entsprechende Fußnotentext gesetzt werden. 
     - Beispiel mit `\vgcaption`:
         ```tex
-        \begin{code}[H]
+        \begin{code}
         \linkcaption{Beispielcode}
         \label{code:example2}
         \end{code}
@@ -33,7 +33,7 @@ Für weitere Details zu Referenzen siehe `Doku-Test.tex` bzw. die standardmäßi
         ```
     - **Besonderheit:** Soll die Fußnote im Text der Caption stehen, ist eine andere Vorgehensweise nötig (ausführlich: https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption):
         ```tex
-        \begin{code}[H]
+        \begin{code}
         \caption[Caption ohne Fußnote]{Caption mit\footnotemark Fußnote}
         \end{code}
         \footnotetext{Text der Fußnote}
@@ -56,7 +56,7 @@ Für weitere Details zu Referenzen siehe `Doku-Test.tex` bzw. die standardmäßi
 ## Float-Umgebungen (Code, Verzeichnisse, usw.)
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
     ```tex
-    \begin{code}[H]
+    \begin{code}
         \inputminted[
             firstline=27,
             lastline=37,
@@ -96,6 +96,10 @@ Für weitere Details zu Referenzen siehe `Doku-Test.tex` bzw. die standardmäßi
     ```
 
 - Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Legende ebenfalls. Siehe dazu auch das HAWA-Dokument.
+
+- Die Positionierung von Float-Umgebungen wird in der `vorlage.tex` definiert. Standard ist `htbp`, was bedeutet, dass alle "Floats" (Abbildungen, Tabellen, Codes, Formeln, Verzeichnisbäume...) standardmäßig, wenn möglich, "hier" (also an der selben Stelle wie im LaTeX-Code) positioniert werden (h), ansonsten am oberen Ende der Seite (t), ansonsten am Ende Seite (b) oder, notfalls, auf einer Seite voller Floats (p).
+
+- Soll ein Float unbedingt exakt an der selben Stelle wie im Quellcode platziert werden, kann dies mit `[H]` erzwungen werden (bspw. `\begin{table}[H]`).
 
 ## Sonstiges
 - Normale Anführungszeichen ("") entsprechen nicht der Deutschen Rechtschreibung. Hierzu das Kommando `\striche{Text}` verwenden.
