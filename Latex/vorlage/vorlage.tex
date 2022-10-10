@@ -115,3 +115,7 @@
 
 %? wird am Ende geladen, um einheitliche Spacings sicherzustellen
 \usepackage{setspace}
+%! setzt den Zeilenabstand in Floats (Tabellen, Code-Listings usw.) auf den in LaTeX definierten Wert (statt 1.0)
+\makeatletter
+\let\@xfloat=\latex@xfloat
+\makeatother

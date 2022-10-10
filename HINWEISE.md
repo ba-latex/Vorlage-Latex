@@ -101,6 +101,8 @@ Für weitere Details zu Referenzen siehe `Doku-Test.tex` bzw. die standardmäßi
 
 - Soll ein Float unbedingt exakt an der selben Stelle wie im Quellcode platziert werden, kann dies mit `[H]` erzwungen werden (bspw. `\begin{table}[H]`).
 
+- In Floats wird standardmäßig ebenfalls der durch die BA geforderte Zeilenabstand von 1,3 genutzt. Falls hier ein kleinerer Zeilenabstand gewünscht ist, kann dieser manuell per `\linespread{1}` innerhalb des Floats oder global durch Entfernen der zu diesem Zweck in `vorlage.tex` auf `\usepackage{setspace}` folgend eingesetzten Zeilen auf 1 gesetzt werden.
+
 ## Sonstiges
 - Normale Anführungszeichen ("") entsprechen nicht der Deutschen Rechtschreibung. Hierzu das Kommando `\striche{Text}` verwenden.
 
