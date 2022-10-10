@@ -14,11 +14,8 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 
 - Fußnoten sollten durch `\fn{Fußnotentext}`, Online-Zitate durch `\onlinezitat{key}`, andere Zitate durch `\zitat[Seite]{key}` eingetragen werden. Beispiele dazu, wie Quellen zu speichern sind, sind in `literatur.bib` zu finden. Außerdem existieren äquivalente Befehle für sinngemäße Zitate: `\vgonlinezitat{key}` bzw. `\vgzitat[Seite]{key}`. In `Doku-Test.tex` sind Beispiele zur Nutzung zu finden.
 
-- Mit `\label{bezeichner:name}` können Bezeichner für Elemente erstellt werden. Auf diese kann über LaTeX-eigene oder in `vorlage/vorlage-commands.tex` definierte Kommandos zugegriffen werden.
-    - Die vordefinierten Kommandos sind folgendermaßen aufgebaut:
-        - Universelle Kommandos für kurze (`\uniliteref`) bzw. lange (`\unifullref`) Referenzen
-        - Typ-spezifische Varianten davon (`\litearef` bzw. `\fullaref`) für Anhänge (a), Abbildungen (b), Codes (c), Formeln (f), Kapitel (=Sektionen, s) unt Tabellen (t)
-        - Kurz-Versionen der `lite`-Kommandos, z.B. `\cref` um `\litecref` und dadurch `\uniliteref{Code}` auszulösen
+- Mit `\label{bezeichner:name}` können Bezeichner für Elemente erstellt werden. Auf diese kann über LaTeX-eigene oder in `vorlage/vorlage-commands.tex` definierte Kommandos `\literef` und `\fullref` zugegriffen werden.
+Für weitere Details zu Referenzen siehe `Doku-Test.tex` bzw. die standardmäßig daraus generierte PDF.
 
 - `\vglink{url}{datum}` erzeugt eine Fußnote mit vgl. link (xx.xx.2020) nach der gültigen Formatierung
 
@@ -28,7 +25,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
     - Nach der Float-Umgebung, muss entweder mit `\footnotetext{Die gewünschte Fußnote}` oder mit `\vgcaption{Link}{Datum}` der entsprechende Fußnotentext gesetzt werden. 
     - Beispiel mit `\vgcaption`:
         ```tex
-        \begin{code}[H]
+        \begin{code}
         \linkcaption{Beispielcode}
         \label{code:example2}
         \end{code}
@@ -36,7 +33,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
         ```
     - **Besonderheit:** Soll die Fußnote im Text der Caption stehen, ist eine andere Vorgehensweise nötig (ausführlich: https://tex.stackexchange.com/questions/10181/using-footnote-in-a-figures-caption):
         ```tex
-        \begin{code}[H]
+        \begin{code}
         \caption[Caption ohne Fußnote]{Caption mit\footnotemark Fußnote}
         \end{code}
         \footnotetext{Text der Fußnote}
@@ -59,7 +56,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 ## Float-Umgebungen (Code, Verzeichnisse, usw.)
 - Soll Programmcode in der Arbeit angezeigt bzw. eingebunden werden so steht dafür nun die Umgebung `\begin{code}` zur Verfügung. Der genaue Syntax ist folgender:
     ```tex
-    \begin{code}[H]
+    \begin{code}
         \inputminted[
             firstline=27,
             lastline=37,
@@ -99,6 +96,12 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
     ```
 
 - Die einzelnen Zeilen der Formel werden im Mathemathikmodus geschrieben. Die Legende ebenfalls. Siehe dazu auch das HAWA-Dokument.
+
+- Die Positionierung von Float-Umgebungen wird in der `vorlage.tex` definiert. Standard ist `htbp`, was bedeutet, dass alle "Floats" (Abbildungen, Tabellen, Codes, Formeln, Verzeichnisbäume...) standardmäßig, wenn möglich, "hier" (also an der selben Stelle wie im LaTeX-Code) positioniert werden (h), ansonsten am oberen Ende der Seite (t), ansonsten am Ende Seite (b) oder, notfalls, auf einer Seite voller Floats (p).
+
+- Soll ein Float unbedingt exakt an der selben Stelle wie im Quellcode platziert werden, kann dies mit `[H]` erzwungen werden (bspw. `\begin{table}[H]`).
+
+- In Floats wird standardmäßig ebenfalls der durch die BA geforderte Zeilenabstand von 1,3 genutzt. Falls hier ein kleinerer Zeilenabstand gewünscht ist, kann dieser manuell per `\linespread{1}` innerhalb des Floats oder global durch Entfernen der zu diesem Zweck in `vorlage.tex` auf `\usepackage{setspace}` folgend eingesetzten Zeilen auf 1 gesetzt werden.
 
 ## Sonstiges
 - Normale Anführungszeichen ("") entsprechen nicht der Deutschen Rechtschreibung. Hierzu das Kommando `\striche{Text}` verwenden.

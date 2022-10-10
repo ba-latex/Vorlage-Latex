@@ -9,6 +9,13 @@ jobs:
   build-pdf:
     runs-on: ubuntu-latest
     timeout-minutes: 3
+    strategy:
+      matrix:
+        target:
+          - main
+          - main_abstract
+          - main_zustimmung
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
       - name: Determine container version
@@ -16,12 +23,12 @@ jobs:
       - name: Pull container image
         run: docker pull $DOCKER_IMAGE
       - name: Build PDF
-        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 $DOCKER_IMAGE
+        run: docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 -e TARGET="${{ matrix.target }}" $DOCKER_IMAGE
       - name: Archive PDF
         uses: actions/upload-artifact@v2
         with:
-          name: main.pdf
-          path: Latex/main.pdf
+          name: ${{ matrix.target }}.pdf
+          path: Latex/${{ matrix.target }}.pdf
   diff:
     # only runs if pdf build was successful
     needs: build-pdf
@@ -30,6 +37,13 @@ jobs:
       github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 3
+    strategy:
+      matrix:
+        target:
+          - main
+          - main_abstract
+          - main_zustimmung
+      fail-fast: false
     steps:
       - name: Checkout commit before push
         if: |
@@ -64,7 +78,7 @@ jobs:
         # NOTE there currently is no better way to mark a job as "allow failure" so we have to use this little hack.
         # the job will still appear as successful even if the diff build fails which might be slightly misleading
         run: |
-          if ! docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 $DOCKER_IMAGE; then
+          if ! docker run --rm -v "$GITHUB_WORKSPACE/Latex:/latex" -u $(id -u ${USER}):$(id -g ${USER}) -e DISABLE_DIFFPDF=1 -e DISABLE_SYNCTEX=1 -e TARGET="${{ matrix.target }}" $DOCKER_IMAGE; then
             echo "stop=true" >> $GITHUB_ENV
             echo "::warning::previous build failed, not generating diff"
           fi
@@ -72,12 +86,12 @@ jobs:
         if: ${{ env.stop != 'true' }}
         uses: actions/download-artifact@v2
         with:
-          name: main.pdf
+          name: ${{ matrix.target }}.pdf
       - name: Generate diff
         if: ${{ env.stop != 'true' }}
         id: diff
         run: |
-          if docker run --rm -v "$GITHUB_WORKSPACE:/data" --init -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE xvfb-run diff-pdf -v -m -s --output-diff="/data/main-diff.pdf" "/data/Latex/main.pdf" "/data/main.pdf"; then
+          if docker run --rm -v "$GITHUB_WORKSPACE:/data" --init -u $(id -u ${USER}):$(id -g ${USER}) $DOCKER_IMAGE xvfb-run diff-pdf -v -m -s --output-diff="/data/${{ matrix.target }}-diff.pdf" "/data/Latex/${{ matrix.target }}.pdf" "/data/${{ matrix.target }}.pdf"; then
             echo "stop=true" >> $GITHUB_ENV
             echo "::warning::diff-pdf: no change detected"
           fi
@@ -85,5 +99,33 @@ jobs:
         if: ${{ env.stop != 'true' }}
         uses: actions/upload-artifact@v2
         with:
-          name: main-diff.pdf
-          path: main-diff.pdf
+          name: ${{ matrix.target }}-diff.pdf
+          path: ${{ matrix.target }}-diff.pdf
+  package:
+    needs:
+      - build-pdf
+      - diff
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    if: always()
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v2
+      - name: Delete individual artifacts
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          # sadly, this doesn't have wildcard support yet
+          name: |
+            main.pdf
+            main_abstract.pdf
+            main_zustimmung.pdf
+            main-diff.pdf
+            main_abstract-diff.pdf
+            main_zustimmung-diff.pdf
+      - name: Collect files
+        run: mkdir documents && cp **/*.pdf documents
+      - name: Upload package
+        uses: actions/upload-artifact@v2
+        with:
+          name: documents
+          path: "documents/*.pdf"

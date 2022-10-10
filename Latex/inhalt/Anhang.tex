@@ -36,15 +36,38 @@
     \label{#4}
     \end{figure}}
 
-%! CD-Inhalt
+%! CD/USB-Inhalt, für USB-Stick entsprechend anpassen, Icon ein-/ CD ausblenden
 \chapter{Inhalt der CD}
 \label{cd-inhalt}
-CD mit folgenden Inhalten:
-\begin{itemize}
-    \item dieses Dokument
-    \item \LaTeX -Dateien
-    \item \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{YouTube-Video} als Bonus
-\end{itemize}
+\renewcommand\DTstyle{\sffamily}
+\renewcommand{\DTstyle}{\textrm\expandafter\raisebox{-0.7ex}}
+\dirtree{%
+.1 
+%! CD
+\begin{tikzpicture}
+    \draw circle (0.16);
+    \draw circle (0.07);
+    \draw circle (0.02);
+\end{tikzpicture}
+%! USB
+%\hspace{.2em}\dtusb
+\raisebox{.05em}{ CD mit folgenden Inhalten:}.
+.2 \dtfolder Anhänge.
+.2 \dtfolder LaTeX-Quellen.
+.2 \dtfolder Online-Quellen.
+.2 \dtfile dieses Dokument.
+.2 \dtfile \href{https://www.youtube.com/watch?v=dQw4w9WgXcQ}{YouTube-Video} als Bonus.
+}
+\vspace*{\fill}
+\begin{center}
+    \begin{tikzpicture}
+        \draw (0,0) rectangle (12.2,12.2);
+        \draw (6.1,6.1) circle (5.5);
+        \draw (6.1,6.1) circle (.75);
+        \draw (6.1,6.1) circle (2.4);
+    \end{tikzpicture}
+\end{center}
+\vspace*{\fill}
 \clearpage
 
 % Warnungen für vorgefertigte Dokumente deaktivieren
