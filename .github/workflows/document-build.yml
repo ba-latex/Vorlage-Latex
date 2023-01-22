@@ -112,7 +112,7 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v3
       - name: Delete individual artifacts
-        uses: geekyeggo/delete-artifact@v1
+        uses: geekyeggo/delete-artifact@v2
         with:
           # sadly, this doesn't have wildcard support yet
           name: |
