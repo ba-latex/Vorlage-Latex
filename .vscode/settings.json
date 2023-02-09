@@ -89,6 +89,6 @@
             "Latex/inhalt/*.tex"
         ]
     },
-    "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.6.1",
+    "vorlage-latex.buildcontainer": "ghcr.io/jemand771/latex-build:v1.7.1",
     "editor.bracketPairColorization.enabled": true
 }
