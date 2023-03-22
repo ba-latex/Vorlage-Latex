@@ -1,4 +1,7 @@
-%! Für zusätzliche Autoren '%' vor entsprechenden Zeilen entfernen, Reihenfolge beachten!
+%! Diese Datei ist esenziell für die korrekte Funktion der Vorlage.
+%! Die hier gemachten Angaben entscheiden, ob die Vorlage das Dokument als Praxisbeleg, Projektarbeit oder Bachelorthesis behandelt.
+%! Für zusätzliche Autoren '%' vor entsprechenden Zeilen entfernen. (>1 Autor --> Projektarbeit)
+%! Autoren nur in der korrekten Reihenfolge "befüllen"!
 %   Autor/Matrikelnummer 1:
 \newcommand{\autoreins}{Name 1}\newcommand{\matnumeins}{4001234}
 %   Autor/Matrikelnummer 2:
@@ -14,14 +17,15 @@
 \newcommand{\partnerort}{Postleitzahl Ort Praxispartner}
 %Titel:
 \newcommand{\titel}{Titel der Arbeit}
-%Kurzbeschreibung:
-\newcommand{\kurzbeschreibung}{Beschreibung der Arbeit}
+%Kurzbeschreibung (für PDF Metadaten):
+\newcommand{\kurzbeschreibung}{}
 %Vorgelegt am:
 \newcommand{\abgabedatum}{Abgabedatum}
 %   Jahr wird nur für den Abstract zur Bachelorthesis benötigt.
 %   Das Jahr-Kommando aktiviert den Themenblatt-Platzhalter.
 %   und ändert Texte von "Praxisbeleg" zu "Bachelorthesis".
 %   Der Abstract kann im Anschluss einzeln gebaut werden.
+%! Das \jahr Kommando darf nicht zusammen mit mehreren Autoren verwendet werden.
 \newcommand{\jahr}{Jahr}
 
 %   Dieses Kommando bestimmt, ob ein Sperrvermerk eingebunden wird.
