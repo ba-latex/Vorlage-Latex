@@ -1,3 +1,8 @@
+% Diese Datei generiert die Ehrenwörtliche/Eidesstattliche Erklärung.
+%? Der Text wird anhand der in metadaten.sty (de)aktivierten Kommandos verändert.
+%? Es wird zwischen Einem Autor ohne \jahr-Kommando (Praxisbeleg), einem Autor mit \jahr-Kommando (Bachelorthesis) und mehreren Autoren (Projektarbeit) unterschieden.
+%? Die Tabelle für die Unterschrift(en) wird jeweils aus einer Datei je nach Anzahl der Autoren nachgeladen.
+%! Falls der Titel der Arbeit zu lang für eine Zeile ist, werden in diesen ausgelagerten Dateien bereits (auskommentierte) Zeilen für eine zweite Titelseite bereitgestellt.
 \cleardoublepage
 \lohead{\textnormal{Ehrenwörtliche Erklärung}}
 \rohead{}
@@ -7,24 +12,26 @@
     \end{center}
     \vspace*{1cm}
     \normalsize
-    Wir erklären hiermit ehrenwörtlich,
+    \ifthenelse{\isundefined{\autorzwei}}{Ich erkläre}{Wir erklären} hiermit ehrenwörtlich,
 
     \begin{enumerate}
         \vspace{1cm}
-        \item dass wir unsere Projektarbeit mit dem Thema:\\
+        \item dass \ifthenelse{\isundefined{\autorzwei}}{ich \ifthenelse{\isundefined{\jahr}}{meinen Praxisbeleg}{meine Bachelorthesis}}{wir unsere Projektarbeit} mit dem Thema:\\
 
         \textbf{\titel }\\
 
-        ohne fremde Hilfe angefertigt haben,
-        \item dass wir die Übernahme wörtlicher Zitate aus der Literatur sowie die\\
+        ohne fremde Hilfe angefertigt habe\ifthenelse{\isundefined{\autorzwei}}{}{n},
+        \item dass \ifthenelse{\isundefined{\autorzwei}}{ich}{wir} die Übernahme wörtlicher Zitate aus der Literatur sowie die\\
         Verwendung der Gedanken anderer Autoren an den entsprechenden\\
-        Stellen innerhalb der Arbeit gekennzeichnet haben und
-        \item dass wir unsere Projektarbeit bei keiner anderen Prüfung vorgelegt haben.\\[1,5cm]
+        Stellen innerhalb der Arbeit gekennzeichnet habe\ifthenelse{\isundefined{\autorzwei}}{}{n} und
+        \item dass \ifthenelse{\isundefined{\autorzwei}}{ich \ifthenelse{\isundefined{\jahr}}{meinen Praxisbeleg}{meine Bachelorthesis}}{wir unsere Projektarbeit} bei keiner anderen Prüfung vorgelegt habe\ifthenelse{\isundefined{\autorzwei}}{}{n}.\\[1,5cm]
     \end{enumerate}
-    Wir sind uns bewusst, dass eine falsche Erklärung rechtliche Folgen haben wird.\\[1,5cm]
+    \ifthenelse{\isundefined{\autorzwei}}{Ich bin mir}{Wir sind uns} bewusst, dass eine falsche Erklärung rechtliche Folgen haben wird.\\[1,5cm]
 
-    Glauchau, \abgabedatum\newline\noindent\rule{0.35\columnwidth}{0.4pt}\hspace{0.05\columnwidth}\rule{0.6\columnwidth}{0.4pt}\\
-    Ort, Datum\hspace{0.27\columnwidth}Unterschriften
-
-
-    \newpage
+    \ifthenelse{\isundefined{\autorzwei}}{%
+    Glauchau, \abgabedatum \newline\noindent\rule{0.35\columnwidth}{0.4pt}\hspace{0.05\columnwidth}\rule{0.6\columnwidth}{0.4pt}\\
+    Ort, Datum\hspace{0.27\columnwidth}Unterschrift}{%
+    \ifthenelse{\isundefined{\autordrei}}{\input{vorlage/Erklärung/2Autoren}}{%
+        \ifthenelse{\isundefined{\autorvier}}{\input{vorlage/Erklärung/3Autoren}}{\input{vorlage/Erklärung/4Autoren}}
+    }
+    }
