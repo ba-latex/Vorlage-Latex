@@ -3,10 +3,6 @@ Dies ist eine LaTeX-Vorlage für wissenschaftliche Arbeiten (Belege, Bachelorthe
 
 Die Vorlage unterstützt aktuell 1-4 Autoren. Bei einem Autor wird von einem Praxisbeleg bzw. einer Bachelorthesis ausgegangen, bei mehreren von einer Projektarbeit. Sollte ein anderer Typ Arbeit nötig sein, muss dies in den entsprechen Dateien im Ordner `vorlage` manuell angepasst werden. Eine Parametrisierung ist nicht möglich, da eine Änderung des Typs eine Anpassung der Grammatik, beispielsweise der Ehrenwörtlichen Erklärung, nötig machen kann.
 
-**Unterhaltung und Besprechung:**
-
-[https://chat.4de19.de/channel/latex](https://chat.4de19.de/channel/latex)
-
 ## Hinweise
 Hinweise zur Vorlage und ihrer Verwendungsmöglichkeiten, sowie zahlreichen Beispiele befinden sich unter [Hinweise](HINWEISE.md).
 
