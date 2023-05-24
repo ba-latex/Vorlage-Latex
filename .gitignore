@@ -307,11 +307,8 @@ TSWLatexianTemp*
 /Latex/main-diff.pdf
 /Latex/main_abstract.pdf
 /Latex/main_abstract-diff.pdf
-/Latex/main_zustimmung.pdf
-/Latex/main_zustimmung-diff.pdf
 
 # temporary build files
 /Latex/svg-inkscape/
 /Latex/.build/
 /Latex/.build-abstract/
-/Latex/.build-zustimmung/
