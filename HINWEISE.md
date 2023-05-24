@@ -6,7 +6,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 
 - Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden. Sollte ein sehr langer Titel gewählt werden, ist es möglich, dass dieser auf den Titelseiten oder den Erklärungen zu Problemen führt. Diese müssen in den jeweiligen Titelseiten- (verringerte Abstände und/oder Schriftgröße) bzw. Erklärungsdateien (zusätzliche Zeilen) behoben werden.
 - Anhand der Metadaten wird automatisch entschieden, welche Versionen der Titelseite und Erklärungen verwendet werden.
-- in den Dateien `main_abstract.tex` und `main_zustimmung.tex` befinden sich das Abstract und die Zustimmung zur Plagiatsprüfung, da beide jeweils extra abzugeben sind.
+- In der Datei `main_abstract.tex` befindet sich das Abstract, da beide dieses einzeln Einzulegen ist.
 - Zwischen Deckblatt und Themenblatt ist (bei Bachelor-/Diplom-Thesen) die [Freigabeerklärung](https://www.ba-glauchau.de/fileadmin/glauchau/waehrend-des-studium/dokumente/pruefungen/4BA-F.300_Freigabeerkla__rung_Thesis_ausfu__llbar.pdf) der BA Glauchau einzufügen!
 
 ## Fußnoten und Referenzen

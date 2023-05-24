@@ -45,47 +45,6 @@
             }
         },
         {
-            "label": "Build Zustimmung LaTeX using Docker",
-            "type": "shell",
-            // Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
-            "command": "docker run -u $(id -u ${USER}):$(id -g ${USER}) --init --rm -v \"${workspaceFolder}/Latex:/latex\" -e HOST_PATH=\"${workspaceFolder}/Latex\" -e DISABLE_DIFFPDF=1 -e DELETE_TEMP=1 -e BUILD_DIRECTORY=.build-zustimmung -e TARGET=main_zustimmung ${config:vorlage-latex.buildcontainer}",
-            "problemMatcher": [
-                {
-                    "owner": "latex",
-                    "fileLocation": [
-                        "relative",
-                        "${workspaceFolder}/Latex"
-                    ],
-                    "pattern": {
-                        "regexp": "^(.*?):([0-9]+): (.*?): (.*)$",
-                        "file": 1,
-                        "line": 2,
-                        "severity": 3,
-                        "message": 4
-                    }
-                },
-                {
-                    "owner": "latex",
-                    "fileLocation": [
-                        "relative",
-                        "${workspaceFolder}/Latex"
-                    ],
-                    "pattern": {
-                        "regexp": "^([^:]+?):(?!\\d+:) (.*): (.*)$",
-                        "file": 1,
-                        "severity": 2,
-                        "message": 3,
-                        "kind": "file"
-                    }
-                }
-            ],
-            "group": "build",
-            "windows": {
-                // Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
-                "command": "docker run --init --rm -v \\\"${workspaceFolder}/Latex:/latex\\\" -e HOST_PATH=\\\"${workspaceFolder}/Latex\\\" -e DISABLE_DIFFPDF=1 -e DELETE_TEMP=1 -e BUILD_DIRECTORY=.build-zustimmung -e TARGET=main_zustimmung ${config:vorlage-latex.buildcontainer}"
-            }
-        },
-        {
             "label": "Build LaTeX using Docker",
             "type": "shell",
             // Remove '-e DISABLE_DIFFPDF=1' to enable the differential PDF generation.
