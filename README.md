@@ -1,7 +1,7 @@
 # Vorlage-Latex
 Dies ist eine LaTeX-Vorlage für wissenschaftliche Arbeiten (Belege, Bachelorthesen usw.) an der [Staatlichen Studienakademie Glauchau (BA Glauchau)](https://www.ba-glauchau.de/) und entspricht weitestgehend den [Hinweisen zur Anfertigung wissenschaftlicher Arbeiten (HAWA)](https://www.ba-glauchau.de/fileadmin/glauchau/waehrend-des-studium/dokumente/pruefungen/4BA-F.207_Hinweise_zur_Anfertigung_wissenschaftlicher_Arbeiten.pdf) in der zu diesem Zeitpunkt aktuellen Version 5.1.
 
-Die Vorlage unterstützt aktuell 1-4 Autoren. Bei einem Autor wird von einem Praxisbeleg bzw. einer Bachelorthesis ausgegangen, bei mehreren von einer Projektarbeit. Sollte ein anderer Typ Arbeit nötig sein, muss dies in den entsprechen Dateien im Ordner `vorlage` manuell angepasst werden. Eine Parametrisierung ist nicht möglich, da eine Änderung des Typs eine Anpassung der Grammatik, beispielsweise der Ehrenwörtlichen Erklärung, nötig machen kann.
+Die Vorlage unterstützt aktuell 1-4 Autoren. Bei einem Autor wird von einem Praxisbeleg bzw. einer Bachelor-Thesis ausgegangen, bei mehreren von einer Projektarbeit. Sollte ein anderer Typ Arbeit nötig sein, muss dies in den entsprechen Dateien im Ordner `vorlage` manuell angepasst werden. Eine Parametrisierung ist nicht möglich, da eine Änderung des Typs eine Anpassung der Grammatik, beispielsweise der Ehrenwörtlichen Erklärung, nötig machen kann.
 
 ## Hinweise
 Hinweise zur Vorlage und ihrer Verwendungsmöglichkeiten, sowie zahlreichen Beispiele befinden sich unter [Hinweise](HINWEISE.md).
