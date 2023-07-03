@@ -14,7 +14,6 @@ jobs:
         target:
           - main
           - main_abstract
-          - main_zustimmung
       fail-fast: false
     steps:
       - uses: actions/checkout@v3
@@ -42,7 +41,6 @@ jobs:
         target:
           - main
           - main_abstract
-          - main_zustimmung
       fail-fast: false
     steps:
       - name: Checkout commit before push
@@ -118,10 +116,8 @@ jobs:
           name: |
             main.pdf
             main_abstract.pdf
-            main_zustimmung.pdf
             main-diff.pdf
             main_abstract-diff.pdf
-            main_zustimmung-diff.pdf
       - name: Collect files
         run: mkdir documents && cp **/*.pdf documents
       - name: Upload package
