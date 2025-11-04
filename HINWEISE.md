@@ -7,7 +7,7 @@ Hier befinden sich einige Hinweise dazu, wie verschiedene Anforderungen der HAWA
 - Metadaten (Titel, Autor(en), Matrikelnummer(n) usw.) werden in die Datei `metadaten.sty` eingetragen und dann im Dokument und in den PDF-Metadaten verwendet. Die Kommandos dazu können natürlich überall verwendet werden. Sollte ein sehr langer Titel gewählt werden, ist es möglich, dass dieser auf den Titelseiten oder den Erklärungen zu Problemen führt. Diese müssen in den jeweiligen Titelseiten- (verringerte Abstände und/oder Schriftgröße) bzw. Erklärungsdateien (zusätzliche Zeilen) behoben werden.
 - Anhand der Metadaten wird automatisch entschieden, welche Versionen der Titelseite und Erklärungen verwendet werden.
 - In der Datei `main_abstract.tex` befindet sich das Abstract, da beide dieses einzeln Einzulegen ist.
-- Zwischen Deckblatt und Themenblatt ist (bei Bachelor-/Diplom-Thesen) die [Freigabeerklärung](https://www.ba-glauchau.de/fileadmin/glauchau/waehrend-des-studium/dokumente/pruefungen/4BA-F.300_Freigabeerkla__rung_Thesis_ausfu__llbar.pdf) der BA Glauchau einzufügen!
+- Zwischen Deckblatt und Themenblatt ist (bei Bachelor-/Diplom-Thesen) die Freigabeerklärung (nur intern zu finden, Stand 2025-11-04) der DHSN Glauchau einzufügen!
 
 ## Fußnoten und Referenzen
 
@@ -110,7 +110,7 @@ Für weitere Details zu Referenzen siehe `Doku-Test.tex` bzw. die standardmäßi
 
 - Soll ein Float unbedingt exakt an der selben Stelle wie im Quellcode platziert werden, kann dies mit `[H]` erzwungen werden (bspw. `\begin{table}[H]`).
 
-- In Floats wird standardmäßig ebenfalls der durch die BA geforderte Zeilenabstand von 1,3 genutzt. Falls hier ein kleinerer Zeilenabstand gewünscht ist, kann dieser manuell per `\linespread{1}` innerhalb des Floats oder global durch Entfernen der zu diesem Zweck in `vorlage.tex` auf `\usepackage{setspace}` folgend eingesetzten Zeilen auf 1 gesetzt werden.
+- In Floats wird standardmäßig ebenfalls der durch die DHSN geforderte Zeilenabstand von 1,3 genutzt. Falls hier ein kleinerer Zeilenabstand gewünscht ist, kann dieser manuell per `\linespread{1}` innerhalb des Floats oder global durch Entfernen der zu diesem Zweck in `vorlage.tex` auf `\usepackage{setspace}` folgend eingesetzten Zeilen auf 1 gesetzt werden.
 
 ## Sonstiges
 
